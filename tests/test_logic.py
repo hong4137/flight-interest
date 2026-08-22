@@ -223,7 +223,7 @@ def test_다이제스트는_이력이_없어도_렌더링된다(cfg, store):
 def test_다이제스트가_route_key_를_바르게_분해한다(cfg, store):
     evaluate(make_deal(2_900_000, entry="FCO", exit_city="BCN"), store, cfg)
     text = format_digest(cfg, store)
-    assert "FCO→BCN" in text and "오픈조" in text
+    assert "ICN→FCO / BCN→ICN" in text and "오픈조" in text
 
 
 # ── 확인 슬롯 배분 ───────────────────────────────────────────
@@ -337,3 +337,37 @@ def test_진짜_알림에는_테스트_표시가_없다(cfg, store):
     assert "[테스트]" not in text
     assert "목표가 달성" in text
     assert "출처: gflights" in text
+
+
+# ── 다이제스트에 실행 가능한 정보가 들어가는가 ──────────────────
+
+def test_노선_표기는_왕복과_오픈조를_구분한다():
+    from src.alert import route_label
+
+    assert route_label("ICN", "FCO", "FCO") == "ICN↔FCO"   # FCO→FCO 는 읽기 나쁘다
+    assert route_label("ICN", "FCO", "MAD") == "ICN→FCO / MAD→ICN"
+
+
+def test_예약_링크는_저장하지_않고_매번_생성한다(cfg):
+    """상태에 링크를 쌓지 않으므로 이미 기록된 옛 항목에도 링크가 붙는다."""
+    from src.alert import booking_link
+
+    rt = booking_link(cfg, "FCO", "FCO", date(2027, 1, 4), date(2027, 1, 16))
+    oj = booking_link(cfg, "FCO", "MAD", date(2027, 1, 4), date(2027, 1, 16))
+
+    assert rt.startswith("https://www.google.com/travel/flights")
+    assert "curr=KRW" in rt
+    assert rt != oj  # 오픈조는 다른 여정이므로 링크도 달라야 한다
+
+
+def test_다이제스트에_항공사와_링크가_들어간다(cfg, store):
+    """가격만 알려주면 직접 확인할 방법이 없다."""
+    deal = make_deal(3_413_320, airlines=["루프트한자", "ITA"])
+    deal.outbound_date, deal.inbound_date = date(2027, 1, 4), date(2027, 1, 16)
+    evaluate(deal, store, cfg)
+
+    text = format_digest(cfg, store)
+    assert "루프트한자" in text
+    assert "경유 1회" in text
+    assert 'href="https://www.google.com/travel/flights' in text
+    assert "ICN↔FCO" in text

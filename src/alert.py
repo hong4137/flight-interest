@@ -12,12 +12,13 @@ from __future__ import annotations
 import html
 import logging
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import date, datetime
 from typing import Literal
 
 import requests
 
 from .config import Config
+from .gflights import deep_link_for
 from .models import Deal
 from .store import Store, read_history
 
@@ -45,6 +46,23 @@ def split_route_key(route_key: str) -> tuple[str, str, str, str] | None:
     if len(parts) != 4:
         return None
     return (parts[0], parts[1], parts[2], parts[3])
+
+
+def route_label(origin: str, entry: str, exit_city: str) -> str:
+    """FCO→FCO 는 읽기 나쁘다. 왕복이면 ICN↔FCO, 오픈조면 양쪽을 다 보여준다."""
+    if entry == exit_city:
+        return "{}↔{}".format(origin, entry)
+    return "{o}→{e} / {x}→{o}".format(o=origin, e=entry, x=exit_city)
+
+
+def booking_link(cfg: Config, entry: str, exit_city: str, out_d: date, in_d: date) -> str:
+    """예약 화면 링크를 그때그때 만든다. 상태에 저장하지 않으므로 옛 기록에도 붙는다."""
+    legs = [
+        (cfg.origin, entry, out_d),
+        (exit_city, cfg.origin, in_d),
+    ]
+    trip = "round-trip" if entry == exit_city else "multi-city"
+    return deep_link_for(cfg, legs, trip)
 
 
 def md(value) -> str:
@@ -172,13 +190,31 @@ def format_digest(cfg: Config, store: Store) -> str:
                 continue  # 옛 형식/손상된 키는 조용히 건너뛴다
             entry, exit_city, out_d, in_d = parsed
             shown += 1
-            i = shown
-            tag = " (오픈조)" if entry != exit_city else ""
+
+            try:
+                link = booking_link(
+                    cfg, entry, exit_city, date.fromisoformat(out_d), date.fromisoformat(in_d)
+                )
+            except ValueError:
+                link = ""
+
+            tag = " · 오픈조" if entry != exit_city else ""
             lines.append(
-                "{}. <b>{}</b> · {}→{}{} · {} 출발 / {} 귀국".format(
-                    i, won(info["price"]), entry, exit_city, tag, out_d[5:], in_d[5:]
+                "{}. <b>{}</b> · {} · {} → {}{}".format(
+                    shown,
+                    won(info["price"]),
+                    _esc(route_label(cfg.origin, entry, exit_city)),
+                    out_d[5:], in_d[5:], tag,
                 )
             )
+
+            detail = _esc(info.get("airlines") or "?")
+            stops = info.get("stops")
+            if stops is not None:
+                detail += " · 경유 {}회".format(stops)
+            if link:
+                detail += ' · <a href="{}">열기</a>'.format(_esc(link))
+            lines.append("    {}".format(detail))
 
     gb = store.state.get("global_best")
     if gb:
