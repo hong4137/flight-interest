@@ -635,15 +635,15 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-23T05:37:55",
+    "at": "2026-08-23T06:29:42",
     "cheapest": 3430300,
-    "confirmed": 16,
+    "confirmed": 12,
     "empty_final": 0,
-    "empty_recovered": 12,
+    "empty_recovered": 4,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "full",
-    "queries": 100
+    "mode": "hot",
+    "queries": 12
   },
   "max_stops": 1,
   "outbound_window": [
