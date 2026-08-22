@@ -36,8 +36,11 @@ threshold:
   # 1인당 총액 기준. Google 표시가는 전체 인원 합계이므로 코드가 인원수로 나눕니다.
   per_person_krw: 3000000
 
-  # 편도합산 → 왕복가 추정 계수. 실측 기반 초기값이며 관측할 때마다 자동 보정됩니다.
+  # 편도합산 → 실가 추정 계수. 관측할 때마다 자동 보정됩니다.
+  # 항공사는 왕복에만 공격적으로 할인을 붙이므로 오픈조 계수가 더 높습니다.
+  # (2026-08-23 실측: 왕복 0.71 / 오픈조 0.77~0.85)
   ow_to_rt_ratio: 0.70
+  ow_to_openjaw_ratio: 0.80
   # 추정 왕복가가 (임계값 × 이 배수) 이내면 정밀 확인 대상으로 승격
   t2_margin: 1.25
 
@@ -52,6 +55,9 @@ budget:
   serpapi_monthly_cap: 240
   serpapi_daily_cap: 8
   serpapi_warn_at_pct: 20
+  # 한 스윕이 일일 예산을 통째로 삼키면 하루 중 첫 스윕만 오픈조를 보게 된다.
+  # 특가는 언제 뜰지 모르므로 시간대에 걸쳐 나눠 쓴다.
+  serpapi_per_sweep_cap: 2
 
 runtime:
   request_jitter_seconds: [2.5, 4.5]

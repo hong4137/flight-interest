@@ -154,8 +154,28 @@ def test_route_key_는_날짜의_하이픈과_충돌하지_않는다():
 def test_환산비는_표본이_쌓이면_보정된다(cfg, store):
     assert store.calibrated_ratio(0.70) == 0.70  # 표본 부족 -> 설정값
     for _ in range(6):
-        store.add_calibration(ow_sum=5_000_000, actual_rt=3_000_000)
+        store.add_calibration(ow_sum=5_000_000, actual=3_000_000)
     assert store.calibrated_ratio(0.70) == pytest.approx(0.60)
+
+
+def test_왕복과_오픈조_환산비는_서로_섞이지_않는다(store):
+    """오픈조는 왕복만큼 할인되지 않는다. 하나로 뭉치면 오픈조를 과소평가해
+    후보 상위를 점령하고 비싼 SerpApi 크레딧을 낭비한다."""
+    for _ in range(6):
+        store.add_calibration(5_000_000, 3_550_000, "round-trip")   # 0.71
+        store.add_calibration(5_000_000, 4_000_000, "open-jaw")     # 0.80
+
+    assert store.calibrated_ratio(0.70, "round-trip") == pytest.approx(0.71)
+    assert store.calibrated_ratio(0.80, "open-jaw") == pytest.approx(0.80)
+
+
+def test_예전_단일_환산비_형식도_읽힌다(store):
+    """state.json 은 코드 변경을 넘어 살아남는다. 옛 표본은 전부 왕복이었다."""
+    store.state["calibration"] = {"samples": [[5_000_000, 3_550_000]] * 6, "ratio": 0.71}
+
+    assert store.calibrated_ratio(0.70, "round-trip") == pytest.approx(0.71)
+    assert store.calibrated_ratio(0.80, "open-jaw") == 0.80  # 오픈조 표본은 없음
+    assert "samples" not in store.state["calibration"]       # 새 형식으로 이관됨
 
 
 def test_serpapi_예산은_날짜가_바뀌면_초기화된다(store):
@@ -245,15 +265,27 @@ def test_serpapi가_없으면_오픈조는_슬롯을_먹지_않는다(cfg):
     assert result.skipped_open_jaw == 24
 
 
-def test_오픈조는_남은_크레딧만큼만_확인한다(cfg):
+def test_오픈조는_남은_크레딧만큼만_확인한다(cfg, monkeypatch):
     from src.sweep import SweepResult, _select_for_confirmation
 
+    monkeypatch.setattr(cfg, "serpapi_per_sweep_cap", 99)  # 스윕당 상한은 여기선 무관
     result = SweepResult(mode="full")
     serp = _FakeSerp(True, month_left=100, day_left=3)  # 오늘 3콜만 남음
     picked = _select_for_confirmation(cfg, _cands(10, 24), serp, result, limit=10)
 
     assert sum(c.is_open_jaw for c in picked) == 3
     assert len(picked) == 10
+
+
+def test_한_스윕이_일일_오픈조_예산을_통째로_삼키지_않는다(cfg):
+    """전부 첫 스윕이 써버리면 하루 중 나머지 시간대는 오픈조를 못 본다."""
+    from src.sweep import SweepResult, _select_for_confirmation
+
+    result = SweepResult(mode="full")
+    serp = _FakeSerp(True, month_left=240, day_left=8)  # 예산은 넉넉하지만
+    picked = _select_for_confirmation(cfg, _cands(10, 24), serp, result, limit=10)
+
+    assert sum(c.is_open_jaw for c in picked) == cfg.serpapi_per_sweep_cap
 
 
 def test_한도보다_후보가_적으면_있는_만큼만(cfg):

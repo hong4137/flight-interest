@@ -72,8 +72,12 @@ class SerpApiClient:
     def _to_itineraries(self, data: dict, deep_link: str) -> list[Itinerary]:
         """SerpApi 응답을 Itinerary 목록으로. 가격은 1인당으로 환산한다.
 
-        SerpApi 의 price 는 Google Flights 웹과 같은 규칙(전체 인원 합계)을 따르므로
-        gflights 계층과 동일하게 인원수로 나눈다.
+        SerpApi 의 price 는 **전체 인원 합계**다. gflights 계층과 같은 규칙이므로
+        동일하게 인원수로 나눈다.
+
+        2026-08-23 실측 확인: 같은 오픈조 질의(ICN→FCO / OPO→ICN)에서
+        adults=1 은 4,229,000, adults=2 는 8,458,000 을 돌려줬다. 정확히 2배다.
+        (여기서 틀리면 모든 판단에 2배 오차가 나므로 추측하지 않고 확인했다.)
         """
         found: list[Itinerary] = []
         for bucket in ("best_flights", "other_flights"):

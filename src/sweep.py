@@ -116,15 +116,26 @@ def _build_candidates(
     outbound: dict[tuple[str, date], Itinerary],
     inbound: dict[tuple[str, date], Itinerary],
 ) -> list[Candidate]:
-    ratio = store.calibrated_ratio(cfg.ow_to_rt_ratio)
+    # 왕복과 오픈조는 운임 구조가 달라 환산비를 따로 쓴다. 하나로 뭉치면
+    # 오픈조를 과소평가해 후보 상위를 점령하고 확인 예산을 낭비한다.
+    ratios = {
+        False: store.calibrated_ratio(cfg.ow_to_rt_ratio, "round-trip"),
+        True: store.calibrated_ratio(cfg.ow_to_openjaw_ratio, "open-jaw"),
+    }
+    log.info(
+        "환산비 — 왕복 %.3f / 오픈조 %.3f", ratios[False], ratios[True]
+    )
     trigger = cfg.threshold_trigger_pp()
     candidates: list[Candidate] = []
 
     for (entry, out_date), ob in outbound.items():
         for (exit_city, in_date), ib in inbound.items():
-            if entry != exit_city and not cfg.allow_open_jaw:
+            is_open_jaw = entry != exit_city
+            if is_open_jaw and not cfg.allow_open_jaw:
                 continue
-            estimate = int(round((ob.price_per_person + ib.price_per_person) * ratio))
+            estimate = int(
+                round((ob.price_per_person + ib.price_per_person) * ratios[is_open_jaw])
+            )
             if estimate > trigger:
                 continue
             candidates.append(
@@ -173,6 +184,7 @@ def _confirm(
             store.add_calibration(
                 cand.outbound.price_per_person + cand.inbound.price_per_person,
                 best.price_per_person,
+                "round-trip",
             )
         return Deal(
             entry=cand.entry,
@@ -220,6 +232,13 @@ def _confirm(
     if not found:
         return None
     best = found[0]
+    # 오픈조 환산비도 같은 방식으로 보정한다. 크레딧이 비싸 표본이 느리게 쌓인다.
+    if cand.outbound and cand.inbound:
+        store.add_calibration(
+            cand.outbound.price_per_person + cand.inbound.price_per_person,
+            best.price_per_person,
+            "open-jaw",
+        )
     return Deal(
         entry=cand.entry,
         exit=cand.exit,
@@ -344,7 +363,7 @@ def _select_for_confirmation(
     """
     if serp.enabled:
         month_left, day_left = serp.remaining()
-        open_jaw_budget = max(0, min(month_left, day_left))
+        open_jaw_budget = max(0, min(month_left, day_left, cfg.serpapi_per_sweep_cap))
     else:
         open_jaw_budget = 0
 

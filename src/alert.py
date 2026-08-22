@@ -186,9 +186,12 @@ def format_digest(cfg: Config, store: Store) -> str:
             ),
         ]
 
-    ratio = store.calibrated_ratio(cfg.ow_to_rt_ratio)
-    n_samples = len(store.state["calibration"].get("samples", []))
-    lines.append("편도합산→왕복 환산비 {:.2f} (표본 {})".format(ratio, n_samples))
+    labels = {"round-trip": "왕복", "open-jaw": "오픈조"}
+    parts = []
+    for kind, ratio, n in store.calibration_summary():
+        shown = ratio if ratio else cfg.ratio_for(kind == "open-jaw")
+        parts.append("{} {:.2f}(표본 {})".format(labels[kind], shown, n))
+    lines.append("편도합산 환산비 — " + " · ".join(parts))
 
     month_left, day_left = store.serp_budget(cfg.serpapi_monthly_cap, cfg.serpapi_daily_cap)
     if cfg.serpapi_enabled:

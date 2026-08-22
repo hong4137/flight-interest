@@ -39,6 +39,7 @@ class Config:
 
     threshold_pp: int
     ow_to_rt_ratio: float
+    ow_to_openjaw_ratio: float
     t2_margin: float
     new_low_drop_pct: float
 
@@ -47,6 +48,7 @@ class Config:
 
     serpapi_monthly_cap: int
     serpapi_daily_cap: int
+    serpapi_per_sweep_cap: int
     serpapi_warn_pct: int
 
     jitter: tuple[float, float]
@@ -79,6 +81,9 @@ class Config:
     @property
     def serpapi_enabled(self) -> bool:
         return bool(self.serpapi_key)
+
+    def ratio_for(self, is_open_jaw: bool) -> float:
+        return self.ow_to_openjaw_ratio if is_open_jaw else self.ow_to_rt_ratio
 
     def threshold_trigger_pp(self) -> int:
         """정밀 확인으로 승격시킬 추정가 상한 (1인당)."""
@@ -165,12 +170,14 @@ def load_config(path: str | Path | None = None) -> Config:
         ),
         threshold_pp=int(thr["per_person_krw"]),
         ow_to_rt_ratio=float(thr.get("ow_to_rt_ratio", 0.70)),
+        ow_to_openjaw_ratio=float(thr.get("ow_to_openjaw_ratio", 0.80)),
         t2_margin=float(thr.get("t2_margin", 1.25)),
         new_low_drop_pct=float(thr.get("new_low_alert_drop_pct", 5)),
         cooldown_hours=int(alerting.get("duplicate_cooldown_hours", 24)),
         digest_top_n=int(alerting.get("digest_top_n", 5)),
         serpapi_monthly_cap=int(budget.get("serpapi_monthly_cap", 240)),
         serpapi_daily_cap=int(budget.get("serpapi_daily_cap", 8)),
+        serpapi_per_sweep_cap=int(budget.get("serpapi_per_sweep_cap", 2)),
         serpapi_warn_pct=int(budget.get("serpapi_warn_at_pct", 20)),
         jitter=(float(jitter[0]), float(jitter[1])),
         timeout=int(runtime.get("request_timeout_seconds", 30)),

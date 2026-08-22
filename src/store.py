@@ -40,7 +40,11 @@ _EMPTY: dict[str, Any] = {
     "best_by_route": {},   # route_key -> {price, at, airlines, stops}
     "global_best": None,   # {price, at, route_key}
     "alerts": {},          # fingerprint -> 마지막 발송 시각(iso)
-    "calibration": {"samples": [], "ratio": None},
+    # 왕복과 오픈조는 운임 구조가 다르다. 하나로 뭉치면 오픈조를 과소평가한다.
+    "calibration": {
+        "round-trip": {"samples": [], "ratio": None},
+        "open-jaw": {"samples": [], "ratio": None},
+    },
     "serpapi": {"month": "", "month_used": 0, "day": "", "day_used": 0},
     "hot": [],             # 시간당 스윕이 재확인할 조합 목록
     "last_sweep": None,
@@ -127,27 +131,51 @@ class Store:
                 continue
         self.state["alerts"] = kept
 
-    # ── 편도합산 → 왕복 환산비 자가보정 ───────────────────────
-    def add_calibration(self, ow_sum: int, actual_rt: int) -> None:
-        """같은 도시 왕복을 실제로 확인할 때마다 표본을 쌓아 비율을 재추정한다."""
-        if ow_sum <= 0 or actual_rt <= 0:
+    # ── 편도합산 → 실가 환산비 자가보정 ───────────────────────
+    #
+    # 왕복과 오픈조는 운임 구조가 다르다. 항공사는 왕복에만 공격적으로 할인을
+    # 붙이므로 왕복은 편도합산의 ~0.71, 오픈조는 ~0.80 근처다. 하나로 뭉치면
+    # 오픈조를 실제보다 싸게 보고, 오픈조가 후보 상위를 점령해 확인 예산을
+    # 낭비한다. (2026-08-23 실측: 오픈조 추정 336만 vs 실제 401만)
+    def _calib_bucket(self, kind: str) -> dict:
+        calib = self.state["calibration"]
+        # 예전 단일 형식에서 올라온 상태 파일을 이관한다.
+        if "samples" in calib:
+            legacy = {"samples": calib.get("samples", []), "ratio": calib.get("ratio")}
+            self.state["calibration"] = calib = {
+                "round-trip": legacy,  # 옛 표본은 전부 같은 도시 왕복이었다
+                "open-jaw": {"samples": [], "ratio": None},
+            }
+        return calib.setdefault(kind, {"samples": [], "ratio": None})
+
+    def add_calibration(self, ow_sum: int, actual: int, kind: str = "round-trip") -> None:
+        """실가를 확인할 때마다 표본을 쌓아 비율을 재추정한다."""
+        if ow_sum <= 0 or actual <= 0:
             return
-        samples = self.state["calibration"]["samples"]
-        samples.append([int(ow_sum), int(actual_rt)])
+        bucket = self._calib_bucket(kind)
+        samples = bucket["samples"]
+        samples.append([int(ow_sum), int(actual)])
         del samples[:-200]  # 최근 200개만 유지
         ratios = sorted(rt / ow for ow, rt in samples if ow > 0)
         if ratios:
             mid = len(ratios) // 2
             median = ratios[mid] if len(ratios) % 2 else (ratios[mid - 1] + ratios[mid]) / 2
-            self.state["calibration"]["ratio"] = round(median, 4)
+            bucket["ratio"] = round(median, 4)
 
-    def calibrated_ratio(self, fallback: float) -> float:
-        ratio = self.state["calibration"].get("ratio")
-        samples = self.state["calibration"].get("samples", [])
+    def calibrated_ratio(self, fallback: float, kind: str = "round-trip") -> float:
+        bucket = self._calib_bucket(kind)
+        ratio = bucket.get("ratio")
         # 표본이 적으면 설정값을 믿는다.
-        if ratio and len(samples) >= 5:
+        if ratio and len(bucket.get("samples", [])) >= 5:
             return float(ratio)
         return fallback
+
+    def calibration_summary(self) -> list[tuple[str, float | None, int]]:
+        out = []
+        for kind in ("round-trip", "open-jaw"):
+            bucket = self._calib_bucket(kind)
+            out.append((kind, bucket.get("ratio"), len(bucket.get("samples", []))))
+        return out
 
     # ── SerpApi 크레딧 예산 ──────────────────────────────────
     def serp_budget(self, monthly_cap: int, daily_cap: int) -> tuple[int, int]:
