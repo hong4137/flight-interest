@@ -90,8 +90,18 @@ def _esc(text: str) -> str:
     return html.escape(str(text), quote=False)
 
 
+# alert-test 가 쓰는 값. 진짜 딜과 헷갈리면 나중에 실제 특가를 무시하게 된다.
+TEST_SOURCE = "테스트"
+
+
 def format_deal(deal: Deal, cfg: Config, decision: AlertDecision) -> str:
-    head = "🔥 <b>목표가 달성</b>" if decision.reason == "threshold" else "📉 <b>역대 최저 갱신</b>"
+    is_test = deal.source == TEST_SOURCE
+    if is_test:
+        head = "🧪 <b>[테스트] 실제 특가가 아닙니다</b>"
+    elif decision.reason == "threshold":
+        head = "🔥 <b>목표가 달성</b>"
+    else:
+        head = "📉 <b>역대 최저 갱신</b>"
     total = deal.price_per_person * cfg.passengers
 
     route = (
@@ -132,7 +142,14 @@ def format_deal(deal: Deal, cfg: Config, decision: AlertDecision) -> str:
     if deal.deep_link:
         lines += ["", '<a href="{}">▶ Google Flights 에서 열기</a>'.format(_esc(deal.deep_link))]
 
-    lines.append("<i>출처: {}</i>".format(deal.source))
+    if is_test:
+        lines += [
+            "",
+            "<i>알림 서식과 발송 경로를 점검하는 가짜 데이터입니다. "
+            "위 가격·항공사·날짜는 실제 조회 결과가 아닙니다.</i>",
+        ]
+    else:
+        lines.append("<i>출처: {}</i>".format(deal.source))
     return "\n".join(lines)
 
 

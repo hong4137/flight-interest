@@ -185,7 +185,7 @@ def cmd_serp_test(args) -> int:
 def cmd_alert_test(args) -> int:
     from datetime import datetime
 
-    from .alert import AlertDecision, format_deal, notify_deal
+    from .alert import TEST_SOURCE, AlertDecision, format_deal, notify_deal
     from .models import Deal
 
     cfg = load_config(args.config)
@@ -200,7 +200,7 @@ def cmd_alert_test(args) -> int:
         airlines=["중국동방항공"],
         stops=1,
         deep_link="https://www.google.com/travel/flights",
-        source="테스트",
+        source=TEST_SOURCE,
         kind="open-jaw",
         korea_arrival=datetime.combine(cfg.arrive_korea[1], datetime.min.time()).replace(hour=18, minute=40),
         total_minutes=980,

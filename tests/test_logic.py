@@ -314,3 +314,26 @@ def test_hot_목록에_같은_조합이_두_번_들어가지_않는다(cfg):
     idents = [(h["entry"], h["exit"], h["outbound_date"], h["inbound_date"]) for h in hot]
     assert len(idents) == len(set(idents))
     assert len(hot) == 1
+
+
+def test_테스트_알림은_진짜와_구분된다(cfg, store):
+    """샘플 알림이 진짜와 똑같이 생기면, 나중에 실제 특가가 떠도 무시하게 된다."""
+    from src.alert import TEST_SOURCE
+
+    deal = make_deal(2_870_000)
+    deal.source = TEST_SOURCE
+    text = format_deal(deal, cfg, evaluate(deal, store, cfg))
+
+    assert "[테스트]" in text
+    assert "실제 조회 결과가 아닙니다" in text
+    assert "목표가 달성" not in text
+
+
+def test_진짜_알림에는_테스트_표시가_없다(cfg, store):
+    deal = make_deal(2_870_000)
+    deal.source = "gflights"
+    text = format_deal(deal, cfg, evaluate(deal, store, cfg))
+
+    assert "[테스트]" not in text
+    assert "목표가 달성" in text
+    assert "출처: gflights" in text
