@@ -135,8 +135,8 @@
     },
     "MAD|MAD|2027-01-05|2027-01-16": {
       "airlines": "카타르항공",
-      "at": "2026-08-23T01:34:07",
-      "price": 4013400,
+      "at": "2026-08-22T17:08:57",
+      "price": 4012800,
       "stops": 1
     },
     "MAD|MAD|2027-01-06|2027-01-16": {
@@ -321,6 +321,38 @@
         [
           5267840,
           3963800
+        ],
+        [
+          5070346,
+          3425400
+        ],
+        [
+          5070346,
+          4061400
+        ],
+        [
+          5090491,
+          3572300
+        ],
+        [
+          5179416,
+          4012800
+        ],
+        [
+          5220350,
+          3445000
+        ],
+        [
+          5235046,
+          4005800
+        ],
+        [
+          5235046,
+          4678000
+        ],
+        [
+          5255191,
+          4941100
         ]
       ]
     }
@@ -333,101 +365,87 @@
   "hot": [
     {
       "entry": "FCO",
-      "estimated_pp": 3413320,
+      "estimated_pp": 3425400,
       "exit": "FCO",
       "inbound_date": "2027-01-14",
       "outbound_date": "2027-01-04"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3413320,
-      "exit": "FCO",
-      "inbound_date": "2027-01-14",
-      "outbound_date": "2027-01-06"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3413320,
-      "exit": "FCO",
-      "inbound_date": "2027-01-16",
-      "outbound_date": "2027-01-04"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3413320,
-      "exit": "FCO",
-      "inbound_date": "2027-01-16",
-      "outbound_date": "2027-01-06"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3427846,
+      "estimated_pp": 3445000,
       "exit": "FCO",
       "inbound_date": "2027-01-18",
       "outbound_date": "2027-01-04"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3459800,
+      "estimated_pp": 3572300,
+      "exit": "FCO",
+      "inbound_date": "2027-01-15",
+      "outbound_date": "2027-01-04"
+    },
+    {
+      "entry": "FCO",
+      "estimated_pp": 4005800,
       "exit": "FCO",
       "inbound_date": "2027-01-14",
       "outbound_date": "2027-01-03"
     },
     {
-      "entry": "FCO",
-      "estimated_pp": 3459800,
-      "exit": "FCO",
+      "entry": "MAD",
+      "estimated_pp": 4012800,
+      "exit": "MAD",
       "inbound_date": "2027-01-16",
+      "outbound_date": "2027-01-05"
+    },
+    {
+      "entry": "FCO",
+      "estimated_pp": 4061400,
+      "exit": "FCO",
+      "inbound_date": "2027-01-17",
+      "outbound_date": "2027-01-04"
+    },
+    {
+      "entry": "FCO",
+      "estimated_pp": 4678000,
+      "exit": "FCO",
+      "inbound_date": "2027-01-17",
       "outbound_date": "2027-01-03"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3474500,
+      "estimated_pp": 4941100,
       "exit": "FCO",
       "inbound_date": "2027-01-15",
       "outbound_date": "2027-01-03"
     },
     {
-      "entry": "FCO",
-      "estimated_pp": 3722800,
+      "entry": "MAD",
+      "estimated_pp": 3684637,
       "exit": "MAD",
       "inbound_date": "2027-01-16",
       "outbound_date": "2027-01-06"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3722800,
-      "exit": "MAD",
-      "inbound_date": "2027-01-16",
-      "outbound_date": "2027-01-03"
-    },
-    {
-      "entry": "BCN",
-      "estimated_pp": 3751900,
-      "exit": "MAD",
-      "inbound_date": "2027-01-16",
-      "outbound_date": "2027-01-03"
-    },
-    {
-      "entry": "BCN",
-      "estimated_pp": 3751900,
-      "exit": "MAD",
+      "estimated_pp": 3713757,
+      "exit": "FCO",
       "inbound_date": "2027-01-16",
       "outbound_date": "2027-01-04"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-23T01:53:10",
-    "cheapest": 3413320,
-    "confirmed": 24,
+    "at": "2026-08-22T17:09:16",
+    "cheapest": 3425400,
+    "confirmed": 8,
     "fail_rate": 0.0,
     "failures": 0,
     "mode": "full",
-    "queries": 102
+    "queries": 94
   },
   "serpapi": {
-    "day": "2026-08-23",
-    "day_used": 8,
+    "day": "2026-08-22",
+    "day_used": 0,
     "month": "2026-08",
     "month_used": 8
   },
