@@ -123,6 +123,8 @@
     "FCO|FCO|2027-01-06|2027-01-15": {
       "airlines": "루프트한자,ITA",
       "at": "2026-08-23T01:33:45",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDYoAWoFEgNJQ05yBRIDRkNPGhwSCjIwMjctMDEtMTUoAWoFEgNGQ09yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3564200,
       "stops": 1
     },
@@ -145,6 +147,8 @@
     "FCO|FCO|2027-01-06|2027-01-18": {
       "airlines": "루프트한자,ITA",
       "at": "2026-08-23T01:34:20",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDYoAWoFEgNJQ05yBRIDRkNPGhwSCjIwMjctMDEtMTgoAWoFEgNGQ09yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3578900,
       "stops": 1
     },
@@ -169,18 +173,24 @@
     "MAD|MAD|2027-01-02|2027-01-16": {
       "airlines": "카타르항공",
       "at": "2026-08-23T01:34:26",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDIoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTYoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 4097100,
       "stops": 1
     },
     "MAD|MAD|2027-01-05|2027-01-16": {
       "airlines": "카타르항공",
       "at": "2026-08-22T17:08:57",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDUoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTYoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 4012800,
       "stops": 1
     },
     "MAD|MAD|2027-01-06|2027-01-16": {
       "airlines": "카타르항공",
       "at": "2026-08-23T01:52:52",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDYoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTYoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 4012800,
       "stops": 1
     }
@@ -192,7 +202,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.7066,
+      "ratio": 0.7023,
       "samples": [
         [
           4990307,
@@ -465,6 +475,70 @@
         [
           5267840,
           3963800
+        ],
+        [
+          5070346,
+          3430300
+        ],
+        [
+          5070346,
+          4061400
+        ],
+        [
+          5070346,
+          3430300
+        ],
+        [
+          5070346,
+          4061400
+        ],
+        [
+          5090491,
+          3577800
+        ],
+        [
+          5090491,
+          3577800
+        ],
+        [
+          5179416,
+          4012800
+        ],
+        [
+          5179416,
+          4012800
+        ],
+        [
+          5220350,
+          3430300
+        ],
+        [
+          5220350,
+          3445000
+        ],
+        [
+          5220350,
+          3430300
+        ],
+        [
+          5220350,
+          3592500
+        ],
+        [
+          5235046,
+          3504400
+        ],
+        [
+          5235046,
+          4678000
+        ],
+        [
+          5255191,
+          3620800
+        ],
+        [
+          5263016,
+          4097100
         ]
       ]
     }
@@ -477,99 +551,99 @@
   "hot": [
     {
       "entry": "FCO",
-      "estimated_pp": 3413320,
+      "estimated_pp": 3430300,
       "exit": "FCO",
       "inbound_date": "2027-01-14",
       "outbound_date": "2027-01-04"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3413320,
+      "estimated_pp": 3430300,
       "exit": "FCO",
       "inbound_date": "2027-01-14",
       "outbound_date": "2027-01-06"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3413320,
+      "estimated_pp": 3430300,
       "exit": "FCO",
       "inbound_date": "2027-01-16",
       "outbound_date": "2027-01-04"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3413320,
+      "estimated_pp": 3430300,
       "exit": "FCO",
       "inbound_date": "2027-01-16",
       "outbound_date": "2027-01-06"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3427846,
+      "estimated_pp": 3445000,
       "exit": "FCO",
       "inbound_date": "2027-01-18",
       "outbound_date": "2027-01-04"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3459800,
+      "estimated_pp": 3504400,
       "exit": "FCO",
       "inbound_date": "2027-01-14",
       "outbound_date": "2027-01-03"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3459800,
-      "exit": "FCO",
-      "inbound_date": "2027-01-16",
-      "outbound_date": "2027-01-03"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3474500,
+      "estimated_pp": 3577800,
       "exit": "FCO",
       "inbound_date": "2027-01-15",
-      "outbound_date": "2027-01-03"
+      "outbound_date": "2027-01-04"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3550104,
+      "estimated_pp": 3577800,
+      "exit": "FCO",
+      "inbound_date": "2027-01-15",
+      "outbound_date": "2027-01-06"
+    },
+    {
+      "entry": "FCO",
+      "estimated_pp": 3582706,
       "exit": "FCO",
       "inbound_date": "2027-01-17",
       "outbound_date": "2027-01-04"
     },
     {
       "entry": "FCO",
-      "estimated_pp": 3550104,
+      "estimated_pp": 3582706,
       "exit": "FCO",
       "inbound_date": "2027-01-17",
       "outbound_date": "2027-01-06"
     },
     {
-      "entry": "FCO",
-      "estimated_pp": 3610253,
-      "exit": "FCO",
-      "inbound_date": "2027-01-17",
-      "outbound_date": "2027-01-03"
+      "entry": "MAD",
+      "estimated_pp": 3659775,
+      "exit": "MAD",
+      "inbound_date": "2027-01-16",
+      "outbound_date": "2027-01-05"
     },
     {
-      "entry": "FCO",
-      "estimated_pp": 3654157,
-      "exit": "FCO",
-      "inbound_date": "2027-01-15",
-      "outbound_date": "2027-01-04"
+      "entry": "MAD",
+      "estimated_pp": 3659775,
+      "exit": "MAD",
+      "inbound_date": "2027-01-16",
+      "outbound_date": "2027-01-06"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-23T04:28:35",
-    "cheapest": 3425400,
-    "confirmed": 12,
+    "at": "2026-08-23T05:37:55",
+    "cheapest": 3430300,
+    "confirmed": 16,
     "empty_final": 0,
-    "empty_recovered": 0,
+    "empty_recovered": 12,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 12
+    "mode": "full",
+    "queries": 100
   },
   "max_stops": 1,
   "outbound_window": [
