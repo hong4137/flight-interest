@@ -2,4 +2,8 @@
 __pycache__/
 *.pyc
 .env
-*.html
+
+# 디버깅용 Google Flights 응답 덤프. 예전에는 *.html 을 통째로 무시했는데,
+# 그 바람에 대시보드 index.html 이 조용히 커밋에서 빠졌다.
+gf*.html
+*.debug.html

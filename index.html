@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유럽 비즈니스 특가 감시</title>
+<style>
+  :root {
+    --bg: #fbfaf8; --panel: #ffffff; --line: #e7e3dc;
+    --ink: #23201c; --muted: #6f6a62; --faint: #a8a29a;
+    --accent: #b4531f; --good: #2f7a4f; --warn: #a8601a;
+    --grid: #ecE8e1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #171614; --panel: #1f1e1b; --line: #33312d;
+      --ink: #efece7; --muted: #a49e95; --faint: #6d675f;
+      --accent: #e2864f; --good: #6bbd8c; --warn: #d99a4e;
+      --grid: #2b2926;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px 16px 64px;
+    background: var(--bg); color: var(--ink);
+    font: 15px/1.6 system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo",
+          "Noto Sans KR", sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 19px; margin: 0 0 2px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 10px; padding: 18px; margin-bottom: 16px;
+  }
+  h2 { font-size: 13px; margin: 0 0 14px; color: var(--muted);
+       font-weight: 600; letter-spacing: 0.02em; }
+
+  .hero { display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: flex-end; }
+  .big { font-size: 40px; font-weight: 650; line-height: 1; letter-spacing: -0.03em; }
+  .big small { font-size: 15px; font-weight: 400; color: var(--muted); margin-left: 6px; }
+  .metric-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .gap { font-size: 22px; font-weight: 600; color: var(--accent); }
+  .gap.reached { color: var(--good); }
+
+  .bar { height: 6px; background: var(--grid); border-radius: 3px;
+         overflow: hidden; margin-top: 14px; width: 100%; }
+  .bar > i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12px;
+       padding: 0 8px 8px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  td { padding: 10px 8px 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .price { font-weight: 650; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .dim { color: var(--muted); font-size: 13px; }
+  .tag { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 4px;
+         background: var(--grid); color: var(--muted); margin-left: 6px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+           gap: 16px; font-size: 14px; }
+  .facts b { display: block; font-size: 12px; color: var(--muted);
+             font-weight: 600; margin-bottom: 3px; }
+  .empty { color: var(--faint); font-size: 14px; padding: 8px 0; }
+  footer { color: var(--faint); font-size: 12px; text-align: center; margin-top: 28px; }
+  svg { display: block; width: 100%; height: auto; }
+  .axis { fill: var(--faint); font-size: 10px; }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>유럽 비즈니스 특가 감시</h1>
+  <div class="sub" id="subtitle">불러오는 중…</div>
+
+  <div class="card">
+    <div class="hero">
+      <div>
+        <div class="metric-label">현재 최저 (1인)</div>
+        <div class="big" id="best">—</div>
+      </div>
+      <div>
+        <div class="metric-label" id="gapLabel">목표까지</div>
+        <div class="gap" id="gap">—</div>
+      </div>
+    </div>
+    <div class="bar"><i id="progress" style="width:0"></i></div>
+    <div class="dim" id="bestDetail" style="margin-top:12px"></div>
+  </div>
+
+  <div class="card">
+    <h2>가격 추이 — 날짜별 최저가</h2>
+    <div id="chart"></div>
+  </div>
+
+  <div class="card">
+    <h2>노선별 최저가</h2>
+    <div class="scroll"><table id="routes">
+      <thead><tr>
+        <th>1인가</th><th>구간</th><th>일정</th><th>항공사</th><th></th>
+      </tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h2>시스템 상태</h2>
+    <div class="facts" id="facts"></div>
+  </div>
+
+  <footer id="footer"></footer>
+</div>
+
+<script>
+const won = v => v >= 1e6 ? (v/1e4).toFixed(0) + "만원" : (v/1e4).toFixed(1) + "만원";
+const el = id => document.getElementById(id);
+
+// route_key 는 "FCO|FCO|2027-01-04|2027-01-14". 날짜에 "-" 가 있어 "|" 로 나눈다.
+function splitKey(key) {
+  const p = key.split("|");
+  return p.length === 4 ? { entry: p[0], exit: p[1], out: p[2], back: p[3] } : null;
+}
+const md = iso => iso ? iso.slice(5).replace("-", "/") : "";
+
+function parseCsv(text) {
+  const lines = text.trim().split(/\r?\n/);
+  if (lines.length < 2) return [];
+  const cols = lines[0].split(",");
+  return lines.slice(1).map(line => {
+    // airlines 필드에 쉼표가 들어가 큰따옴표로 감싸여 온다.
+    const cells = line.match(/("([^"]|"")*"|[^,]*)(,|$)/g) || [];
+    const row = {};
+    cols.forEach((c, i) => {
+      let v = (cells[i] || "").replace(/,$/, "").trim();
+      if (v.startsWith('"') && v.endsWith('"')) v = v.slice(1, -1).replace(/""/g, '"');
+      row[c] = v;
+    });
+    row.price = parseInt(row.price_per_person, 10);
+    return row;
+  }).filter(r => Number.isFinite(r.price));
+}
+
+function drawChart(rows, target) {
+  const box = el("chart");
+  const byDay = new Map();
+  rows.forEach(r => {
+    const day = (r.found_at || "").slice(0, 10);
+    if (!day) return;
+    byDay.set(day, Math.min(byDay.get(day) ?? Infinity, r.price));
+  });
+  const pts = [...byDay.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+
+  if (pts.length < 2) {
+    box.innerHTML = '<div class="empty">데이터가 쌓이는 중입니다. ' +
+      '이틀치가 모이면 추이가 보입니다' +
+      (pts.length ? ' (현재 ' + pts.length + '일치).' : '.') + '</div>';
+    return;
+  }
+
+  const W = 800, H = 220, L = 56, R = 12, T = 14, B = 26;
+  const vals = pts.map(p => p[1]).concat(target ? [target] : []);
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  const pad = (hi - lo) * 0.12 || hi * 0.05;
+  lo -= pad; hi += pad;
+
+  const x = i => L + (W - L - R) * (pts.length === 1 ? 0.5 : i / (pts.length - 1));
+  const y = v => T + (H - T - B) * (1 - (v - lo) / (hi - lo));
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="날짜별 최저가 추이">`;
+  for (let i = 0; i <= 3; i++) {
+    const v = lo + (hi - lo) * i / 3, yy = y(v);
+    svg += `<line class="gridline" x1="${L}" y1="${yy}" x2="${W - R}" y2="${yy}"/>`;
+    svg += `<text class="axis" x="${L - 8}" y="${yy + 3}" text-anchor="end">${won(v)}</text>`;
+  }
+  if (target && target > lo && target < hi) {
+    svg += `<line x1="${L}" y1="${y(target)}" x2="${W - R}" y2="${y(target)}"
+            stroke="var(--good)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+    svg += `<text class="axis" x="${W - R}" y="${y(target) - 6}" text-anchor="end"
+            fill="var(--good)">목표 ${won(target)}</text>`;
+  }
+  svg += `<polyline fill="none" stroke="var(--accent)" stroke-width="2"
+          stroke-linejoin="round" points="${pts.map((p, i) => x(i) + "," + y(p[1])).join(" ")}"/>`;
+  pts.forEach((p, i) => {
+    svg += `<circle cx="${x(i)}" cy="${y(p[1])}" r="3" fill="var(--accent)"><title>${
+      p[0]} · ${won(p[1])}</title></circle>`;
+  });
+  [0, pts.length - 1].forEach(i => {
+    svg += `<text class="axis" x="${x(i)}" y="${H - 8}" text-anchor="${
+      i === 0 ? "start" : "end"}">${md(pts[i][0])}</text>`;
+  });
+  box.innerHTML = svg + "</svg>";
+}
+
+function fillRoutes(state) {
+  const body = document.querySelector("#routes tbody");
+  const rows = Object.entries(state.best_by_route || {})
+    .map(([key, v]) => ({ ...splitKey(key), ...v }))
+    .filter(r => r.entry)
+    .sort((a, b) => a.price - b.price)
+    .slice(0, 12);
+
+  if (!rows.length) {
+    body.innerHTML = '<tr><td colspan="5" class="empty">아직 확인된 가격이 없습니다.</td></tr>';
+    return;
+  }
+  body.innerHTML = rows.map(r => {
+    const openJaw = r.entry !== r.exit;
+    const route = openJaw ? `ICN→${r.entry} / ${r.exit}→ICN` : `ICN↔${r.entry}`;
+    return `<tr>
+      <td class="price">${won(r.price)}</td>
+      <td>${route}${openJaw ? '<span class="tag">오픈조</span>' : ""}</td>
+      <td class="dim">${md(r.out)} → ${md(r.back)}</td>
+      <td class="dim">${r.airlines || "?"}${
+        r.stops != null ? `<span class="tag">경유 ${r.stops}</span>` : ""}</td>
+      <td>${r.link ? `<a href="${r.link}" target="_blank" rel="noopener">열기</a>` : ""}</td>
+    </tr>`;
+  }).join("");
+}
+
+function fillFacts(state, rows) {
+  const sweep = state.last_sweep || {};
+  const cal = state.calibration || {};
+  const serp = state.serpapi || {};
+  const label = { "round-trip": "왕복", "open-jaw": "오픈조" };
+  const ratios = ["round-trip", "open-jaw"].map(k => {
+    const b = cal[k] || {};
+    return `${label[k]} ${b.ratio ? b.ratio.toFixed(2) : "—"}`;
+  }).join(" · ");
+
+  const facts = [
+    ["마지막 스윕", sweep.at ? sweep.at.slice(5, 16).replace("T", " ") : "—"],
+    ["조회 / 실패", `${sweep.queries ?? "—"}건 · ${
+      sweep.fail_rate != null ? (sweep.fail_rate * 100).toFixed(0) + "%" : "—"}`],
+    ["빈 응답 회복", `${sweep.empty_recovered ?? 0}건`],
+    ["누적 관측", `${rows.length}건`],
+    ["환산비", ratios],
+    ["SerpApi 사용", `${serp.month_used ?? 0}콜 / 월`],
+  ];
+  el("facts").innerHTML = facts
+    .map(([k, v]) => `<div><b>${k}</b>${v}</div>`).join("");
+}
+
+async function load() {
+  const bust = "?t=" + Date.now();   // Pages 캐시가 오래된 값을 주지 않도록
+  const [state, csv] = await Promise.all([
+    fetch("data/state.json" + bust).then(r => r.json()),
+    fetch("data/history.csv" + bust).then(r => r.ok ? r.text() : "").catch(() => ""),
+  ]);
+  const rows = parseCsv(csv);
+
+  // 목표가는 설정에 있지만 YAML 파서를 넣기보다, 기록된 최저가와 함께
+  // 서버에서 내려주는 값을 쓴다. 없으면 300만원을 기본으로 본다.
+  const target = state.target_per_person || 3000000;
+
+  const best = state.global_best;
+  if (best) {
+    el("best").innerHTML = won(best.price) + "<small>/ 1인</small>";
+    const gap = best.price - target;
+    if (gap <= 0) {
+      el("gapLabel").textContent = "목표 달성";
+      el("gap").textContent = "🎯 " + won(target) + " 이하";
+      el("gap").classList.add("reached");
+      el("progress").style.width = "100%";
+    } else {
+      el("gap").textContent = won(gap) + " 남음";
+      el("progress").style.width =
+        Math.max(4, Math.min(100, (target / best.price) * 100)).toFixed(1) + "%";
+    }
+    const k = splitKey(best.route_key);
+    if (k) {
+      const info = (state.best_by_route || {})[best.route_key] || {};
+      const route = k.entry !== k.exit
+        ? `ICN→${k.entry} / ${k.exit}→ICN` : `ICN↔${k.entry}`;
+      el("bestDetail").innerHTML =
+        `${route} · ${md(k.out)} 출발 → ${md(k.back)} 귀국` +
+        (info.airlines ? ` · ${info.airlines}` : "") +
+        (info.link ? ` · <a href="${info.link}" target="_blank" rel="noopener">예약 화면 열기</a>` : "");
+    }
+  } else {
+    el("best").textContent = "—";
+    el("gap").textContent = "관측 전";
+  }
+
+  el("subtitle").textContent =
+    "2027년 1월 이탈리아·스페인·포르투갈 · 비즈니스 " +
+    (state.passengers || 2) + "석 · 목표 1인 " + won(target) + " 이하";
+
+  drawChart(rows, target);
+  fillRoutes(state);
+  fillFacts(state, rows);
+
+  el("footer").innerHTML =
+    '읽기 전용 대시보드 · 조건 변경은 텔레그램 봇에서 · ' +
+    '<a href="https://github.com/hong4137/flight-interest">소스</a>';
+}
+
+load().catch(err => {
+  el("subtitle").textContent = "데이터를 불러오지 못했습니다: " + err.message;
+});
+</script>
+</body>
+</html>
