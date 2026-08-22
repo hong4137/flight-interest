@@ -605,3 +605,48 @@ def test_예약_링크는_가격이_안_떨어져도_채워진다(cfg, store):
     entry = store.state["best_by_route"][again.route_key]
     assert entry["link"] == "https://example.test/booking"
     assert entry["price"] == 3_400_000   # 최저가 기록은 유지
+
+
+def test_대시보드_링크가_알림과_요약에_들어간다(cfg, store):
+    """가격만 보고 끝나지 않게, 다른 조합을 볼 수 있는 경로를 같이 준다."""
+    assert cfg.dashboard_url.startswith("https://")
+
+    deal = make_deal(2_900_000)
+    assert cfg.dashboard_url in format_deal(deal, cfg, evaluate(deal, store, cfg))
+    assert cfg.dashboard_url in format_digest(cfg, store)
+
+
+def test_대시보드_주소가_비면_링크를_넣지_않는다(cfg, store, monkeypatch):
+    monkeypatch.setattr(cfg, "dashboard_url", "")
+
+    deal = make_deal(2_900_000)
+    assert "대시보드" not in format_deal(deal, cfg, evaluate(deal, store, cfg))
+    assert "대시보드" not in format_digest(cfg, store)
+
+
+def test_영문_명령과_한글_명령이_같이_동작한다(cfgfile, store):
+    """텔레그램 자동완성 메뉴는 영문 이름만 받는다 (한글은 BOT_COMMAND_INVALID).
+    메뉴는 영문으로 등록하되 한글 입력도 계속 받아야 한다."""
+    from src.config import load_config
+
+    for cmd, expected in [("/target 310", 3_100_000), ("/목표 320", 3_200_000)]:
+        _, changed = _run(cmd, cfgfile, store)
+        assert changed, cmd
+        assert load_config(cfgfile).threshold_pp == expected
+
+    for cmd in ("/status", "/상태", "/city", "/도시"):
+        reply, changed = _run(cmd, cfgfile, store)
+        assert not changed
+        assert "모르는 명령" not in reply, cmd
+
+
+def test_자동완성_메뉴는_영문_이름만_쓴다():
+    """한글 이름을 보내면 텔레그램이 400 BOT_COMMAND_INVALID 로 거부한다."""
+    import inspect
+    import re
+
+    from src.commands import publish_commands
+
+    names = re.findall(r'"command":\s*"([^"]+)"', inspect.getsource(publish_commands))
+    assert names
+    assert all(re.fullmatch(r"[a-z0-9_]{1,32}", n) for n in names), names

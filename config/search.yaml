@@ -50,6 +50,8 @@ threshold:
 alerting:
   duplicate_cooldown_hours: 24
   digest_top_n: 5
+  # 알림·요약·명령 답장에 함께 붙는 현황판 주소. 비워두면 링크를 넣지 않습니다.
+  dashboard_url: "https://hong4137.github.io/flight-interest/"
 
 budget:
   serpapi_monthly_cap: 240

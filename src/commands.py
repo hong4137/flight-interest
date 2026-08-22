@@ -58,23 +58,35 @@ AIRPORT_COUNTRY = {
     **{c: "PT" for c in "LIS OPO FAO FNC PDL".split()},
 }
 
-HELP = """<b>사용할 수 있는 명령</b>
+_HELP_BODY = """<b>사용할 수 있는 명령</b>
 
 /상태 — 현재 최저가와 목표까지 남은 금액
 /목표 320 — 목표가를 1인 320만원으로 변경
 /경유 1 — 경유 최대 횟수 (0=직항만)
 /인원 2 — 탑승 인원
-/도시 추가 BLQ — 감시 도시 추가
-/도시 제거 OPO — 감시 도시 제거
 /도시 — 현재 감시 중인 도시 목록
+/도시 추가 BLQ · /도시 제거 OPO — 도시 추가·제거
 /날짜 출발 01-02 01-06 — 인천 출발 가능일
 /날짜 도착 01-16 01-20 — 인천 도착 가능일
 /도움 — 이 목록
 
-<i>상시 서버가 없어 10분마다 확인하는 구조라, 답장까지 보통 10~30분 걸립니다.
-지금 바로 보고 싶으면 대시보드를 여세요 — 조건과 최저가가 실시간으로 보입니다.</i>
+<i>입력창의 자동완성 메뉴는 영문으로만 뜹니다 (텔레그램 제약).
+/status /target /stops /pax /city /dates /help 도 똑같이 동작합니다.</i>
 
-📊 https://hong4137.github.io/flight-interest/"""
+<i>상시 서버가 없어 10분마다 확인하는 구조라, 답장까지 보통 10~30분 걸립니다.
+조회만 하실 거면 대시보드가 즉시 답을 줍니다 — 명령은 값을 "바꿀" 때 쓰세요.</i>"""
+
+
+def dashboard_link(cfg: Config, label: str = "📊 대시보드 열기") -> str:
+    """설정에 주소가 있으면 링크 한 줄을 만든다."""
+    if not cfg.dashboard_url:
+        return ""
+    return '<a href="{}">{}</a>'.format(cfg.dashboard_url, label)
+
+
+def help_text(cfg: Config) -> str:
+    link = dashboard_link(cfg)
+    return _HELP_BODY + (chr(10) * 2 + link if link else "")
 
 
 @dataclass
@@ -122,22 +134,30 @@ def fetch_updates(cfg: Config, offset: int) -> list[Update]:
 
 
 def publish_commands(cfg: Config) -> bool:
-    """텔레그램 입력창의 명령 자동완성 목록을 갱신한다."""
+    """텔레그램 입력창의 명령 자동완성 목록을 갱신한다.
+
+    이름은 반드시 영문 소문자·숫자·밑줄이어야 한다. 한글로 보내면 텔레그램이
+    BOT_COMMAND_INVALID 로 거부한다. 그래서 메뉴는 영문으로 등록하고, 파서는
+    한글 별칭도 계속 받는다 (/status 도 /상태 도 동작한다).
+    """
     commands = [
-        {"command": "상태", "description": "현재 최저가와 목표까지 남은 금액"},
-        {"command": "목표", "description": "목표가 변경 (예: /목표 320)"},
-        {"command": "경유", "description": "경유 최대 횟수 (예: /경유 1)"},
-        {"command": "인원", "description": "탑승 인원 (예: /인원 2)"},
-        {"command": "도시", "description": "감시 도시 조회/추가/제거"},
-        {"command": "날짜", "description": "출발·도착 가능일 변경"},
-        {"command": "도움", "description": "명령 목록"},
+        {"command": "status", "description": "현재 최저가와 목표까지 남은 금액 (/상태)"},
+        {"command": "target", "description": "목표가 변경 — 예: /target 320 (/목표)"},
+        {"command": "stops", "description": "경유 최대 횟수 — 예: /stops 1 (/경유)"},
+        {"command": "pax", "description": "탑승 인원 — 예: /pax 2 (/인원)"},
+        {"command": "city", "description": "감시 도시 조회·추가·제거 (/도시)"},
+        {"command": "dates", "description": "출발·도착 가능일 변경 (/날짜)"},
+        {"command": "help", "description": "명령 목록 (/도움)"},
     ]
     resp = requests.post(
         API.format(token=cfg.telegram_token, method="setMyCommands"),
         json={"commands": commands},
         timeout=cfg.timeout,
     )
-    return resp.status_code == 200 and resp.json().get("ok", False)
+    if resp.status_code != 200 or not resp.json().get("ok", False):
+        log.warning("명령 메뉴 등록 실패: %s", resp.text[:200])
+        return False
+    return True
 
 
 # ── YAML 편집 ────────────────────────────────────────────────
@@ -253,7 +273,7 @@ def _dispatch(text: str, cfg: Config, store: Store, path: Path) -> tuple[str, bo
     args = parts[1:]
 
     if raw in {"help", "도움", "명령", "start"}:
-        return HELP, False
+        return help_text(cfg), False
 
     if raw in {"status", "상태"}:
         return _status(cfg, store), False
@@ -315,7 +335,7 @@ def _dispatch(text: str, cfg: Config, store: Store, path: Path) -> tuple[str, bo
     if raw in {"dates", "날짜"}:
         return _handle_dates(args, cfg, path)
 
-    return "모르는 명령입니다.\n\n" + HELP, False
+    return "모르는 명령입니다." + chr(10) * 2 + help_text(cfg), False
 
 
 def _handle_city(args: list[str], path: Path) -> tuple[str, bool]:

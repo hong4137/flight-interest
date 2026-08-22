@@ -160,6 +160,8 @@ def format_deal(deal: Deal, cfg: Config, decision: AlertDecision) -> str:
 
     if deal.deep_link:
         lines += ["", '<a href="{}">▶ Google Flights 에서 열기</a>'.format(_esc(deal.deep_link))]
+    if cfg.dashboard_url:
+        lines.append('<a href="{}">📊 다른 조합 보기</a>'.format(_esc(cfg.dashboard_url)))
 
     if is_test:
         lines += [
@@ -263,6 +265,10 @@ def format_digest(cfg: Config, store: Store) -> str:
                 last.get("queries", 0), last.get("fail_rate", 0.0),
             )
         )
+    if cfg.dashboard_url:
+        lines += ["", '<a href="{}">📊 대시보드에서 자세히 보기</a>'.format(
+            _esc(cfg.dashboard_url))]
+
     return "\n".join(lines)
 
 
