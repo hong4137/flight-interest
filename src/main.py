@@ -182,6 +182,32 @@ def cmd_serp_test(args) -> int:
     return 0
 
 
+def cmd_commands(args) -> int:
+    from .commands import publish_commands, run as run_commands
+
+    cfg = load_config(args.config)
+    store = Store.load()
+
+    if args.publish_menu:
+        ok = publish_commands(cfg)
+        print("명령 메뉴 등록 {}".format("성공" if ok else "실패"))
+
+    result = run_commands(cfg, store, args.config)
+    store.save()
+
+    print(result.summary())
+    for reply in result.replies:
+        plain = reply.replace("<b>", "").replace("</b>", "")
+        plain = plain.replace("<i>", "").replace("</i>", "")
+        plain = plain.replace("<code>", "").replace("</code>", "")
+        print("-" * 60)
+        print(plain)
+    # 설정이 바뀌었으면 워크플로가 커밋해야 하므로 표시를 남긴다.
+    if result.config_changed:
+        print("::notice::config changed")
+    return 0
+
+
 def cmd_alert_test(args) -> int:
     from datetime import datetime
 
@@ -242,6 +268,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("serp-test", help="SerpApi 키와 오픈조 조회 확인 (크레딧 1 소모)")
     p.set_defaults(func=cmd_serp_test)
+
+    p = sub.add_parser("commands", help="텔레그램으로 받은 명령 처리")
+    p.add_argument("--publish-menu", action="store_true", help="봇 명령 자동완성 목록도 갱신")
+    p.set_defaults(func=cmd_commands)
 
     p = sub.add_parser("alert-test", help="텔레그램 샘플 알림")
     p.set_defaults(func=cmd_alert_test)

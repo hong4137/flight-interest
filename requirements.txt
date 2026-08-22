@@ -3,3 +3,4 @@ selectolax>=0.3.21
 PyYAML>=6.0
 requests>=2.32
 typing_extensions>=4.12
+ruamel.yaml>=0.18

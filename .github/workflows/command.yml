@@ -1,0 +1,74 @@
+name: command
+
+# 텔레그램으로 받은 명령을 config/search.yaml 에 반영한다.
+#
+# 상시 서버가 없어 웹훅을 받을 수 없으므로 주기적으로 확인한다. 명령을 보내면
+# 최대 15분 안에 처리되고 봇이 답장한다 (GitHub 스케줄러가 밀리면 더 걸릴 수 있다).
+#
+# 이 워크플로만 getUpdates 를 호출해야 한다. 오프셋으로 소비가 확정되므로
+# 두 곳에서 부르면 서로의 메시지를 삼킨다.
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      publish_menu:
+        description: "봇 명령 자동완성 목록도 갱신"
+        type: boolean
+        default: false
+
+concurrency:
+  group: flight-command
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  command:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: 명령 확인
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          if [ "${{ inputs.publish_menu }}" = "true" ]; then
+            python -m src.main commands --publish-menu
+          else
+            python -m src.main commands
+          fi
+
+      - name: 변경 커밋
+        run: |
+          git config user.name "flight-watch[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # 스윕이 쓰는 state.json / history.csv 는 건드리지 않는다. 겹치면 충돌한다.
+          git add config/search.yaml data/telegram.json
+          if git diff --staged --quiet; then
+            echo "변경 없음"
+            exit 0
+          fi
+          git commit -m "chore(config): 텔레그램 명령 반영 [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              echo "푸시 완료 (시도 $attempt)"
+              exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "::warning::변경 푸시에 실패했습니다. 다음 확인에서 다시 시도합니다."

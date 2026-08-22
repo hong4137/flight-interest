@@ -457,3 +457,133 @@ def test_serpapi_일일한도는_한국_자정에_초기화된다(store, monkeyp
 
     monkeypatch.setattr(store_mod, "today", lambda: date(2026, 8, 24))
     assert store.serp_budget(240, 8)[1] == 8   # 한국 자정을 넘겨 초기화
+
+
+# ── 텔레그램 명령 ────────────────────────────────────────────
+
+@pytest.fixture
+def cfgfile(tmp_path):
+    """건드려도 되는 설정 파일 사본."""
+    import shutil
+    from src.config import DEFAULT_CONFIG
+
+    dst = tmp_path / "search.yaml"
+    shutil.copy2(DEFAULT_CONFIG, dst)
+    return dst
+
+
+def _run(text, cfgfile, store):
+    from src.commands import handle
+    from src.config import load_config
+
+    return handle(text, load_config(cfgfile), store, cfgfile)
+
+
+def test_목표가_명령은_만원_단위로_받는다(cfgfile, store):
+    from src.config import load_config
+
+    reply, changed = _run("/목표 320", cfgfile, store)
+
+    assert changed
+    assert load_config(cfgfile).threshold_pp == 3_200_000
+    assert "320만원" in reply
+
+
+def test_목표가는_원_단위로도_받는다(cfgfile, store):
+    from src.config import load_config
+
+    _run("/목표 3300000", cfgfile, store)
+    assert load_config(cfgfile).threshold_pp == 3_300_000
+
+
+def test_설정을_고쳐도_주석이_살아남는다(cfgfile, store):
+    """search.yaml 의 주석은 왜 그 값인지를 설명한다. 잃으면 안 된다."""
+    before = cfgfile.read_text(encoding="utf-8")
+    assert "BLQ" in before  # 제외 이유를 적어둔 주석
+
+    _run("/목표 320", cfgfile, store)
+
+    after = cfgfile.read_text(encoding="utf-8")
+    assert "BLQ" in after
+    assert "실측" in after
+
+
+def test_말도_안되는_값은_거부하고_설정을_건드리지_않는다(cfgfile, store):
+    from src.config import load_config
+
+    original = load_config(cfgfile).threshold_pp
+    reply, changed = _run("/목표 999999999", cfgfile, store)
+
+    assert not changed
+    assert load_config(cfgfile).threshold_pp == original
+
+
+def test_도시_추가와_제거(cfgfile, store):
+    from src.config import load_config
+
+    _run("/도시 추가 FLR", cfgfile, store)
+    assert "FLR" in load_config(cfgfile).entry_airports
+
+    _run("/도시 제거 FLR", cfgfile, store)
+    assert "FLR" not in load_config(cfgfile).entry_airports
+
+
+def test_도시를_전부_지우려_하면_되돌린다(cfgfile, store):
+    """설정이 깨지면 파이프라인 전체가 멈춘다."""
+    from src.config import load_config
+
+    codes = load_config(cfgfile).entry_airports
+    reply, changed = _run("/도시 제거 " + " ".join(codes), cfgfile, store)
+
+    assert not changed
+    assert "⚠️" in reply                                  # 이유를 알려준다
+    assert load_config(cfgfile).entry_airports == codes   # 원상복구
+
+
+def test_날짜_변경(cfgfile, store):
+    from src.config import load_config
+
+    _run("/날짜 출발 01-03 01-05", cfgfile, store)
+    cfg = load_config(cfgfile)
+    assert cfg.outbound_dates[0] == date(2027, 1, 3)
+    assert cfg.outbound_dates[-1] == date(2027, 1, 5)
+
+
+def test_출발창이_도착창을_넘어서면_되돌린다(cfgfile, store):
+    from src.config import load_config
+
+    before = load_config(cfgfile).outbound_dates
+    reply, changed = _run("/날짜 출발 01-02 01-25", cfgfile, store)  # 도착창과 겹침
+
+    assert not changed
+    assert "⚠️" in reply
+    assert load_config(cfgfile).outbound_dates == before
+
+
+def test_모르는_명령은_도움말을_준다(cfgfile, store):
+    reply, changed = _run("/아무거나", cfgfile, store)
+    assert not changed
+    assert "/목표" in reply
+
+
+def test_허가되지_않은_chat_id_의_명령은_무시된다(cfg, store, monkeypatch, tmp_path):
+    """봇은 공개돼 있어 누구나 말을 걸 수 있다."""
+    import src.commands as cmds
+
+    monkeypatch.setattr(cmds, "OFFSET_PATH", tmp_path / "telegram.json")
+    monkeypatch.setattr(cmds, "DATA_DIR", tmp_path)
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "x")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "111")
+    monkeypatch.setattr(
+        cmds, "fetch_updates",
+        lambda c, o: [cmds.Update(1, 999, "/목표 100"), cmds.Update(2, 111, "/상태")],
+    )
+    sent = []
+    monkeypatch.setattr(cmds, "send", lambda c, t, **k: sent.append(t) or True)
+
+    result = cmds.run(load_config(), store)
+
+    assert result.rejected == 1      # 낯선 chat_id
+    assert result.processed == 1     # 등록된 chat_id 만
+    assert result.applied == 0       # /상태 는 설정을 안 바꾼다
+    assert cmds._read_offset() == 3              # 둘 다 소비 확정
