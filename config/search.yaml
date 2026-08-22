@@ -1,0 +1,66 @@
+# ── 유럽 비즈니스 특가 감시 설정 ───────────────────────────────
+# 이 파일만 고치면 코드 수정 없이 조건이 바뀝니다.
+
+trip:
+  origin: ICN
+
+  # 인천 출발 가능일
+  outbound_dates: {start: 2027-01-02, end: 2027-01-06}
+
+  # 인천 "도착" 가능일. 유럽 출발일은 여기서 역산합니다.
+  arrive_korea: {start: 2027-01-16, end: 2027-01-20}
+  # 유럽 출발일을 도착창보다 며칠 앞에서부터 조회할지 (도착일로 최종 필터링)
+  return_search_pad_days: 2
+
+  # 2026-08-23 실측: BLQ·NAP·VLC·AGP 는 인천발/착 비즈니스 경유1회 노선이
+  # 양방향 모두 0건이었다. 4개 도시가 스윕당 48회(전체의 35%)를 헛되이 쓰므로 뺐다.
+  # 조건을 넓히고 싶으면 아래 주석을 풀면 된다.
+  entry_airports:
+    IT: [FCO, MXP, VCE]        # 제외: BLQ, NAP
+    ES: [BCN, MAD]             # 제외: VLC, AGP
+    PT: [LIS, OPO]
+  # 출국 도시 후보. same_as_entry 또는 위와 같은 형식의 목록.
+  exit_airports: same_as_entry
+
+  allow_open_jaw: true
+
+search:
+  cabin: business          # economy | premium-economy | business | first
+  max_stops: 1             # 경유 1회 이내
+  passengers: 2
+  currency: KRW
+  language: ko
+  hide_separate_and_self_transfer: true   # 자체환승(보호 안 되는) 조합 제외
+
+threshold:
+  # 1인당 총액 기준. Google 표시가는 전체 인원 합계이므로 코드가 인원수로 나눕니다.
+  per_person_krw: 3000000
+
+  # 편도합산 → 왕복가 추정 계수. 실측 기반 초기값이며 관측할 때마다 자동 보정됩니다.
+  ow_to_rt_ratio: 0.70
+  # 추정 왕복가가 (임계값 × 이 배수) 이내면 정밀 확인 대상으로 승격
+  t2_margin: 1.25
+
+  # 임계값을 넘더라도 역대 최저를 이만큼(%) 깨면 알림
+  new_low_alert_drop_pct: 5
+
+alerting:
+  duplicate_cooldown_hours: 24
+  digest_top_n: 5
+
+budget:
+  serpapi_monthly_cap: 240
+  serpapi_daily_cap: 8
+  serpapi_warn_at_pct: 20
+
+runtime:
+  request_jitter_seconds: [2.5, 4.5]
+  request_timeout_seconds: 30
+  max_retries: 3
+  # 시간당 hot 스윕에서 재확인할 상위 조합 수
+  hot_roundtrip_count: 8
+  hot_openjaw_count: 4
+  # 4시간마다 full 스윕에서 편도추정 상위 몇 개를 왕복으로 실확인할지
+  full_confirm_count: 30
+  # fast-flights 실패율이 이 값을 넘으면 경보
+  fail_rate_alert_threshold: 0.35

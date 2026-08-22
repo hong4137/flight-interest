@@ -1,0 +1,46 @@
+name: digest
+
+on:
+  schedule:
+    # 00:00 UTC = 09:00 KST
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: flight-digest
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: 일일 요약 발송
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: python -m src.main digest
+
+      - name: 상태 커밋
+        run: |
+          git config user.name "flight-watch[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet && exit 0
+          git commit -m "chore(state): daily digest [skip ci]"
+          git pull --rebase --autostash && git push

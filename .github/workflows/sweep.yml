@@ -1,0 +1,77 @@
+name: sweep
+
+on:
+  schedule:
+    # 매시 7분. 정각은 Actions 부하가 몰려 스케줄 지연이 크다.
+    - cron: "7 * * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "auto | full | hot"
+        default: auto
+        type: choice
+        options: [auto, full, hot]
+
+concurrency:
+  group: flight-sweep
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: 모드 결정 (4시간마다 full, 나머지는 hot)
+        id: pick
+        run: |
+          REQ="${{ inputs.mode }}"
+          if [ -n "$REQ" ] && [ "$REQ" != "auto" ]; then
+            MODE="$REQ"
+          elif [ $(( 10#$(date -u +%H) % 4 )) -eq 0 ]; then
+            MODE="full"
+          else
+            MODE="hot"
+          fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "이번 실행 모드: $MODE"
+
+      - name: 스윕 실행
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: python -m src.main sweep --mode ${{ steps.pick.outputs.mode }}
+
+      - name: 상태 커밋
+        run: |
+          git config user.name "flight-watch[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "변경 없음"
+            exit 0
+          fi
+          git commit -m "chore(state): ${{ steps.pick.outputs.mode }} sweep [skip ci]"
+          # 다른 실행과 충돌할 수 있으므로 rebase 후 재시도한다.
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              echo "푸시 완료 (시도 $attempt)"
+              exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "::warning::상태 푸시에 실패했습니다. 다음 스윕에서 다시 시도합니다."

@@ -1,0 +1,3 @@
+# Actions 러너는 Linux 다. bash run: 블록에 CR 이 섞이면 조건문이 조용히 깨진다.
+* text=auto eol=lf
+*.png binary
