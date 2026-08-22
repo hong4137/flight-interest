@@ -337,6 +337,7 @@ def run_sweep(
     result.empty_final = fetcher.empty_final
 
     store.prune_alerts()
+    store.record_config(cfg)
     store.touch_sweep(
         mode,
         {

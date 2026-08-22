@@ -88,15 +88,23 @@ class Store:
 
     def record_price(self, deal: Deal) -> tuple[bool, int | None]:
         """가격을 기록하고 (해당 노선 최저가 갱신 여부, 직전 최저가)를 돌려준다."""
-        prev = self.best_for(deal.route_key)
+        entry = self.state["best_by_route"].get(deal.route_key)
+        prev = entry["price"] if entry else None
         improved = prev is None or deal.price_per_person < prev
+
         if improved:
-            self.state["best_by_route"][deal.route_key] = {
+            entry = {
                 "price": deal.price_per_person,
                 "at": deal.found_at.isoformat(timespec="seconds"),
                 "airlines": ",".join(deal.airlines),
                 "stops": deal.stops,
             }
+            self.state["best_by_route"][deal.route_key] = entry
+
+        # 예약 링크는 노선과 날짜만으로 정해지므로 가격이 갱신되지 않아도 최신이다.
+        # 갱신될 때만 쓰면 값이 안 떨어지는 노선은 영영 링크가 비어 있게 된다.
+        entry["link"] = deal.deep_link
+        entry["kind"] = deal.kind
         gb = self.state.get("global_best")
         if gb is None or deal.price_per_person < gb["price"]:
             self.state["global_best"] = {
@@ -202,6 +210,14 @@ class Store:
 
     def get_hot(self) -> list[dict]:
         return self.state.get("hot", [])
+
+    def record_config(self, cfg) -> None:
+        """대시보드가 YAML 을 파싱하지 않고도 조건을 알 수 있게 요약을 남긴다."""
+        self.state["target_per_person"] = cfg.threshold_pp
+        self.state["passengers"] = cfg.passengers
+        self.state["cabin"] = cfg.cabin
+        self.state["max_stops"] = cfg.max_stops
+        self.state["airports"] = list(cfg.entry_airports)
 
     def touch_sweep(self, mode: str, stats: dict) -> None:
         self.state["last_sweep"] = {

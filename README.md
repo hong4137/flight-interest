@@ -150,6 +150,20 @@ threshold:
   per_person_krw: 3000000   # 1인당. 이 값 이하면 즉시 알림
 ```
 
+## 대시보드
+
+읽기 전용 현황판이 [`index.html`](index.html) 에 있다. GitHub Pages 로 서빙한다.
+
+**Settings → Pages → Source: Deploy from a branch → `main` / `(root)`**
+
+루트에서 서빙하므로 페이지가 `data/state.json` 과 `data/history.csv` 를 상대경로로 바로
+읽는다. 별도 복사도 CORS 처리도 필요 없고, 커밋될 때마다 자동으로 최신이 된다.
+
+현재 최저가, 목표까지 남은 금액, 날짜별 최저가 추이, 노선별 순위(예약 링크 포함),
+스윕 상태를 보여준다. 조건 변경은 텔레그램 봇에서 한다 — 페이지는 읽기 전용이다.
+정적 호스팅이라 레포에 쓰려면 브라우저에 GitHub 토큰을 둬야 하는데, 공개 페이지에
+쓰기 권한 토큰을 두지 않기 위해서다.
+
 ## 자동 실행
 
 `.github/workflows/sweep.yml` 이 매시 7분에 돈다 (UTC 기준 4의 배수 시각엔 full, 나머지는 hot).

@@ -587,3 +587,21 @@ def test_허가되지_않은_chat_id_의_명령은_무시된다(cfg, store, monk
     assert result.processed == 1     # 등록된 chat_id 만
     assert result.applied == 0       # /상태 는 설정을 안 바꾼다
     assert cmds._read_offset() == 3              # 둘 다 소비 확정
+
+
+def test_예약_링크는_가격이_안_떨어져도_채워진다(cfg, store):
+    """best_by_route 는 가격이 갱신될 때만 덮어썼다. 값이 안 떨어지는 노선은
+    영영 링크가 비어서 대시보드에 '열기' 버튼이 안 나왔다."""
+    first = make_deal(3_400_000)
+    first.deep_link = ""
+    evaluate(first, store, cfg)
+    assert store.state["best_by_route"][first.route_key].get("link") == ""
+
+    # 같은 가격 재관측 — 최저가는 그대로지만 링크는 최신이어야 한다
+    again = make_deal(3_400_000)
+    again.deep_link = "https://example.test/booking"
+    evaluate(again, store, cfg)
+
+    entry = store.state["best_by_route"][again.route_key]
+    assert entry["link"] == "https://example.test/booking"
+    assert entry["price"] == 3_400_000   # 최저가 기록은 유지
