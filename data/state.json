@@ -1,5 +1,7 @@
 {
-  "alerts": {},
+  "alerts": {
+    "0f7be67f58b91cad": "2026-08-23T02:28:12"
+  },
   "best_by_route": {
     "BCN|MAD|2027-01-03|2027-01-16": {
       "airlines": "핀란드항공",
@@ -98,9 +100,9 @@
       "stops": 1
     },
     "FCO|FCO|2027-01-06|2027-01-17": {
-      "airlines": "에미레이트항공",
-      "at": "2026-08-23T01:33:38",
-      "price": 4516200,
+      "airlines": "루프트한자",
+      "at": "2026-08-23T02:28:11",
+      "price": 4061400,
       "stops": 1
     },
     "FCO|FCO|2027-01-06|2027-01-18": {
@@ -521,15 +523,15 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-23T02:22:06",
-    "cheapest": 3413320,
-    "confirmed": 18,
+    "at": "2026-08-23T02:28:17",
+    "cheapest": 3425400,
+    "confirmed": 12,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "full",
-    "queries": 102
+    "mode": "hot",
+    "queries": 12
   },
   "serpapi": {
     "day": "2026-08-23",

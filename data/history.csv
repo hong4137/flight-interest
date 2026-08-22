@@ -85,3 +85,15 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-08-23T02:22:00,round-trip,FCO,FCO,2027-01-03,2027-01-16,3459800,루프트한자,1,gflights
 2026-08-23T02:22:02,round-trip,MAD,MAD,2027-01-02,2027-01-16,4097100,카타르항공,1,gflights
 2026-08-23T02:22:06,round-trip,FCO,FCO,2027-01-03,2027-01-18,3963800,루프트한자,1,gflights
+2026-08-23T02:27:37,round-trip,FCO,FCO,2027-01-04,2027-01-14,3425400,"루프트한자,ITA",1,gflights
+2026-08-23T02:27:41,round-trip,FCO,FCO,2027-01-06,2027-01-14,3430300,"루프트한자,ITA",1,gflights
+2026-08-23T02:27:45,round-trip,FCO,FCO,2027-01-04,2027-01-16,3425400,"루프트한자,ITA",1,gflights
+2026-08-23T02:27:49,round-trip,FCO,FCO,2027-01-06,2027-01-16,3430300,"루프트한자,ITA",1,gflights
+2026-08-23T02:27:53,round-trip,FCO,FCO,2027-01-04,2027-01-18,3445000,"루프트한자,ITA",1,gflights
+2026-08-23T02:27:57,round-trip,FCO,FCO,2027-01-03,2027-01-14,4005800,루프트한자,1,gflights
+2026-08-23T02:28:01,round-trip,FCO,FCO,2027-01-03,2027-01-16,3714500,핀란드항공,1,gflights
+2026-08-23T02:28:05,round-trip,FCO,FCO,2027-01-03,2027-01-15,4941100,KLM,1,gflights
+2026-08-23T02:28:08,round-trip,FCO,FCO,2027-01-04,2027-01-17,4061400,루프트한자,1,gflights
+2026-08-23T02:28:11,round-trip,FCO,FCO,2027-01-06,2027-01-17,4061400,루프트한자,1,gflights
+2026-08-23T02:28:14,round-trip,FCO,FCO,2027-01-03,2027-01-17,4678000,루프트한자,1,gflights
+2026-08-23T02:28:17,round-trip,FCO,FCO,2027-01-04,2027-01-15,3572300,"루프트한자,ITA",1,gflights
