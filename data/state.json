@@ -11,6 +11,10 @@
   "alerts": {
     "0f7be67f58b91cad": "2026-08-23T02:28:12"
   },
+  "arrive_window": [
+    "2027-01-16",
+    "2027-01-20"
+  ],
   "best_by_route": {
     "BCN|MAD|2027-01-03|2027-01-16": {
       "airlines": "핀란드항공",
@@ -568,6 +572,10 @@
     "queries": 12
   },
   "max_stops": 1,
+  "outbound_window": [
+    "2027-01-02",
+    "2027-01-06"
+  ],
   "passengers": 2,
   "serpapi": {
     "day": "2026-08-23",

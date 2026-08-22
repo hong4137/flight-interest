@@ -218,6 +218,12 @@ class Store:
         self.state["cabin"] = cfg.cabin
         self.state["max_stops"] = cfg.max_stops
         self.state["airports"] = list(cfg.entry_airports)
+        self.state["outbound_window"] = [
+            cfg.outbound_dates[0].isoformat(), cfg.outbound_dates[-1].isoformat()
+        ]
+        self.state["arrive_window"] = [
+            cfg.arrive_korea[0].isoformat(), cfg.arrive_korea[1].isoformat()
+        ]
 
     def touch_sweep(self, mode: str, stats: dict) -> None:
         self.state["last_sweep"] = {

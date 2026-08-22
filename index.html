@@ -59,6 +59,8 @@
          background: var(--grid); color: var(--muted); margin-left: 6px; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
+  code { font-size: 12.5px; background: var(--grid); padding: 1px 5px;
+         border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
   .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -95,6 +97,14 @@
   <div class="card">
     <h2>가격 추이 — 날짜별 최저가</h2>
     <div id="chart"></div>
+  </div>
+
+  <div class="card">
+    <h2>현재 감시 조건</h2>
+    <div class="facts" id="conditions"></div>
+    <div class="dim" style="margin-top:14px">
+      변경은 텔레그램 봇에서 — <code>/목표 320</code>, <code>/도시 추가 FLR</code> 등
+    </div>
   </div>
 
   <div class="card">
@@ -221,6 +231,23 @@ function fillRoutes(state) {
   }).join("");
 }
 
+function fillConditions(state) {
+  const ow = state.outbound_window || [], aw = state.arrive_window || [];
+  const cabin = { business: "비즈니스", first: "퍼스트",
+                  "premium-economy": "프리미엄 이코노미", economy: "이코노미" };
+  const stops = state.max_stops === 0 ? "직항만" : `경유 ${state.max_stops ?? "?"}회 이하`;
+  const items = [
+    ["목표가", state.target_per_person ? won(state.target_per_person) + " / 1인" : "—"],
+    ["좌석", `${cabin[state.cabin] || state.cabin || "?"} ${state.passengers ?? "?"}석`],
+    ["경유", stops],
+    ["인천 출발", ow.length ? `${md(ow[0])} ~ ${md(ow[1])}` : "—"],
+    ["인천 도착", aw.length ? `${md(aw[0])} ~ ${md(aw[1])}` : "—"],
+    ["감시 도시", (state.airports || []).join(", ") || "—"],
+  ];
+  el("conditions").innerHTML = items
+    .map(([k, v]) => `<div><b>${k}</b>${v}</div>`).join("");
+}
+
 function fillFacts(state, rows) {
   const sweep = state.last_sweep || {};
   const cal = state.calibration || {};
@@ -290,6 +317,7 @@ async function load() {
     (state.passengers || 2) + "석 · 목표 1인 " + won(target) + " 이하";
 
   drawChart(rows, target);
+  fillConditions(state);
   fillRoutes(state);
   fillFacts(state, rows);
 
