@@ -371,3 +371,89 @@ def test_다이제스트에_항공사와_링크가_들어간다(cfg, store):
     assert "경유 1회" in text
     assert 'href="https://www.google.com/travel/flights' in text
     assert "ICN↔FCO" in text
+
+
+# ── 빈 응답 재시도 ───────────────────────────────────────────
+
+def _fetcher_with_responses(cfg, monkeypatch, responses):
+    """fetch_flights_html 을 대역으로 갈아끼운 Fetcher. responses 는 HTML 목록."""
+    import src.gflights as gf
+
+    calls = {"n": 0}
+
+    def fake_fetch(query, proxy=None):
+        i = min(calls["n"], len(responses) - 1)
+        calls["n"] += 1
+        return responses[i]
+
+    monkeypatch.setattr(gf, "fetch_flights_html", fake_fetch)
+    monkeypatch.setattr(gf.time, "sleep", lambda *_: None)  # 테스트에서 대기 제거
+    return gf.Fetcher(cfg), calls
+
+
+def test_빈_응답은_재시도해서_살려낸다(cfg, monkeypatch):
+    """Google 이 오류가 아닌 정상 응답에 0건을 담아 보낼 때가 있다. 실측에서
+    84개 구간 중 9개가 이렇게 사라졌고, 재조회하니 전부 결과가 있었다."""
+    empty, full = _payload([]), _payload([_entry(2_000_000)])
+    fetcher, calls = _fetcher_with_responses(cfg, monkeypatch, [empty, full])
+
+    got = fetcher.one_way("ICN", "FCO", date(2027, 1, 6))
+
+    assert len(got) == 1
+    assert calls["n"] == 2                 # 한 번 더 조회했다
+    assert fetcher.empty_recovered == 1
+    assert fetcher.failures == 0           # 빈 응답은 실패가 아니다
+
+
+def test_진짜로_결과가_없으면_상한만큼만_재시도한다(cfg, monkeypatch):
+    """노선 자체가 없는 구간까지 무한정 재시도하면 스윕이 느려진다."""
+    fetcher, calls = _fetcher_with_responses(cfg, monkeypatch, [_payload([])])
+
+    got = fetcher.one_way("ICN", "BLQ", date(2027, 1, 6))
+
+    assert got == []
+    assert calls["n"] == cfg.empty_retries + 1
+    assert fetcher.empty_final == 1
+    assert fetcher.empty_recovered == 0
+
+
+def test_결과가_있으면_재시도하지_않는다(cfg, monkeypatch):
+    fetcher, calls = _fetcher_with_responses(cfg, monkeypatch, [_payload([_entry(1_000)])])
+
+    fetcher.one_way("ICN", "FCO", date(2027, 1, 4))
+
+    assert calls["n"] == 1
+    assert fetcher.empty_recovered == 0
+
+
+# ── 시간대 ───────────────────────────────────────────────────
+
+def test_시계는_러너의_UTC_가_아니라_한국시간을_쓴다(monkeypatch):
+    """러너는 UTC 로 돈다. 한국시간 8/23 새벽 2시에 받은 요약에 8/22 가 찍혔다."""
+    import src.clock as clock
+    from datetime import datetime as real_dt, timezone as real_tz
+
+    class FakeDatetime(real_dt):
+        @classmethod
+        def now(cls, tz=None):
+            # 실제 순간: 2026-08-22 17:09 UTC = 2026-08-23 02:09 KST
+            utc = real_dt(2026, 8, 22, 17, 9, tzinfo=real_tz.utc)
+            return utc.astimezone(tz) if tz else utc.replace(tzinfo=None)
+
+    monkeypatch.setattr(clock, "datetime", FakeDatetime)
+
+    assert clock.now() == real_dt(2026, 8, 23, 2, 9)
+    assert clock.today() == date(2026, 8, 23)
+
+
+def test_serpapi_일일한도는_한국_자정에_초기화된다(store, monkeypatch):
+    """UTC 자정 기준이면 한국시간 오전 9시에 한도가 풀린다."""
+    import src.store as store_mod
+
+    monkeypatch.setattr(store_mod, "today", lambda: date(2026, 8, 23))
+    store.serp_budget(240, 8)
+    store.spend_serp(8)
+    assert store.serp_budget(240, 8)[1] == 0
+
+    monkeypatch.setattr(store_mod, "today", lambda: date(2026, 8, 24))
+    assert store.serp_budget(240, 8)[1] == 8   # 한국 자정을 넘겨 초기화

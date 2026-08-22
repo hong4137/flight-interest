@@ -63,6 +63,10 @@ runtime:
   request_jitter_seconds: [2.5, 4.5]
   request_timeout_seconds: 30
   max_retries: 3
+  # Google 은 정상 응답 안에 결과를 0건으로 담아 보낼 때가 있다. 오류가 아니라
+  # 재시도 대상이 아니었는데, 실측에서 84개 구간 중 9개(11%)가 이렇게 사라졌다.
+  # 그 구간이 걸린 조합은 해당 스윕에서 통째로 후보에서 빠진다.
+  empty_retries: 2
   # 시간당 hot 스윕에서 재확인할 상위 조합 수
   hot_roundtrip_count: 8
   hot_openjaw_count: 4

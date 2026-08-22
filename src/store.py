@@ -14,6 +14,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
+from .clock import now, today
 from .config import DATA_DIR
 from .models import Deal
 
@@ -115,13 +116,13 @@ class Store:
             sent_at = datetime.fromisoformat(last)
         except ValueError:
             return True
-        return datetime.now() - sent_at >= timedelta(hours=cooldown_hours)
+        return now() - sent_at >= timedelta(hours=cooldown_hours)
 
     def mark_alerted(self, deal: Deal) -> None:
-        self.state["alerts"][deal.fingerprint()] = datetime.now().isoformat(timespec="seconds")
+        self.state["alerts"][deal.fingerprint()] = now().isoformat(timespec="seconds")
 
     def prune_alerts(self, keep_days: int = 14) -> None:
-        cutoff = datetime.now() - timedelta(days=keep_days)
+        cutoff = now() - timedelta(days=keep_days)
         kept = {}
         for fp, ts in self.state["alerts"].items():
             try:
@@ -181,11 +182,13 @@ class Store:
     def serp_budget(self, monthly_cap: int, daily_cap: int) -> tuple[int, int]:
         """(이번 달 남은 콜, 오늘 남은 콜)."""
         s = self.state["serpapi"]
-        today, month = date.today().isoformat(), date.today().strftime("%Y-%m")
+        # 한국 자정 기준. UTC 자정이면 한국시간 오전 9시에 한도가 풀린다.
+        day = today()
+        today_s, month = day.isoformat(), day.strftime("%Y-%m")
         if s.get("month") != month:
             s["month"], s["month_used"] = month, 0
-        if s.get("day") != today:
-            s["day"], s["day_used"] = today, 0
+        if s.get("day") != today_s:
+            s["day"], s["day_used"] = today_s, 0
         return (monthly_cap - s["month_used"], daily_cap - s["day_used"])
 
     def spend_serp(self, n: int = 1) -> None:
@@ -202,7 +205,7 @@ class Store:
 
     def touch_sweep(self, mode: str, stats: dict) -> None:
         self.state["last_sweep"] = {
-            "at": datetime.now().isoformat(timespec="seconds"),
+            "at": now().isoformat(timespec="seconds"),
             "mode": mode,
             **stats,
         }
@@ -226,7 +229,7 @@ def append_history(deals: list[Deal]) -> None:
 def read_history(days: int | None = None) -> list[dict]:
     if not HISTORY_PATH.exists():
         return []
-    cutoff = datetime.now() - timedelta(days=days) if days else None
+    cutoff = now() - timedelta(days=days) if days else None
     rows: list[dict] = []
     with HISTORY_PATH.open("r", encoding="utf-8", newline="") as fh:
         for row in csv.DictReader(fh):

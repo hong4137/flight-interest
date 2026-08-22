@@ -178,6 +178,10 @@ class Fetcher:
         self.attempts = 0
         self.failures = 0
         self.blocked = 0
+        self.empty_recovered = 0
+        """재시도로 살려낸 빈 응답 수."""
+        self.empty_final = 0
+        """재시도해도 끝내 0건이었던 수 (진짜 노선이 없는 경우)."""
         self._last_request_at = 0.0
 
     @property
@@ -192,32 +196,56 @@ class Fetcher:
             time.sleep(wait)
 
     def search(self, legs: list[tuple[str, str, date]], trip: str) -> list[Itinerary]:
-        """실패하면 예외 대신 빈 목록을 돌려주고 통계에만 반영한다."""
+        """실패하면 예외 대신 빈 목록을 돌려주고 통계에만 반영한다.
+
+        빈 결과도 재시도한다. Google 은 오류가 아닌 정상 응답 안에 결과를 0건으로
+        담아 보낼 때가 있는데, 그러면 그 구간이 걸린 조합이 해당 스윕에서 통째로
+        사라진다. 실측(2026-08-23)에서 0건이 나왔던 9개 구간을 다시 조회하니
+        전부 3~12건을 반환했다 — 지속적으로 빈 구간은 하나도 없었다.
+        """
         query = build_query(self.cfg, legs, trip)
         link = query.url()
         self.attempts += 1
+        empty_tries = 0
 
-        for attempt in range(1, self.cfg.max_retries + 1):
-            self._sleep_jitter()
-            self._last_request_at = time.monotonic()
-            try:
-                html = fetch_flights_html(query, proxy=self.proxy)
-                return parse_itineraries(html, self.cfg.passengers, link)
-            except BlockedError as exc:
-                self.blocked += 1
-                self.failures += 1
-                log.warning("차단 감지 (%s): %s", legs, exc)
-                return []  # 차단은 재시도해도 소용없다
-            except Exception as exc:  # noqa: BLE001 - 어떤 실패든 스윕은 계속돼야 한다
-                if attempt == self.cfg.max_retries:
-                    log.warning("조회 실패 %s (%d회 시도): %s", legs, attempt, exc)
+        while True:
+            for attempt in range(1, self.cfg.max_retries + 1):
+                self._sleep_jitter()
+                self._last_request_at = time.monotonic()
+                try:
+                    html = fetch_flights_html(query, proxy=self.proxy)
+                    found = parse_itineraries(html, self.cfg.passengers, link)
                     break
-                backoff = 2 ** attempt + random.uniform(0, 1.5)
-                log.debug("재시도 %d/%d, %.1fs 대기: %s", attempt, self.cfg.max_retries, backoff, exc)
-                time.sleep(backoff)
+                except BlockedError as exc:
+                    self.blocked += 1
+                    self.failures += 1
+                    log.warning("차단 감지 (%s): %s", legs, exc)
+                    return []  # 차단은 재시도해도 소용없다
+                except Exception as exc:  # noqa: BLE001 - 어떤 실패든 스윕은 계속돼야 한다
+                    if attempt == self.cfg.max_retries:
+                        log.warning("조회 실패 %s (%d회 시도): %s", legs, attempt, exc)
+                        self.failures += 1
+                        return []
+                    backoff = 2 ** attempt + random.uniform(0, 1.5)
+                    log.debug(
+                        "재시도 %d/%d, %.1fs 대기: %s",
+                        attempt, self.cfg.max_retries, backoff, exc,
+                    )
+                    time.sleep(backoff)
 
-        self.failures += 1
-        return []
+            if found:
+                if empty_tries:
+                    self.empty_recovered += 1
+                    log.info("빈 응답을 %d회 재시도해 %d건 회복: %s", empty_tries, len(found), legs)
+                return found
+
+            if empty_tries >= self.cfg.empty_retries:
+                if empty_tries:
+                    self.empty_final += 1
+                return []
+
+            empty_tries += 1
+            time.sleep(random.uniform(2.0, 4.0))
 
     # 편의 래퍼 ------------------------------------------------
     def one_way(self, frm: str, to: str, when: date) -> list[Itinerary]:

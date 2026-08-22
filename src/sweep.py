@@ -38,6 +38,8 @@ class SweepResult:
     alerted: int = 0
     serp_used: int = 0
     skipped_open_jaw: int = 0
+    empty_recovered: int = 0
+    empty_final: int = 0
     cheapest: Deal | None = None
 
     def summary(self) -> str:
@@ -51,6 +53,10 @@ class SweepResult:
         ]
         if self.serp_used:
             parts.append("SerpApi {}콜".format(self.serp_used))
+        if self.empty_recovered:
+            parts.append("빈응답 회복 {}건".format(self.empty_recovered))
+        if self.empty_final:
+            parts.append("결과없음 {}건".format(self.empty_final))
         if self.skipped_open_jaw:
             parts.append("오픈조 미확인 {}개".format(self.skipped_open_jaw))
         if self.cheapest:
@@ -327,6 +333,8 @@ def run_sweep(
     result.queries = fetcher.attempts
     result.failures = fetcher.failures
     result.fail_rate = fetcher.fail_rate
+    result.empty_recovered = fetcher.empty_recovered
+    result.empty_final = fetcher.empty_final
 
     store.prune_alerts()
     store.touch_sweep(
@@ -336,6 +344,8 @@ def run_sweep(
             "failures": result.failures,
             "fail_rate": round(result.fail_rate, 3),
             "confirmed": len(result.confirmed),
+            "empty_recovered": result.empty_recovered,
+            "empty_final": result.empty_final,
             "cheapest": result.cheapest.price_per_person if result.cheapest else None,
         },
     )

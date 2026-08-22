@@ -17,6 +17,7 @@ from typing import Literal
 
 import requests
 
+from .clock import now
 from .config import Config
 from .gflights import deep_link_for
 from .models import Deal
@@ -177,7 +178,7 @@ def format_digest(cfg: Config, store: Store) -> str:
 
     ranked = sorted(best_map.items(), key=lambda kv: kv[1]["price"])[: cfg.digest_top_n]
 
-    lines = ["📊 <b>일일 요약</b> · {}".format(md(datetime.now())), ""]
+    lines = ["📊 <b>일일 요약</b> · {}".format(md(now())), ""]
 
     if not ranked:
         lines.append("아직 확인된 왕복/오픈조 가격이 없습니다.")

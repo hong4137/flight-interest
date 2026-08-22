@@ -54,6 +54,7 @@ class Config:
     jitter: tuple[float, float]
     timeout: int
     max_retries: int
+    empty_retries: int
     hot_roundtrip_count: int
     hot_openjaw_count: int
     full_confirm_count: int
@@ -182,6 +183,7 @@ def load_config(path: str | Path | None = None) -> Config:
         jitter=(float(jitter[0]), float(jitter[1])),
         timeout=int(runtime.get("request_timeout_seconds", 30)),
         max_retries=int(runtime.get("max_retries", 3)),
+        empty_retries=int(runtime.get("empty_retries", 2)),
         hot_roundtrip_count=int(runtime.get("hot_roundtrip_count", 8)),
         hot_openjaw_count=int(runtime.get("hot_openjaw_count", 4)),
         full_confirm_count=int(runtime.get("full_confirm_count", 30)),

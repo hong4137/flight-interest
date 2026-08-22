@@ -9,6 +9,8 @@ from __future__ import annotations
 import hashlib
 from dataclasses import dataclass, field
 from datetime import date, datetime
+
+from .clock import now
 from typing import Literal
 
 
@@ -114,7 +116,7 @@ class Deal:
     kind: Literal["round-trip", "open-jaw"] = "round-trip"
     korea_arrival: datetime | None = None
     total_minutes: int = 0
-    found_at: datetime = field(default_factory=datetime.now)
+    found_at: datetime = field(default_factory=now)
 
     @property
     def route_key(self) -> str:
