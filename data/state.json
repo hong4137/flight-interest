@@ -508,12 +508,12 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-23T23:30:30",
+    "at": "2026-08-24T00:29:48",
     "candidates": 2,
-    "cheapest": 3750300,
-    "confirmed": 1,
-    "empty_final": 1,
-    "empty_recovered": 0,
+    "cheapest": 3569000,
+    "confirmed": 2,
+    "empty_final": 0,
+    "empty_recovered": 1,
     "fail_rate": 0.0,
     "failures": 0,
     "mode": "hot",
@@ -526,7 +526,7 @@
   ],
   "passengers": 2,
   "serpapi": {
-    "day": "2026-08-23",
+    "day": "2026-08-24",
     "day_used": 0,
     "month": "2026-08",
     "month_used": 8

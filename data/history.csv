@@ -258,3 +258,5 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-08-23T21:56:37,round-trip,BCN,BCN,2026-12-30,2027-01-11,3750300,핀란드항공,1,gflights
 2026-08-23T22:38:24,round-trip,BCN,BCN,2026-12-30,2027-01-11,3750300,핀란드항공,1,gflights
 2026-08-23T23:30:30,round-trip,BCN,BCN,2026-12-30,2027-01-11,3750300,핀란드항공,1,gflights
+2026-08-24T00:29:44,round-trip,BCN,BCN,2026-12-30,2027-01-08,3569000,루프트한자,1,gflights
+2026-08-24T00:29:48,round-trip,BCN,BCN,2026-12-30,2027-01-11,3750300,핀란드항공,1,gflights
