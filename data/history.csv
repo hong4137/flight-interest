@@ -195,3 +195,15 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-08-23T08:28:12,round-trip,FCO,FCO,2027-01-06,2027-01-17,4061400,루프트한자,1,gflights
 2026-08-23T08:28:16,round-trip,MAD,MAD,2027-01-05,2027-01-16,4012800,카타르항공,1,gflights
 2026-08-23T08:28:20,round-trip,MAD,MAD,2027-01-06,2027-01-16,4012800,카타르항공,1,gflights
+2026-08-23T10:51:12,round-trip,FCO,FCO,2027-01-04,2027-01-14,3430300,"루프트한자,ITA",1,gflights
+2026-08-23T10:51:15,round-trip,FCO,FCO,2027-01-06,2027-01-14,3430300,"루프트한자,ITA",1,gflights
+2026-08-23T10:51:19,round-trip,FCO,FCO,2027-01-04,2027-01-16,3430300,"루프트한자,ITA",1,gflights
+2026-08-23T10:51:23,round-trip,FCO,FCO,2027-01-06,2027-01-16,3430300,"루프트한자,ITA",1,gflights
+2026-08-23T10:51:27,round-trip,FCO,FCO,2027-01-04,2027-01-18,3445000,"루프트한자,ITA",1,gflights
+2026-08-23T10:51:31,round-trip,FCO,FCO,2027-01-03,2027-01-14,3504400,루프트한자,1,gflights
+2026-08-23T10:51:35,round-trip,FCO,FCO,2027-01-04,2027-01-15,3577800,"루프트한자,ITA",1,gflights
+2026-08-23T10:51:38,round-trip,FCO,FCO,2027-01-06,2027-01-15,3577800,"루프트한자,ITA",1,gflights
+2026-08-23T10:51:42,round-trip,FCO,FCO,2027-01-04,2027-01-17,4061400,루프트한자,1,gflights
+2026-08-23T10:51:45,round-trip,FCO,FCO,2027-01-06,2027-01-17,4061400,루프트한자,1,gflights
+2026-08-23T10:51:49,round-trip,MAD,MAD,2027-01-05,2027-01-16,4012800,카타르항공,1,gflights
+2026-08-23T10:51:53,round-trip,MAD,MAD,2027-01-06,2027-01-16,4012800,카타르항공,1,gflights
