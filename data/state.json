@@ -69,7 +69,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.7054,
+      "ratio": 0.708,
       "samples": [
         [
           4990307,
@@ -466,6 +466,14 @@
         [
           5319075,
           3991100
+        ],
+        [
+          5041268,
+          3569000
+        ],
+        [
+          5172788,
+          3750300
         ]
       ]
     }
@@ -478,16 +486,9 @@
   "hot": [
     {
       "entry": "BCN",
-      "estimated_pp": 3524400,
+      "estimated_pp": 3569000,
       "exit": "BCN",
       "inbound_date": "2027-01-08",
-      "outbound_date": "2026-12-30"
-    },
-    {
-      "entry": "BCN",
-      "estimated_pp": 3524400,
-      "exit": "BCN",
-      "inbound_date": "2027-01-12",
       "outbound_date": "2026-12-30"
     },
     {
@@ -496,40 +497,19 @@
       "exit": "BCN",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-30"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 3991100,
-      "exit": "MAD",
-      "inbound_date": "2027-01-10",
-      "outbound_date": "2027-01-01"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 4013400,
-      "exit": "MAD",
-      "inbound_date": "2027-01-09",
-      "outbound_date": "2027-01-01"
-    },
-    {
-      "entry": "BCN",
-      "estimated_pp": 4249600,
-      "exit": "BCN",
-      "inbound_date": "2027-01-08",
-      "outbound_date": "2026-12-31"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-23T16:39:45",
-    "candidates": 6,
+    "at": "2026-08-23T17:41:59",
+    "candidates": 2,
     "cheapest": 3569000,
-    "confirmed": 6,
+    "confirmed": 2,
     "empty_final": 0,
-    "empty_recovered": 0,
+    "empty_recovered": 2,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 6
+    "mode": "full",
+    "queries": 42
   },
   "max_stops": 1,
   "outbound_window": [
