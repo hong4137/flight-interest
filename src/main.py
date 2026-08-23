@@ -183,7 +183,7 @@ def cmd_serp_test(args) -> int:
 
 
 def cmd_commands(args) -> int:
-    from .commands import publish_commands, run as run_commands
+    from .commands import publish_commands, run as run_commands, run_one
 
     cfg = load_config(args.config)
     store = Store.load()
@@ -192,7 +192,14 @@ def cmd_commands(args) -> int:
         ok = publish_commands(cfg)
         print("명령 메뉴 등록 {}".format("성공" if ok else "실패"))
 
-    result = run_commands(cfg, store, args.config)
+    if args.text:
+        # 웹훅(Cloudflare Worker)이 넘겨준 명령 하나를 처리한다.
+        if not args.chat_id:
+            print("--text 를 쓰려면 --chat-id 도 필요합니다.")
+            return 2
+        result = run_one(cfg, store, args.chat_id, args.text, args.config)
+    else:
+        result = run_commands(cfg, store, args.config)
     store.save()
 
     print(result.summary())
@@ -271,6 +278,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("commands", help="텔레그램으로 받은 명령 처리")
     p.add_argument("--publish-menu", action="store_true", help="봇 명령 자동완성 목록도 갱신")
+    p.add_argument("--text", default=None, help="웹훅이 넘긴 명령 한 줄 (없으면 getUpdates 로 폴링)")
+    p.add_argument("--chat-id", default=None, help="--text 와 함께, 명령이 온 대화 id")
     p.set_defaults(func=cmd_commands)
 
     p = sub.add_parser("alert-test", help="텔레그램 샘플 알림")

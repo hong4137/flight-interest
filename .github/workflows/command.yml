@@ -2,18 +2,27 @@ name: command
 
 # 텔레그램으로 받은 명령을 config/search.yaml 에 반영한다.
 #
-# 상시 서버가 없어 웹훅을 받을 수 없으므로 주기적으로 확인한다. GitHub 스케줄러는
-# 부하가 몰리면 밀리므로, 10분 주기라도 실제로는 10~30분 걸린다고 봐야 한다.
-# 조회만 필요하면 대시보드가 즉시 답을 준다 — 명령은 값을 "바꿀" 때 쓴다.
+# Cloudflare Worker(worker/) 가 텔레그램 웹훅을 받아 repository_dispatch 로
+# 넘겨준다. 조회 명령은 Worker 가 즉시 답하고, 값을 바꾸는 명령만 여기로 온다.
 #
-# 이 워크플로만 getUpdates 를 호출해야 한다. 오프셋으로 소비가 확정되므로
-# 두 곳에서 부르면 서로의 메시지를 삼킨다.
+# schedule 이 없는 이유: 텔레그램은 웹훅과 getUpdates 를 동시에 쓸 수 없다.
+# 웹훅이 걸려 있으면 폴링은 409 를 받는다. 웹훅을 떼고 폴링으로 돌아가려면
+# worker/README.md 의 "되돌리기" 를 참고해 아래 schedule 을 되살린다.
+#
+#   schedule:
+#     - cron: "*/10 * * * *"
 
 on:
-  schedule:
-    - cron: "*/10 * * * *"
+  repository_dispatch:
+    types: [telegram-command]
   workflow_dispatch:
     inputs:
+      text:
+        description: "처리할 명령 (비우면 getUpdates 로 밀린 것을 가져옴)"
+        required: false
+      chat_id:
+        description: "text 와 함께 쓸 대화 id"
+        required: false
       publish_menu:
         description: "봇 명령 자동완성 목록도 갱신"
         type: boolean
@@ -41,17 +50,25 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: 명령 확인
+      - name: 명령 처리
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           PYTHONIOENCODING: utf-8
+          # 웹훅 경로와 수동 실행 경로 둘 다 받는다.
+          CMD_TEXT: ${{ github.event.client_payload.text || inputs.text }}
+          CMD_CHAT: ${{ github.event.client_payload.chat_id || inputs.chat_id }}
+          PUBLISH_MENU: ${{ inputs.publish_menu }}
         run: |
-          if [ "${{ inputs.publish_menu }}" = "true" ]; then
-            python -m src.main commands --publish-menu
+          ARGS=""
+          if [ "$PUBLISH_MENU" = "true" ]; then
+            ARGS="$ARGS --publish-menu"
+          fi
+          if [ -n "$CMD_TEXT" ]; then
+            python -m src.main commands $ARGS --text "$CMD_TEXT" --chat-id "$CMD_CHAT"
           else
-            python -m src.main commands
+            python -m src.main commands $ARGS
           fi
 
       - name: 변경 커밋
@@ -72,4 +89,4 @@ jobs:
             fi
             sleep $((attempt * 5))
           done
-          echo "::warning::변경 푸시에 실패했습니다. 다음 확인에서 다시 시도합니다."
+          echo "::warning::변경 푸시에 실패했습니다."

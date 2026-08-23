@@ -520,7 +520,56 @@ def _handle_dates(args: list[str], cfg: Config, path: Path) -> tuple[str, bool]:
 
 # ── 진입점 ───────────────────────────────────────────────────
 
+def _apply(
+    cfg: Config, store: Store, path: Path, chat_id: str, text: str, result: CommandResult
+) -> None:
+    """명령 하나를 처리하고 온 대화로 답장한다."""
+    if str(chat_id) not in set(cfg.telegram_chat_ids):
+        # 봇은 공개돼 있어 누구나 말을 걸 수 있다. 등록된 대화만 처리한다.
+        log.warning("허가되지 않은 chat_id 의 명령 무시: %s", chat_id)
+        result.rejected += 1
+        return
+
+    if not text.startswith("/"):
+        return
+
+    result.processed += 1
+    log.info("명령 처리: %s", text)
+    try:
+        reply, changed = handle(text, cfg, store, path)
+    except Exception as exc:  # noqa: BLE001 - 명령 하나가 전체를 멈추면 안 된다
+        log.exception("명령 처리 중 오류")
+        reply, changed = "⚠️ 처리 중 오류가 났습니다: {}".format(exc), False
+
+    if changed:
+        result.applied += 1
+        result.config_changed = True
+        reply += chr(10) * 2 + "<i>다음 스윕부터 반영됩니다.</i>"
+
+    # 답장은 명령이 온 대화로 보낸다. 개인방에서 물었는데 단체방에 답이 가면 곤란하다.
+    send(cfg, reply, chat_id=str(chat_id))
+    result.replies.append(reply)
+
+
+def run_one(
+    cfg: Config, store: Store, chat_id: str, text: str, path: Path | None = None
+) -> CommandResult:
+    """웹훅이 넘겨준 명령 하나를 처리한다.
+
+    텔레그램은 웹훅과 getUpdates 를 동시에 쓸 수 없다. 웹훅을 걸면 폴링은
+    409 를 받으므로, 메시지를 Cloudflare Worker 가 받아 여기로 넘겨준다.
+    """
+    path = Path(path) if path else DEFAULT_CONFIG
+    result = CommandResult()
+    if not cfg.telegram_enabled:
+        log.info("텔레그램 미설정 — 명령을 처리하지 않습니다")
+        return result
+    _apply(cfg, store, path, chat_id, text, result)
+    return result
+
+
 def run(cfg: Config, store: Store, path: Path | None = None) -> CommandResult:
+    """getUpdates 로 밀린 명령을 가져와 처리한다 (웹훅을 안 쓸 때의 경로)."""
     path = Path(path) if path else DEFAULT_CONFIG
     result = CommandResult()
 
@@ -539,37 +588,10 @@ def run(cfg: Config, store: Store, path: Path | None = None) -> CommandResult:
         log.info("새 명령 없음")
         return result
 
-    authorized = set(cfg.telegram_chat_ids)
     last_seen = offset
     for update in updates:
         last_seen = update.update_id + 1
-
-        # 봇은 공개돼 있어 누구나 말을 걸 수 있다. 등록된 대화만 처리한다.
-        if str(update.chat_id) not in authorized:
-            log.warning("허가되지 않은 chat_id 의 명령 무시: %s", update.chat_id)
-            result.rejected += 1
-            continue
-
-        if not update.text.startswith("/"):
-            continue
-
-        result.processed += 1
-        log.info("명령 처리: %s", update.text)
-        try:
-            reply, changed = handle(update.text, cfg, store, path)
-        except Exception as exc:  # noqa: BLE001 - 명령 하나가 전체를 멈추면 안 된다
-            log.exception("명령 처리 중 오류")
-            reply, changed = "⚠️ 처리 중 오류가 났습니다: {}".format(exc), False
-
-        if changed:
-            result.applied += 1
-            result.config_changed = True
-            reply += "\n\n<i>다음 스윕부터 반영됩니다.</i>"
-
-        # 답장은 명령이 온 대화로 보낸다. 개인방에서 물었는데 단체방에
-        # 답이 가면 곤란하다.
-        send(cfg, reply, chat_id=str(update.chat_id))
-        result.replies.append(reply)
+        _apply(cfg, store, path, str(update.chat_id), update.text, result)
 
     _write_offset(last_seen)
     return result

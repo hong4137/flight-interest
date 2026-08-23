@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 from datetime import date, datetime, timedelta
+from pathlib import Path
 
 import pytest
 
@@ -20,9 +21,14 @@ from src.models import Deal, Itinerary, Segment
 from src.store import Store
 
 
+# 실제 운영 설정(config/search.yaml)은 텔레그램 명령으로 수시로 바뀐다.
+# 테스트가 그걸 읽으면 사용자가 목표가를 고칠 때마다 테스트가 깨진다.
+FIXTURE_CONFIG = Path(__file__).parent / "fixture_search.yaml"
+
+
 @pytest.fixture
 def cfg():
-    return load_config()
+    return load_config(FIXTURE_CONFIG)
 
 
 @pytest.fixture
@@ -465,10 +471,9 @@ def test_serpapi_일일한도는_한국_자정에_초기화된다(store, monkeyp
 def cfgfile(tmp_path):
     """건드려도 되는 설정 파일 사본."""
     import shutil
-    from src.config import DEFAULT_CONFIG
 
     dst = tmp_path / "search.yaml"
-    shutil.copy2(DEFAULT_CONFIG, dst)
+    shutil.copy2(FIXTURE_CONFIG, dst)
     return dst
 
 
@@ -581,7 +586,7 @@ def test_허가되지_않은_chat_id_의_명령은_무시된다(cfg, store, monk
     sent = []
     monkeypatch.setattr(cmds, "send", lambda c, t, **k: sent.append(t) or True)
 
-    result = cmds.run(load_config(), store)
+    result = cmds.run(load_config(FIXTURE_CONFIG), store)
 
     assert result.rejected == 1      # 낯선 chat_id
     assert result.processed == 1     # 등록된 chat_id 만
@@ -706,7 +711,7 @@ def test_명령_답장은_명령이_온_대화로만_간다(cfg, store, monkeypa
     monkeypatch.setattr(cmds, "send",
                         lambda c, t, **k: seen.append(k.get("chat_id")) or True)
 
-    result = cmds.run(load_config(), store)
+    result = cmds.run(load_config(FIXTURE_CONFIG), store)
 
     assert result.processed == 1 and result.rejected == 0
     assert seen == ["-222"]          # 단체방에서 왔으니 단체방으로만
@@ -723,7 +728,7 @@ def test_목록에_없는_대화는_여전히_거부한다(cfg, store, monkeypat
                         lambda c, o: [cmds.Update(1, 999, "/목표 100")])
     monkeypatch.setattr(cmds, "send", lambda c, t, **k: True)
 
-    result = cmds.run(load_config(), store)
+    result = cmds.run(load_config(FIXTURE_CONFIG), store)
     assert result.rejected == 1 and result.processed == 0
 
 

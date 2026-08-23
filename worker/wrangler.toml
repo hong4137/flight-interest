@@ -1,0 +1,9 @@
+name = "flight-watch"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+
+# 공개되어도 되는 값만 여기에 둔다. 토큰은 wrangler secret put 으로 넣는다.
+[vars]
+ALLOWED_CHATS = "-5590845708"
+GITHUB_REPO = "hong4137/flight-interest"
+DASHBOARD_URL = "https://hong4137.github.io/flight-interest/"
