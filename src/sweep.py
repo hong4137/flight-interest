@@ -302,6 +302,11 @@ def run_sweep(
     fetcher = Fetcher(cfg)
     serp = SerpApiClient(cfg, store)
 
+    # 조건이 바뀌었으면 이제 못 사는 조합의 기록을 먼저 버린다.
+    stale = store.prune_stale(cfg)
+    if stale:
+        log.info("조건에 맞지 않는 옛 기록 %d건을 정리했습니다", stale)
+
     if mode == "full":
         outbound, inbound = _scan_one_ways(cfg, fetcher)
         log.info(

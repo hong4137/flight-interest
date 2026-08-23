@@ -725,3 +725,55 @@ def test_목록에_없는_대화는_여전히_거부한다(cfg, store, monkeypat
 
     result = cmds.run(load_config(), store)
     assert result.rejected == 1 and result.processed == 0
+
+
+# ── 날짜 입력의 실제 형태 ────────────────────────────────────
+
+@pytest.mark.parametrize("text,expect_start,expect_end", [
+    ("/날짜 출발 2026-12-29부터 2027-01-01", date(2026, 12, 29), date(2027, 1, 1)),
+    ("/날짜 출발 2026-12-29 2027-01-01",     date(2026, 12, 29), date(2027, 1, 1)),
+    ("/날짜출발 2026-12-29 2027-01-01",      date(2026, 12, 29), date(2027, 1, 1)),
+    ("/dates out 2026-12-29 2027-01-01",   date(2026, 12, 29), date(2027, 1, 1)),
+    # 연도를 빼면 지금 창에서 가장 가까운 해로 본다. 1월 여행의 "12-29" 는
+    # 11개월 뒤가 아니라 직전 12월이다.
+    ("/날짜 출발 12/29 ~ 1/1",               date(2026, 12, 29), date(2027, 1, 1)),
+    ("/날짜 출발 12-29 01-01",               date(2026, 12, 29), date(2027, 1, 1)),
+])
+def test_사람이_실제로_치는_날짜_형태를_받는다(cfgfile, store, text, expect_start, expect_end):
+    from src.config import load_config
+
+    reply, changed = _run(text, cfgfile, store)
+    assert changed, reply
+    cfg = load_config(cfgfile)
+    assert cfg.outbound_dates[0] == expect_start
+    assert cfg.outbound_dates[-1] == expect_end
+
+
+def test_연도를_직접_적은_역순은_오타로_보고_거부한다(cfgfile, store):
+    reply, changed = _run("/날짜 출발 2027-01-05 2027-01-01", cfgfile, store)
+    assert not changed
+    assert "빠릅니다" in reply
+
+
+def test_날짜를_못_읽으면_예시를_알려준다(cfgfile, store):
+    reply, changed = _run("/날짜 출발 아무말", cfgfile, store)
+    assert not changed
+    assert "2026-12-29" in reply      # 실제로 쓸 수 있는 예시
+
+
+def test_조건이_바뀌면_못_사는_옛_기록을_버린다(cfg, store):
+    """1월 창을 12월로 옮기면 1/4 출발 기록은 이제 살 수 없는 조합이다.
+    그대로 두면 대시보드가 못 사는 가격을 '현재 최저가' 로 보여준다."""
+    keep = make_deal(3_400_000)                    # 현재 창 안 (1/3 → 1/17)
+    gone = make_deal(3_100_000)
+    gone.outbound_date, gone.inbound_date = date(2026, 12, 29), date(2027, 1, 2)
+    for d in (keep, gone):
+        evaluate(d, store, cfg)
+    assert store.state["global_best"]["price"] == 3_100_000
+
+    dropped = store.prune_stale(cfg)
+
+    assert dropped == 1
+    assert gone.route_key not in store.state["best_by_route"]
+    assert keep.route_key in store.state["best_by_route"]
+    assert store.state["global_best"]["price"] == 3_400_000   # 최저가 재계산

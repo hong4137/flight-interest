@@ -207,16 +207,36 @@ def _all_airports(doc) -> list[str]:
     return [c for codes in _airport_groups(doc).values() for c in codes]
 
 
-def _parse_md(token: str, year: int) -> date:
-    """'01-02', '1/2', '0102' 을 날짜로."""
-    digits = re.findall(r"\d+", token)
-    if len(digits) == 2:
-        month, day = int(digits[0]), int(digits[1])
-    elif len(digits) == 1 and len(digits[0]) == 4:
-        month, day = int(digits[0][:2]), int(digits[0][2:])
-    else:
-        raise ValueError("날짜 형식을 알 수 없습니다: {}".format(token))
-    return date(year, month, day)
+_DATE_TOKEN = re.compile(
+    r"(?<!\d)"
+    r"(?:(?P<y>\d{4})[-/.]?)?"          # 연도는 있어도 되고 없어도 된다
+    r"(?P<m>\d{1,2})[-/.]?(?P<d>\d{1,2})"
+    r"(?!\d)"
+)
+
+
+def _find_dates(text: str, fallback_year: int) -> list[tuple[date, bool]]:
+    """문장에서 날짜를 찾아 (날짜, 연도를_직접_적었는지) 목록으로 돌려준다.
+
+    사람이 실제로 치는 형태를 넓게 받는다 — '2026-12-29부터 2027-01-01',
+    '12/29 ~ 1/1', '1229 0101' 모두 통한다. 연도를 적었으면 그 연도를 쓰고,
+    안 적었으면 fallback_year 를 쓴다.
+
+    연도를 적었는지 함께 돌려주는 이유: 이 여행은 연말을 넘긴다. 연도 없이
+    '12/29 ~ 1/1' 이라고 쓰면 둘 다 같은 해로 잡혀 순서가 뒤집히는데, 그때만
+    보정해야 한다. 연도를 직접 적은 경우의 역순은 진짜 오타이므로 거부한다.
+    """
+    cleaned = re.sub(r"(부터|까지|에서|년|월|일|~|-{2,})", " ", text)
+    found: list[tuple[date, bool]] = []
+    for m in _DATE_TOKEN.finditer(cleaned):
+        explicit = m.group("y") is not None
+        year = int(m.group("y")) if explicit else fallback_year
+        month, day = int(m.group("m")), int(m.group("d"))
+        try:
+            found.append((date(year, month, day), explicit))
+        except ValueError:
+            continue  # 2월 30일 같은 것
+    return found
 
 
 # ── 명령 해석 ────────────────────────────────────────────────
@@ -267,10 +287,29 @@ def handle(text: str, cfg: Config, store: Store, path: Path) -> tuple[str, bool]
         return "⚠️ {}".format(exc), False
 
 
+# 붙여 쓴 명령을 갈라준다. 사람은 /날짜출발 처럼 띄어쓰기 없이 치는 일이 흔하다.
+_GLUED = {
+    "날짜": ("출발", "도착", "가는날", "오는날", "귀국", "출국"),
+    "도시": ("추가", "제거", "삭제"),
+    "dates": ("out", "in"),
+    "city": ("add", "remove"),
+}
+
+
+def _split_glued(raw: str, args: list[str]) -> tuple[str, list[str]]:
+    for head, tails in _GLUED.items():
+        if raw.startswith(head) and raw != head:
+            tail = raw[len(head):]
+            if tail in tails:
+                return head, [tail, *args]
+    return raw, args
+
+
 def _dispatch(text: str, cfg: Config, store: Store, path: Path) -> tuple[str, bool]:
     parts = text.split()
     raw = parts[0].lstrip("/").split("@")[0].lower()
     args = parts[1:]
+    raw, args = _split_glued(raw, args)
 
     if raw in {"help", "도움", "명령", "start"}:
         return help_text(cfg), False
@@ -408,28 +447,67 @@ def _handle_city(args: list[str], path: Path) -> tuple[str, bool]:
     return "추가 또는 제거 중에 골라주세요. 예: <code>/도시 추가 BLQ</code>", False
 
 
+def _nearest_year(value: date, anchor: date) -> date:
+    """연도를 안 적은 날짜를 anchor 에서 가장 가까운 해로 옮긴다.
+
+    1월 출발 여행에서 "12-29" 는 11개월 뒤가 아니라 직전 12월을 뜻한다.
+    """
+    best = value
+    for shift in (-1, 0, 1):
+        try:
+            candidate = value.replace(year=value.year + shift)
+        except ValueError:
+            continue  # 2/29
+        if abs((candidate - anchor).days) < abs((best - anchor).days):
+            best = candidate
+    return best
+
+
+_DATE_HELP = (
+    "예: <code>/날짜 출발 2026-12-29 2027-01-01</code>\n"
+    "    <code>/날짜 도착 2027-01-10 2027-01-13</code>\n\n"
+    "연도를 빼고 <code>12-29 01-01</code> 처럼 써도 되지만, 이 여행은 연말을 "
+    "넘기므로 <b>연도를 함께 적는 편이 안전합니다.</b>"
+)
+
+
 def _handle_dates(args: list[str], cfg: Config, path: Path) -> tuple[str, bool]:
-    if len(args) < 3:
-        return (
-            "예: <code>/날짜 출발 01-02 01-06</code>\n"
-            "    <code>/날짜 도착 01-16 01-20</code>"
-        ), False
+    if len(args) < 2:
+        return _DATE_HELP, False
 
     which = args[0].lower()
-    year = cfg.outbound_dates[0].year
-    try:
-        start, end = _parse_md(args[1], year), _parse_md(args[2], year)
-    except ValueError as exc:
-        return str(exc), False
-    if end < start:
-        return "종료일이 시작일보다 빠릅니다.", False
-
-    if which in {"out", "출발", "가는날"}:
+    if which in {"out", "출발", "가는날", "가는", "출국"}:
         key, label = "outbound_dates", "인천 출발"
-    elif which in {"in", "도착", "오는날", "귀국"}:
+        fallback_year = cfg.outbound_dates[0].year
+        anchor = cfg.outbound_dates[0]
+    elif which in {"in", "도착", "오는날", "오는", "귀국"}:
         key, label = "arrive_korea", "인천 도착"
+        fallback_year = cfg.arrive_korea[0].year
+        anchor = cfg.arrive_korea[0]
     else:
-        return "출발 또는 도착 중에 골라주세요.", False
+        return "출발 또는 도착 중에 골라주세요.\n\n" + _DATE_HELP, False
+
+    found = _find_dates(" ".join(args[1:]), fallback_year)
+    if len(found) < 2:
+        return (
+            "날짜 두 개를 읽지 못했습니다 (찾은 것: {}).\n\n{}".format(
+                ", ".join(str(d) for d, _ in found) or "없음", _DATE_HELP
+            )
+        ), False
+
+    (start, start_explicit), (end, end_explicit) = found[0], found[1]
+
+    # 연도를 안 적었으면 지금 설정된 창에서 가장 가까운 해로 본다. 1월 여행에
+    # "12-29" 라고 쓰면 11개월 뒤가 아니라 직전 12월을 뜻한다.
+    start = start if start_explicit else _nearest_year(start, anchor)
+    end = end if end_explicit else _nearest_year(end, anchor)
+
+    # 연말을 넘기는 구간은 순서가 뒤집힌다 ('12/29 ~ 1/1').
+    if end < start and not end_explicit:
+        end = end.replace(year=end.year + 1)
+
+    if end < start:
+        return "종료일({})이 시작일({})보다 빠릅니다.".format(end, start), False
 
     def mutate(doc):
         doc["trip"][key]["start"] = start

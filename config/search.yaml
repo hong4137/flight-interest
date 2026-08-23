@@ -5,10 +5,10 @@ trip:
   origin: ICN
 
   # 인천 출발 가능일
-  outbound_dates: {start: 2027-01-02, end: 2027-01-06}
+  outbound_dates: {start: 2026-12-29, end: 2027-01-01}
 
   # 인천 "도착" 가능일. 유럽 출발일은 여기서 역산합니다.
-  arrive_korea: {start: 2027-01-16, end: 2027-01-20}
+  arrive_korea: {start: 2027-01-10, end: 2027-01-13}
   # 유럽 출발일을 도착창보다 며칠 앞에서부터 조회할지 (도착일로 최종 필터링)
   return_search_pad_days: 2
 

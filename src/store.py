@@ -211,6 +211,61 @@ class Store:
     def get_hot(self) -> list[dict]:
         return self.state.get("hot", [])
 
+    def prune_stale(self, cfg) -> int:
+        """지금 조건으로는 검색되지 않는 옛 기록을 버린다.
+
+        날짜 창이나 도시를 바꾸면 이전 기록은 더 이상 살 수 없는 조합이다.
+        그대로 두면 대시보드와 요약이 "현재 최저가" 로 못 사는 가격을 보여준다.
+        """
+        airports = set(cfg.entry_airports) | set(cfg.exit_airports)
+        out_lo, out_hi = cfg.outbound_dates[0], cfg.outbound_dates[-1]
+        in_lo, in_hi = cfg.return_search_dates[0], cfg.return_search_dates[-1]
+
+        kept, dropped = {}, 0
+        for key, value in self.state["best_by_route"].items():
+            parts = key.split("|")
+            if len(parts) != 4:
+                dropped += 1
+                continue
+            entry, exit_city, out_s, in_s = parts
+            try:
+                out_d = date.fromisoformat(out_s)
+                in_d = date.fromisoformat(in_s)
+            except ValueError:
+                dropped += 1
+                continue
+            if (
+                entry not in airports
+                or exit_city not in airports
+                or not (out_lo <= out_d <= out_hi)
+                or not (in_lo <= in_d <= in_hi)
+            ):
+                dropped += 1
+                continue
+            kept[key] = value
+
+        if dropped:
+            self.state["best_by_route"] = kept
+            best_key = min(kept, key=lambda k: kept[k]["price"]) if kept else None
+            self.state["global_best"] = (
+                {
+                    "price": kept[best_key]["price"],
+                    "at": kept[best_key]["at"],
+                    "route_key": best_key,
+                }
+                if best_key
+                else None
+            )
+            # 사라진 조합을 다시 확인하러 가지 않도록 hot 목록도 정리한다.
+            self.state["hot"] = [
+                h for h in self.state.get("hot", [])
+                if "{}|{}|{}|{}".format(
+                    h.get("entry"), h.get("exit"),
+                    h.get("outbound_date"), h.get("inbound_date"),
+                ) in kept
+            ]
+        return dropped
+
     def record_config(self, cfg) -> None:
         """대시보드가 YAML 을 파싱하지 않고도 조건을 알 수 있게 요약을 남긴다."""
         self.state["target_per_person"] = cfg.threshold_pp
