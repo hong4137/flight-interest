@@ -16,7 +16,7 @@ trip:
   # 양방향 모두 0건이었다. 4개 도시가 스윕당 48회(전체의 35%)를 헛되이 쓰므로 뺐다.
   # 조건을 넓히고 싶으면 아래 주석을 풀면 된다.
   entry_airports:
-    IT: [FCO, MXP, VCE]        # 제외: BLQ, NAP
+    IT: []                     # 제외: BLQ, NAP
     ES: [BCN, MAD]             # 제외: VLC, AGP
     PT: [LIS, OPO]
   # 출국 도시 후보. same_as_entry 또는 위와 같은 형식의 목록.
