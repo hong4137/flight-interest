@@ -12,7 +12,56 @@
     "2027-01-10",
     "2027-01-13"
   ],
-  "best_by_route": {},
+  "best_by_route": {
+    "BCN|BCN|2026-12-30|2027-01-08": {
+      "airlines": "루프트한자",
+      "at": "2026-08-23T14:50:56",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3524400,
+      "stops": 1
+    },
+    "BCN|BCN|2026-12-30|2027-01-11": {
+      "airlines": "핀란드항공",
+      "at": "2026-08-23T14:50:59",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3750300,
+      "stops": 1
+    },
+    "BCN|BCN|2026-12-30|2027-01-12": {
+      "airlines": "루프트한자",
+      "at": "2026-08-23T14:51:02",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3524400,
+      "stops": 1
+    },
+    "BCN|BCN|2026-12-31|2027-01-08": {
+      "airlines": "에미레이트항공",
+      "at": "2026-08-23T14:51:06",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 4249600,
+      "stops": 1
+    },
+    "MAD|MAD|2027-01-01|2027-01-09": {
+      "airlines": "카타르항공",
+      "at": "2026-08-23T14:51:08",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 4013400,
+      "stops": 1
+    },
+    "MAD|MAD|2027-01-01|2027-01-10": {
+      "airlines": "카타르항공,이베리아항공",
+      "at": "2026-08-23T14:51:11",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3991100,
+      "stops": 1
+    }
+  },
   "cabin": "business",
   "calibration": {
     "open-jaw": {
@@ -20,7 +69,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.7041,
+      "ratio": 0.7054,
       "samples": [
         [
           4990307,
@@ -393,22 +442,93 @@
         [
           5326488,
           3750300
+        ],
+        [
+          4996667,
+          3524400
+        ],
+        [
+          5128188,
+          3750300
+        ],
+        [
+          5195998,
+          3524400
+        ],
+        [
+          5309467,
+          4249600
+        ],
+        [
+          5319075,
+          4013400
+        ],
+        [
+          5319075,
+          3991100
         ]
       ]
     }
   },
-  "global_best": null,
-  "hot": [],
+  "global_best": {
+    "at": "2026-08-23T14:50:56",
+    "price": 3524400,
+    "route_key": "BCN|BCN|2026-12-30|2027-01-08"
+  },
+  "hot": [
+    {
+      "entry": "BCN",
+      "estimated_pp": 3524400,
+      "exit": "BCN",
+      "inbound_date": "2027-01-08",
+      "outbound_date": "2026-12-30"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 3524400,
+      "exit": "BCN",
+      "inbound_date": "2027-01-12",
+      "outbound_date": "2026-12-30"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 3750300,
+      "exit": "BCN",
+      "inbound_date": "2027-01-11",
+      "outbound_date": "2026-12-30"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3991100,
+      "exit": "MAD",
+      "inbound_date": "2027-01-10",
+      "outbound_date": "2027-01-01"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 4013400,
+      "exit": "MAD",
+      "inbound_date": "2027-01-09",
+      "outbound_date": "2027-01-01"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 4249600,
+      "exit": "BCN",
+      "inbound_date": "2027-01-08",
+      "outbound_date": "2026-12-31"
+    }
+  ],
   "last_sweep": {
-    "at": "2026-08-23T14:36:04",
-    "cheapest": null,
-    "confirmed": 0,
+    "at": "2026-08-23T14:51:11",
+    "cheapest": 3524400,
+    "confirmed": 6,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 0
+    "mode": "full",
+    "queries": 46
   },
   "max_stops": 1,
   "outbound_window": [
