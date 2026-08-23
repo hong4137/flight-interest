@@ -14,7 +14,33 @@ GitHub Actions 스케줄러만 쓰면 명령 반영에 20~100분이 걸린다 (�
 텔레그램은 **웹훅과 getUpdates 를 동시에 쓸 수 없다.** 웹훅을 걸면 폴링은
 `409 Conflict` 를 받는다. 그래서 `command.yml` 의 `schedule` 을 제거했다.
 
-## 설치
+## 설치 — 대시보드 (계정이 이미 있으면 이쪽이 쉽다)
+
+파일 하나에 의존성이 없으므로 붙여넣기만 하면 된다. wrangler 도 npm 도 필요 없다.
+
+1. **Workers & Pages → Create → Worker** → 이름 `flight-watch` → Deploy
+2. **Edit code** 를 눌러 [`worker.js`](worker.js) 내용을 통째로 붙여넣고 Deploy
+3. **Settings → Variables and Secrets** 에서 값을 넣는다
+
+   암호화(Secret)로 넣을 것 — 대시보드에서 다시 볼 수 없다:
+
+   | 이름 | 값 |
+   |---|---|
+   | `TELEGRAM_BOT_TOKEN` | @BotFather 가 준 봇 토큰 |
+   | `TELEGRAM_SECRET` | 아무 문자열 (아래 setWebhook 에서 같은 값을 쓴다) |
+   | `GITHUB_TOKEN` | 아래 2번에서 만드는 PAT |
+
+   평문(Text)으로 넣을 것 — 공개돼도 되는 값이다:
+
+   | 이름 | 값 |
+   |---|---|
+   | `ALLOWED_CHATS` | `-5590845708` |
+   | `GITHUB_REPO` | `hong4137/flight-interest` |
+   | `DASHBOARD_URL` | `https://hong4137.github.io/flight-interest/` |
+
+4. 아래 "웹훅 등록" 으로 넘어간다. `wrangler.toml` 은 CLI 로 배포할 때만 쓰인다.
+
+## 설치 — CLI
 
 1. **Cloudflare 계정**을 만들고 (무료) `npm i -g wrangler` 후 `wrangler login`.
 
@@ -35,7 +61,9 @@ wrangler secret put GITHUB_TOKEN
 wrangler deploy
 ```
 
-5. 배포가 알려준 주소(`https://flight-watch.<계정>.workers.dev`)를 텔레그램에 등록한다.
+## 웹훅 등록
+
+배포 주소(`https://flight-watch.<계정>.workers.dev`)를 텔레그램에 알려준다.
 
 ```bash
 curl -X POST "https://api.telegram.org/bot<봇토큰>/setWebhook" \
