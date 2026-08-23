@@ -80,6 +80,17 @@ python -m venv .venv
 |---|---|---|
 | `TELEGRAM_BOT_TOKEN` | ✅ | 텔레그램에서 [@BotFather](https://t.me/BotFather) → `/newbot` |
 | `TELEGRAM_CHAT_ID` | ✅ | 봇에게 아무 메시지나 보낸 뒤 `https://api.telegram.org/bot<토큰>/getUpdates` 의 `chat.id` |
+
+`TELEGRAM_CHAT_ID` 는 쉼표로 여러 대화를 지정할 수 있다 (`1406724324,-5590845708`).
+알림과 요약은 전부에게 가고, 명령은 이 목록에 있는 대화에서만 받는다. 한 대화가
+막혀도(봇 차단, 그룹 탈퇴) 나머지에는 정상 발송된다.
+
+**단체방을 쓰면** 사람이 늘거나 바뀌어도 Secret 을 건드릴 필요가 없다 — 그룹 멤버만
+조정하면 된다. 봇을 초대하고 그룹에서 아무 메시지나 보낸 뒤 `getUpdates` 에서 음수
+`chat.id` 를 가져온다. 프라이버시 모드가 켜져 있어도 `/명령` 은 전달되므로 끌 필요 없다.
+
+> ⚠️ 일반 그룹이 슈퍼그룹으로 전환되면 `chat.id` 가 바뀐다 (공개 링크를 만들거나
+> 멤버가 늘 때). 알림이 갑자기 끊기면 이걸 먼저 의심하고 새 id 로 Secret 을 고친다.
 | `SERPAPI_KEY` | 선택 | [serpapi.com](https://serpapi.com/) 무료 가입 (월 250콜). 없으면 오픈조 확인만 건너뛴다 |
 
 ## 사용법

@@ -461,13 +461,13 @@ def run(cfg: Config, store: Store, path: Path | None = None) -> CommandResult:
         log.info("새 명령 없음")
         return result
 
-    authorized = str(cfg.telegram_chat_id)
+    authorized = set(cfg.telegram_chat_ids)
     last_seen = offset
     for update in updates:
         last_seen = update.update_id + 1
 
         # 봇은 공개돼 있어 누구나 말을 걸 수 있다. 등록된 대화만 처리한다.
-        if str(update.chat_id) != authorized:
+        if str(update.chat_id) not in authorized:
             log.warning("허가되지 않은 chat_id 의 명령 무시: %s", update.chat_id)
             result.rejected += 1
             continue
@@ -488,7 +488,9 @@ def run(cfg: Config, store: Store, path: Path | None = None) -> CommandResult:
             result.config_changed = True
             reply += "\n\n<i>다음 스윕부터 반영됩니다.</i>"
 
-        send(cfg, reply)
+        # 답장은 명령이 온 대화로 보낸다. 개인방에서 물었는데 단체방에
+        # 답이 가면 곤란하다.
+        send(cfg, reply, chat_id=str(update.chat_id))
         result.replies.append(reply)
 
     _write_offset(last_seen)

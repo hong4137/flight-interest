@@ -69,8 +69,20 @@ class Config:
         return os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
 
     @property
+    def telegram_chat_ids(self) -> list[str]:
+        """쉼표로 여러 대화를 지정할 수 있다.
+
+        개인방과 단체방을 함께 쓰거나, 나중에 다른 사람에게 넘길 때 필요하다.
+        알림은 전부에게 가고, 명령은 이 목록에 있는 대화에서만 받는다.
+        """
+        raw = os.environ.get("TELEGRAM_CHAT_ID", "")
+        return [c.strip() for c in raw.split(",") if c.strip()]
+
+    @property
     def telegram_chat_id(self) -> str:
-        return os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+        """첫 번째 대화. 단일 대상이 필요한 곳에서 쓴다."""
+        ids = self.telegram_chat_ids
+        return ids[0] if ids else ""
 
     @property
     def serpapi_key(self) -> str:
@@ -78,7 +90,7 @@ class Config:
 
     @property
     def telegram_enabled(self) -> bool:
-        return bool(self.telegram_token and self.telegram_chat_id)
+        return bool(self.telegram_token and self.telegram_chat_ids)
 
     @property
     def serpapi_enabled(self) -> bool:

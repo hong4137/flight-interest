@@ -274,29 +274,42 @@ def format_digest(cfg: Config, store: Store) -> str:
 
 # ── 발송 ─────────────────────────────────────────────────────
 
-def send(cfg: Config, text: str, *, silent: bool = False) -> bool:
+def send(
+    cfg: Config, text: str, *, silent: bool = False, chat_id: str | None = None
+) -> bool:
+    """chat_id 를 주면 그 대화에만, 없으면 등록된 모든 대화에 보낸다.
+
+    명령 답장은 명령이 온 대화로 가야 하므로 chat_id 를 지정한다. 알림과 요약은
+    등록된 모두가 봐야 하므로 지정하지 않는다.
+    """
     if not cfg.telegram_enabled:
-        log.warning("텔레그램 미설정 — 아래 메시지를 보내지 못했습니다:\n%s", text)
+        log.warning("텔레그램 미설정 - 아래 메시지를 보내지 못했습니다:%s%s", chr(10), text)
         return False
-    try:
-        resp = requests.post(
-            TELEGRAM_API.format(token=cfg.telegram_token),
-            json={
-                "chat_id": cfg.telegram_chat_id,
-                "text": text,
-                "parse_mode": "HTML",
-                "disable_web_page_preview": True,
-                "disable_notification": silent,
-            },
-            timeout=cfg.timeout,
-        )
-        if resp.status_code != 200:
-            log.error("텔레그램 발송 실패 %s: %s", resp.status_code, resp.text[:300])
-            return False
-        return True
-    except requests.RequestException as exc:
-        log.error("텔레그램 발송 중 네트워크 오류: %s", exc)
-        return False
+
+    targets = [chat_id] if chat_id else cfg.telegram_chat_ids
+    sent_any = False
+    for target in targets:
+        try:
+            resp = requests.post(
+                TELEGRAM_API.format(token=cfg.telegram_token),
+                json={
+                    "chat_id": target,
+                    "text": text,
+                    "parse_mode": "HTML",
+                    "disable_web_page_preview": True,
+                    "disable_notification": silent,
+                },
+                timeout=cfg.timeout,
+            )
+            if resp.status_code == 200:
+                sent_any = True
+            else:
+                # 한 대화가 막혀도(봇 차단, 그룹 탈퇴 등) 나머지에는 보내야 한다.
+                log.error("텔레그램 발송 실패 chat=%s %s: %s",
+                          target, resp.status_code, resp.text[:200])
+        except requests.RequestException as exc:
+            log.error("텔레그램 발송 중 네트워크 오류 chat=%s: %s", target, exc)
+    return sent_any
 
 
 def notify_deal(cfg: Config, store: Store, deal: Deal, decision: AlertDecision) -> bool:

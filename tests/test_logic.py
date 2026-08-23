@@ -650,3 +650,78 @@ def test_자동완성_메뉴는_영문_이름만_쓴다():
     names = re.findall(r'"command":\s*"([^"]+)"', inspect.getsource(publish_commands))
     assert names
     assert all(re.fullmatch(r"[a-z0-9_]{1,32}", n) for n in names), names
+
+
+# ── 여러 대화 지원 ───────────────────────────────────────────
+
+def test_알림은_등록된_모든_대화로_간다(cfg, monkeypatch):
+    """개인방과 단체방을 함께 쓸 수 있어야 한다."""
+    import src.alert as al
+
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "x")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "111, -222")
+    sent = []
+
+    class Resp:
+        status_code = 200
+    monkeypatch.setattr(al.requests, "post",
+                        lambda *a, **k: sent.append(k["json"]["chat_id"]) or Resp())
+
+    assert al.send(cfg, "테스트")
+    assert sent == ["111", "-222"]
+
+
+def test_한_대화가_막혀도_나머지에는_간다(cfg, monkeypatch):
+    """봇을 차단했거나 그룹에서 나갔다고 다른 사람 알림까지 끊기면 안 된다."""
+    import src.alert as al
+
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "x")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "111,-222")
+
+    class Resp:
+        def __init__(self, code): self.status_code, self.text = code, "blocked"
+    calls = []
+
+    def fake_post(*a, **k):
+        cid = k["json"]["chat_id"]
+        calls.append(cid)
+        return Resp(403 if cid == "111" else 200)
+    monkeypatch.setattr(al.requests, "post", fake_post)
+
+    assert al.send(cfg, "테스트")      # 하나라도 갔으면 성공
+    assert calls == ["111", "-222"]
+
+
+def test_명령_답장은_명령이_온_대화로만_간다(cfg, store, monkeypatch, tmp_path):
+    """개인방에서 물었는데 단체방에 답이 가면 곤란하다."""
+    import src.commands as cmds
+
+    monkeypatch.setattr(cmds, "OFFSET_PATH", tmp_path / "telegram.json")
+    monkeypatch.setattr(cmds, "DATA_DIR", tmp_path)
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "x")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "111,-222")
+    monkeypatch.setattr(cmds, "fetch_updates",
+                        lambda c, o: [cmds.Update(1, -222, "/상태")])
+    seen = []
+    monkeypatch.setattr(cmds, "send",
+                        lambda c, t, **k: seen.append(k.get("chat_id")) or True)
+
+    result = cmds.run(load_config(), store)
+
+    assert result.processed == 1 and result.rejected == 0
+    assert seen == ["-222"]          # 단체방에서 왔으니 단체방으로만
+
+
+def test_목록에_없는_대화는_여전히_거부한다(cfg, store, monkeypatch, tmp_path):
+    import src.commands as cmds
+
+    monkeypatch.setattr(cmds, "OFFSET_PATH", tmp_path / "telegram.json")
+    monkeypatch.setattr(cmds, "DATA_DIR", tmp_path)
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "x")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "111,-222")
+    monkeypatch.setattr(cmds, "fetch_updates",
+                        lambda c, o: [cmds.Update(1, 999, "/목표 100")])
+    monkeypatch.setattr(cmds, "send", lambda c, t, **k: True)
+
+    result = cmds.run(load_config(), store)
+    assert result.rejected == 1 and result.processed == 0
