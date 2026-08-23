@@ -1,8 +1,5 @@
 {
   "airports": [
-    "FCO",
-    "MXP",
-    "VCE",
     "BCN",
     "MAD",
     "LIS",
@@ -16,6 +13,70 @@
     "2027-01-20"
   ],
   "best_by_route": {
+    "BCN|BCN|2027-01-03|2027-01-16": {
+      "airlines": "핀란드항공",
+      "at": "2026-08-23T13:47:48",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDMoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTYoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3750300,
+      "stops": 1
+    },
+    "BCN|BCN|2027-01-03|2027-01-18": {
+      "airlines": "핀란드항공",
+      "at": "2026-08-23T13:48:05",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDMoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3750300,
+      "stops": 1
+    },
+    "BCN|BCN|2027-01-04|2027-01-16": {
+      "airlines": "핀란드항공",
+      "at": "2026-08-23T13:47:51",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDQoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTYoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3750300,
+      "stops": 1
+    },
+    "BCN|BCN|2027-01-04|2027-01-18": {
+      "airlines": "핀란드항공",
+      "at": "2026-08-23T13:48:08",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDQoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3750300,
+      "stops": 1
+    },
+    "BCN|BCN|2027-01-05|2027-01-16": {
+      "airlines": "핀란드항공",
+      "at": "2026-08-23T13:47:55",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDUoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTYoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3750300,
+      "stops": 1
+    },
+    "BCN|BCN|2027-01-05|2027-01-18": {
+      "airlines": "핀란드항공",
+      "at": "2026-08-23T13:48:12",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDUoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3750300,
+      "stops": 1
+    },
+    "BCN|BCN|2027-01-06|2027-01-16": {
+      "airlines": "핀란드항공",
+      "at": "2026-08-23T13:47:58",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDYoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTYoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3750300,
+      "stops": 1
+    },
+    "BCN|BCN|2027-01-06|2027-01-18": {
+      "airlines": "핀란드항공",
+      "at": "2026-08-23T13:48:16",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDYoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3750300,
+      "stops": 1
+    },
     "BCN|MAD|2027-01-03|2027-01-16": {
       "airlines": "핀란드항공",
       "at": "2026-08-23T01:51:59",
@@ -202,7 +263,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.7023,
+      "ratio": 0.7041,
       "samples": [
         [
           4990307,
@@ -539,6 +600,42 @@
         [
           5263016,
           4097100
+        ],
+        [
+          5083501,
+          3750300
+        ],
+        [
+          5083501,
+          3750300
+        ],
+        [
+          5083501,
+          3750300
+        ],
+        [
+          5083501,
+          3750300
+        ],
+        [
+          5180194,
+          4155100
+        ],
+        [
+          5326488,
+          3750300
+        ],
+        [
+          5326488,
+          3750300
+        ],
+        [
+          5326488,
+          3750300
+        ],
+        [
+          5326488,
+          3750300
         ]
       ]
     }
@@ -550,100 +647,79 @@
   },
   "hot": [
     {
-      "entry": "FCO",
-      "estimated_pp": 3430300,
-      "exit": "FCO",
-      "inbound_date": "2027-01-14",
-      "outbound_date": "2027-01-04"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3430300,
-      "exit": "FCO",
-      "inbound_date": "2027-01-14",
-      "outbound_date": "2027-01-06"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3430300,
-      "exit": "FCO",
+      "entry": "BCN",
+      "estimated_pp": 3750300,
+      "exit": "BCN",
       "inbound_date": "2027-01-16",
-      "outbound_date": "2027-01-04"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3430300,
-      "exit": "FCO",
-      "inbound_date": "2027-01-16",
-      "outbound_date": "2027-01-06"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3445000,
-      "exit": "FCO",
-      "inbound_date": "2027-01-18",
-      "outbound_date": "2027-01-04"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3504400,
-      "exit": "FCO",
-      "inbound_date": "2027-01-14",
       "outbound_date": "2027-01-03"
     },
     {
-      "entry": "FCO",
-      "estimated_pp": 3577800,
-      "exit": "FCO",
-      "inbound_date": "2027-01-15",
+      "entry": "BCN",
+      "estimated_pp": 3750300,
+      "exit": "BCN",
+      "inbound_date": "2027-01-16",
       "outbound_date": "2027-01-04"
     },
     {
-      "entry": "FCO",
-      "estimated_pp": 3577800,
-      "exit": "FCO",
-      "inbound_date": "2027-01-15",
-      "outbound_date": "2027-01-06"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3582706,
-      "exit": "FCO",
-      "inbound_date": "2027-01-17",
-      "outbound_date": "2027-01-04"
-    },
-    {
-      "entry": "FCO",
-      "estimated_pp": 3582706,
-      "exit": "FCO",
-      "inbound_date": "2027-01-17",
-      "outbound_date": "2027-01-06"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 3659775,
-      "exit": "MAD",
+      "entry": "BCN",
+      "estimated_pp": 3750300,
+      "exit": "BCN",
       "inbound_date": "2027-01-16",
       "outbound_date": "2027-01-05"
     },
     {
+      "entry": "BCN",
+      "estimated_pp": 3750300,
+      "exit": "BCN",
+      "inbound_date": "2027-01-16",
+      "outbound_date": "2027-01-06"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 3750300,
+      "exit": "BCN",
+      "inbound_date": "2027-01-18",
+      "outbound_date": "2027-01-03"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 3750300,
+      "exit": "BCN",
+      "inbound_date": "2027-01-18",
+      "outbound_date": "2027-01-04"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 3750300,
+      "exit": "BCN",
+      "inbound_date": "2027-01-18",
+      "outbound_date": "2027-01-05"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 3750300,
+      "exit": "BCN",
+      "inbound_date": "2027-01-18",
+      "outbound_date": "2027-01-06"
+    },
+    {
       "entry": "MAD",
-      "estimated_pp": 3659775,
+      "estimated_pp": 3638050,
       "exit": "MAD",
       "inbound_date": "2027-01-16",
       "outbound_date": "2027-01-06"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-23T12:10:50",
-    "cheapest": 3430300,
-    "confirmed": 12,
+    "at": "2026-08-23T13:48:16",
+    "cheapest": 3750300,
+    "confirmed": 9,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 12
+    "mode": "full",
+    "queries": 57
   },
   "max_stops": 1,
   "outbound_window": [

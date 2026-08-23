@@ -219,3 +219,12 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-08-23T12:10:43,round-trip,FCO,FCO,2027-01-06,2027-01-17,4061400,루프트한자,1,gflights
 2026-08-23T12:10:46,round-trip,MAD,MAD,2027-01-05,2027-01-16,4013400,카타르항공,1,gflights
 2026-08-23T12:10:50,round-trip,MAD,MAD,2027-01-06,2027-01-16,4013400,카타르항공,1,gflights
+2026-08-23T13:47:48,round-trip,BCN,BCN,2027-01-03,2027-01-16,3750300,핀란드항공,1,gflights
+2026-08-23T13:47:51,round-trip,BCN,BCN,2027-01-04,2027-01-16,3750300,핀란드항공,1,gflights
+2026-08-23T13:47:55,round-trip,BCN,BCN,2027-01-05,2027-01-16,3750300,핀란드항공,1,gflights
+2026-08-23T13:47:58,round-trip,BCN,BCN,2027-01-06,2027-01-16,3750300,핀란드항공,1,gflights
+2026-08-23T13:48:02,round-trip,MAD,MAD,2027-01-06,2027-01-16,4155100,LOT 폴란드항공,1,gflights
+2026-08-23T13:48:05,round-trip,BCN,BCN,2027-01-03,2027-01-18,3750300,핀란드항공,1,gflights
+2026-08-23T13:48:08,round-trip,BCN,BCN,2027-01-04,2027-01-18,3750300,핀란드항공,1,gflights
+2026-08-23T13:48:12,round-trip,BCN,BCN,2027-01-05,2027-01-18,3750300,핀란드항공,1,gflights
+2026-08-23T13:48:16,round-trip,BCN,BCN,2027-01-06,2027-01-18,3750300,핀란드항공,1,gflights
