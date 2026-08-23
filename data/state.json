@@ -508,16 +508,16 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-23T21:56:37",
+    "at": "2026-08-23T22:38:24",
     "candidates": 2,
-    "cheapest": 3569000,
-    "confirmed": 2,
+    "cheapest": 3750300,
+    "confirmed": 1,
     "empty_final": 0,
     "empty_recovered": 0,
-    "fail_rate": 0.0,
-    "failures": 0,
-    "mode": "full",
-    "queries": 42
+    "fail_rate": 0.5,
+    "failures": 1,
+    "mode": "hot",
+    "queries": 2
   },
   "max_stops": 1,
   "outbound_window": [
