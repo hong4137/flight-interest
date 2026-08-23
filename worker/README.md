@@ -80,6 +80,22 @@ curl "https://api.telegram.org/bot<봇토큰>/getWebhookInfo"
 `pending_update_count` 가 계속 쌓이거나 `last_error_message` 가 있으면 Worker 가
 실패하고 있는 것이다. `wrangler tail` 로 로그를 본다.
 
+## 문제가 생기면
+
+먼저 진단 엔드포인트를 본다. 값은 돌려주지 않고 상태만 알려준다.
+
+```bash
+curl -H "X-Telegram-Bot-Api-Secret-Token: <비밀값>" "https://flight-watch.<계정>.workers.dev/diag"
+```
+
+`github_token.repo_조회` 가 200 이 아니면 토큰 문제다. 401 이면 값이 잘못됐거나
+앞뒤 공백이 붙은 것이고(`앞뒤공백` 항목을 본다), 403 이면 권한이 모자란 것이다
+(`필요권한` 항목이 무엇이 필요한지 알려준다).
+
+> ⚠️ **대시보드로 시크릿을 넣으면 즉시 반영되지 않는다.** 이미 돌고 있는 Worker
+> 인스턴스가 옛 환경을 들고 있어서 401 이 난다. `wrangler deploy` 로 한 번
+> 재배포하면 새 값을 집는다. 실제로 이것 때문에 한참 헤맸다.
+
 ## 되돌리기
 
 ```bash

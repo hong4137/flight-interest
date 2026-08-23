@@ -111,7 +111,8 @@ async function dispatch(env, chatId, text) {
     {
       method: "POST",
       headers: {
-        authorization: `Bearer ${env.GITHUB_TOKEN}`,
+        // 붙여넣을 때 앞뒤 공백·개행이 섞이면 GitHub 이 401 을 준다.
+        authorization: `Bearer ${(env.GITHUB_TOKEN || "").trim()}`,
         accept: "application/vnd.github+json",
         "content-type": "application/json",
         "user-agent": "flight-watch-worker",
@@ -128,9 +129,45 @@ async function dispatch(env, chatId, text) {
   return res.ok;
 }
 
+/**
+ * 설정이 제대로 들어갔는지 확인한다. 값은 절대 돌려주지 않고 상태만 알린다.
+ * 비밀 헤더가 있어야 접근할 수 있다.
+ *
+ *   curl -H "X-Telegram-Bot-Api-Secret-Token: <비밀값>" "<주소>/diag"
+ */
+async function diagnose(env) {
+  const raw = env.GITHUB_TOKEN || "";
+  const token = raw.trim();
+  const out = {
+    github_token: {
+      설정됨: Boolean(raw),
+      길이: raw.length,
+      앞머리: token.slice(0, 4),
+      앞뒤공백: raw !== token,
+    },
+    vars: {
+      ALLOWED_CHATS: env.ALLOWED_CHATS || null,
+      GITHUB_REPO: env.GITHUB_REPO || null,
+      TELEGRAM_BOT_TOKEN: Boolean(env.TELEGRAM_BOT_TOKEN),
+      TELEGRAM_SECRET: Boolean(env.TELEGRAM_SECRET),
+    },
+  };
+
+  if (token) {
+    const head = { authorization: `Bearer ${token}`, "user-agent": "flight-watch-worker" };
+    const repo = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}`, { headers: head });
+    out.github_token.repo_조회 = repo.status;
+    out.github_token.필요권한 = repo.headers.get("x-accepted-github-permissions") || "-";
+    if (!repo.ok) out.github_token.오류 = (await repo.text()).slice(0, 160);
+  }
+  return Response.json(out, { headers: { "cache-control": "no-store" } });
+}
+
 export default {
   async fetch(request, env) {
-    if (request.method !== "POST") {
+    const isDiag = new URL(request.url).pathname === "/diag";
+
+    if (request.method !== "POST" && !isDiag) {
       return new Response("flight-watch webhook", { status: 200 });
     }
 
@@ -138,6 +175,8 @@ export default {
     if (request.headers.get("X-Telegram-Bot-Api-Secret-Token") !== env.TELEGRAM_SECRET) {
       return new Response("forbidden", { status: 403 });
     }
+
+    if (isDiag) return diagnose(env);
 
     let update;
     try {
