@@ -61,6 +61,7 @@ AIRPORT_COUNTRY = {
 _HELP_BODY = """<b>사용할 수 있는 명령</b>
 
 /상태 — 현재 최저가와 목표까지 남은 금액
+/로직 — 무엇을 어떻게 찾고 있는지 설명
 /목표 320 — 목표가를 1인 320만원으로 변경
 /경유 1 — 경유 최대 횟수 (0=직항만)
 /인원 2 — 탑승 인원
@@ -71,10 +72,9 @@ _HELP_BODY = """<b>사용할 수 있는 명령</b>
 /도움 — 이 목록
 
 <i>입력창의 자동완성 메뉴는 영문으로만 뜹니다 (텔레그램 제약).
-/status /target /stops /pax /city /dates /help 도 똑같이 동작합니다.</i>
+/status /logic /target /stops /pax /city /dates /help 도 똑같이 동작합니다.</i>
 
-<i>상시 서버가 없어 10분마다 확인하는 구조라, 답장까지 보통 10~30분 걸립니다.
-조회만 하실 거면 대시보드가 즉시 답을 줍니다 — 명령은 값을 "바꿀" 때 쓰세요.</i>"""
+<i>/상태 와 /도움 은 즉시, 나머지는 20초쯤 걸립니다.</i>"""
 
 
 def dashboard_link(cfg: Config, label: str = "📊 대시보드 열기") -> str:
@@ -142,6 +142,7 @@ def publish_commands(cfg: Config) -> bool:
     """
     commands = [
         {"command": "status", "description": "현재 최저가와 목표까지 남은 금액 (/상태)"},
+        {"command": "logic", "description": "무엇을 어떻게 찾고 있는지 설명 (/로직)"},
         {"command": "target", "description": "목표가 변경 — 예: /target 320 (/목표)"},
         {"command": "stops", "description": "경유 최대 횟수 — 예: /stops 1 (/경유)"},
         {"command": "pax", "description": "탑승 인원 — 예: /pax 2 (/인원)"},
@@ -275,6 +276,118 @@ def _status(cfg: Config, store: Store) -> str:
     return "\n".join(lines)
 
 
+AIRPORT_NAME = {
+    "FCO": "로마", "MXP": "밀라노", "VCE": "베네치아", "BLQ": "볼로냐", "NAP": "나폴리",
+    "LIN": "밀라노(리나테)", "TRN": "토리노", "FLR": "피렌체", "PSA": "피사",
+    "BRI": "바리", "CTA": "카타니아", "PMO": "팔레르모", "VRN": "베로나",
+    "BCN": "바르셀로나", "MAD": "마드리드", "VLC": "발렌시아", "AGP": "말라가",
+    "SVQ": "세비야", "BIO": "빌바오", "PMI": "마요르카", "ALC": "알리칸테",
+    "LPA": "라스팔마스", "TFS": "테네리페",
+    "LIS": "리스본", "OPO": "포르투", "FAO": "파루", "FNC": "마데이라", "PDL": "폰타델가다",
+    "ICN": "인천",
+}
+
+CABIN_NAME = {
+    "economy": "이코노미", "premium-economy": "프리미엄 이코노미",
+    "business": "비즈니스", "first": "퍼스트",
+}
+
+
+def _city(code: str) -> str:
+    name = AIRPORT_NAME.get(code)
+    return "{}({})".format(name, code) if name else code
+
+
+def _logic(cfg: Config, store: Store) -> str:
+    """지금 무엇을 어떻게 찾고 있는지 사람 말로 설명한다.
+
+    /상태 는 결과만 보여준다. 조건을 바꾼 뒤 "이게 맞게 돌고 있나" 를 확인할
+    방법이 없어서 만들었다.
+    """
+    n_city = len(cfg.entry_airports)
+    n_out, n_in = len(cfg.outbound_dates), len(cfg.return_search_dates)
+    combos = n_city * len(cfg.exit_airports) * n_out * n_in
+    ow_queries = n_city * n_out + len(cfg.exit_airports) * n_in
+    ratio = store.calibrated_ratio(cfg.ow_to_rt_ratio, "round-trip")
+
+    lines = [
+        "🔍 <b>지금 하고 있는 일</b>",
+        "",
+        "<b>무엇을 찾는가</b>",
+        "인천 ↔ {}".format(", ".join(_city(c) for c in cfg.entry_airports)),
+        "{} ~ {} 인천 출발 ({}일)".format(
+            cfg.outbound_dates[0], cfg.outbound_dates[-1], n_out
+        ),
+        "{} ~ {} 인천 도착".format(cfg.arrive_korea[0], cfg.arrive_korea[1]),
+        "{} {}석 · 경유 {}회 이하 · 목표 1인 {}".format(
+            CABIN_NAME.get(cfg.cabin, cfg.cabin), cfg.passengers,
+            cfg.max_stops, won(cfg.threshold_pp),
+        ),
+        "",
+    ]
+
+    if cfg.allow_open_jaw:
+        lines.append("입국·출국 도시가 달라도 됩니다 (오픈조).")
+    lines += [
+        "가능한 조합 <b>{:,}개</b>".format(combos),
+        "  <i>{}일 출발 × {}일 귀국 × {}도시 입국 × {}도시 출국</i>".format(
+            n_out, n_in, n_city, len(cfg.exit_airports)
+        ),
+        "",
+        "<b>어떻게 찾는가</b>",
+        "{:,}개를 매번 다 조회할 수는 없어 편도로 쪼갭니다.".format(combos),
+        "  인천→각 도시 {}일 = {}회".format(n_out, n_city * n_out),
+        "  각 도시→인천 {}일 = {}회".format(n_in, len(cfg.exit_airports) * n_in),
+        "  <b>{}회</b>로 {:,}개 조합의 가격 상한을 계산합니다".format(ow_queries, combos),
+        "",
+        "왕복가 ≈ 편도합산 × {:.2f} <i>(실측·자동보정)</i>".format(ratio),
+        "추정가가 {} 이내인 조합만 실제로 확인합니다.".format(won(cfg.threshold_trigger_pp())),
+        "",
+        "<b>언제 돌리는가</b>",
+        "4시간마다  전체 — 편도 {}회 + 유망 조합 최대 {}개 실확인".format(
+            ow_queries, cfg.full_confirm_count
+        ),
+        "매시간     집중 — 직전에 유망했던 {}개만 재확인".format(
+            cfg.hot_roundtrip_count + cfg.hot_openjaw_count
+        ),
+        "매일 09:00 요약",
+    ]
+
+    last = store.state.get("last_sweep")
+    if last:
+        mode = {"full": "전체", "hot": "집중"}.get(last.get("mode"), last.get("mode", "?"))
+        lines += [
+            "",
+            "<b>최근 스윕</b>",
+            "{} · {} · 조회 {}건 · 실패 {:.0%}".format(
+                last.get("at", "?")[5:16].replace("T", " "), mode,
+                last.get("queries", 0), last.get("fail_rate", 0.0),
+            ),
+        ]
+        if last.get("candidates") is not None:
+            lines.append(
+                "임계값 이내 후보 {}개 → 실제 확인 {}건".format(
+                    last.get("candidates", 0), last.get("confirmed", 0)
+                )
+            )
+        if last.get("cheapest"):
+            gap = last["cheapest"] - cfg.threshold_pp
+            lines.append(
+                "최저 {} ({})".format(
+                    won(last["cheapest"]),
+                    "목표 달성" if gap <= 0 else "목표까지 {}".format(won(gap)),
+                )
+            )
+
+    if not cfg.serpapi_enabled:
+        lines += ["", "<i>SerpApi 미설정 — 오픈조 실가 확인은 건너뜁니다.</i>"]
+
+    link = dashboard_link(cfg)
+    if link:
+        lines += ["", link]
+    return chr(10).join(lines)
+
+
 def handle(text: str, cfg: Config, store: Store, path: Path) -> tuple[str, bool]:
     """(답장, 설정이 바뀌었는지).
 
@@ -316,6 +429,9 @@ def _dispatch(text: str, cfg: Config, store: Store, path: Path) -> tuple[str, bo
 
     if raw in {"status", "상태"}:
         return _status(cfg, store), False
+
+    if raw in {"logic", "로직", "설명", "계획"}:
+        return _logic(cfg, store), False
 
     if raw in {"target", "목표"}:
         if not args:

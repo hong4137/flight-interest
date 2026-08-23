@@ -349,6 +349,7 @@ def run_sweep(
             "queries": result.queries,
             "failures": result.failures,
             "fail_rate": round(result.fail_rate, 3),
+            "candidates": result.candidates,
             "confirmed": len(result.confirmed),
             "empty_recovered": result.empty_recovered,
             "empty_final": result.empty_final,

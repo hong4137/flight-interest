@@ -782,3 +782,26 @@ def test_조건이_바뀌면_못_사는_옛_기록을_버린다(cfg, store):
     assert gone.route_key not in store.state["best_by_route"]
     assert keep.route_key in store.state["best_by_route"]
     assert store.state["global_best"]["price"] == 3_400_000   # 최저가 재계산
+
+
+def test_로직_명령이_지금_뭘_하는지_설명한다(cfg, store):
+    """/상태 는 결과만 보여준다. 조건을 바꾼 뒤 '맞게 돌고 있나' 를 확인할
+    방법이 없어서 만든 명령이다."""
+    from src.commands import _logic
+
+    text = _logic(cfg, store)
+
+    assert "로마(FCO)" in text                    # 공항코드만이 아니라 도시 이름도
+    assert "2027-01-02" in text                   # 출발창
+    assert "2027-01-16" in text                   # 도착창
+    assert "비즈니스 2석" in text
+    assert "1,715개" in text                      # 7×7×5×7 조합 수
+    assert "84회" in text                         # 편도 조회 수
+    assert "4시간마다" in text and "매시간" in text  # 주기
+
+
+def test_로직_명령의_별칭(cfgfile, store):
+    for alias in ("/로직", "/logic", "/설명"):
+        reply, changed = _run(alias, cfgfile, store)
+        assert not changed
+        assert "지금 하고 있는 일" in reply, alias
