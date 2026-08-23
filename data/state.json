@@ -69,7 +69,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.708,
+      "ratio": 0.7083,
       "samples": [
         [
           4990307,
@@ -490,6 +490,14 @@
         [
           5172788,
           3750300
+        ],
+        [
+          5038838,
+          3569000
+        ],
+        [
+          5170244,
+          3750300
         ]
       ]
     }
@@ -516,16 +524,16 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-24T04:27:39",
+    "at": "2026-08-24T05:34:13",
     "candidates": 2,
     "cheapest": 3569000,
     "confirmed": 2,
     "empty_final": 0,
-    "empty_recovered": 0,
+    "empty_recovered": 3,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 2
+    "mode": "full",
+    "queries": 42
   },
   "max_stops": 1,
   "outbound_window": [
