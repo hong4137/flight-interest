@@ -556,7 +556,7 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-24T23:50:43",
+    "at": "2026-08-25T00:47:52",
     "candidates": 3,
     "cheapest": 3463700,
     "confirmed": 3,
@@ -574,7 +574,7 @@
   ],
   "passengers": 2,
   "serpapi": {
-    "day": "2026-08-24",
+    "day": "2026-08-25",
     "day_used": 0,
     "month": "2026-08",
     "month_used": 8
