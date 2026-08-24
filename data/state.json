@@ -555,7 +555,7 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-24T17:59:53",
+    "at": "2026-08-24T18:56:19",
     "candidates": 3,
     "cheapest": 3569000,
     "confirmed": 3,
@@ -563,8 +563,8 @@
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "full",
-    "queries": 43
+    "mode": "hot",
+    "queries": 3
   },
   "max_stops": 1,
   "outbound_window": [
