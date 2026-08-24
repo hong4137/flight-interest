@@ -46,11 +46,11 @@
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-09": {
-      "airlines": "카타르항공",
-      "at": "2026-08-23T14:51:08",
+      "airlines": "카타르항공,이베리아항공",
+      "at": "2026-08-24T13:56:16",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4013400,
+      "price": 3991100,
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-10": {
@@ -69,7 +69,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.7083,
+      "ratio": 0.7105,
       "samples": [
         [
           4990307,
@@ -498,6 +498,18 @@
         [
           5170244,
           3750300
+        ],
+        [
+          5029684,
+          3569000
+        ],
+        [
+          5122523,
+          3991100
+        ],
+        [
+          5160654,
+          3750300
         ]
       ]
     }
@@ -521,19 +533,26 @@
       "exit": "BCN",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-30"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3991100,
+      "exit": "MAD",
+      "inbound_date": "2027-01-09",
+      "outbound_date": "2027-01-01"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-24T12:11:41",
-    "candidates": 2,
+    "at": "2026-08-24T13:56:20",
+    "candidates": 3,
     "cheapest": 3569000,
-    "confirmed": 2,
+    "confirmed": 3,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 2
+    "mode": "full",
+    "queries": 43
   },
   "max_stops": 1,
   "outbound_window": [
