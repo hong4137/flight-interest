@@ -826,11 +826,11 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-26T02:38:13",
+    "at": "2026-08-26T03:50:35",
     "candidates": 12,
     "cheapest": 3452700,
-    "confirmed": 12,
-    "empty_final": 0,
+    "confirmed": 11,
+    "empty_final": 1,
     "empty_recovered": 2,
     "fail_rate": 0.0,
     "failures": 0,
