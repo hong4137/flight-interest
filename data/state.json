@@ -24,10 +24,10 @@
     },
     "BCN|BCN|2026-12-30|2027-01-11": {
       "airlines": "핀란드항공",
-      "at": "2026-08-23T14:50:59",
+      "at": "2026-08-25T16:50:37",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3750300,
+      "price": 3749800,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-12": {
@@ -694,9 +694,9 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-25T15:59:42",
+    "at": "2026-08-25T16:50:45",
     "candidates": 5,
-    "cheapest": 3569000,
+    "cheapest": 3562500,
     "confirmed": 5,
     "empty_final": 0,
     "empty_recovered": 0,
