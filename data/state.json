@@ -8,6 +8,7 @@
   "alerts": {
     "0f7be67f58b91cad": "2026-08-23T02:28:12",
     "96b7849f19bd94fa": "2026-08-25T17:54:53",
+    "e820211f824ea393": "2026-08-26T00:52:02",
     "ee95ece48e63916a": "2026-08-24T22:57:17"
   },
   "arrive_window": [
@@ -97,18 +98,18 @@
     },
     "MAD|MAD|2027-01-01|2027-01-09": {
       "airlines": "카타르항공",
-      "at": "2026-08-24T22:57:17",
+      "at": "2026-08-26T00:51:49",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3463700,
+      "price": 3452700,
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-10": {
-      "airlines": "카타르항공,이베리아항공",
-      "at": "2026-08-25T17:54:52",
+      "airlines": "카타르항공",
+      "at": "2026-08-26T00:52:01",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3753500,
+      "price": 3452700,
       "stops": 1
     }
   },
@@ -669,8 +670,8 @@
     }
   },
   "global_best": {
-    "at": "2026-08-24T22:57:17",
-    "price": 3463700,
+    "at": "2026-08-26T00:51:49",
+    "price": 3452700,
     "route_key": "MAD|MAD|2027-01-01|2027-01-09"
   },
   "hot": [
@@ -704,9 +705,9 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-25T23:53:51",
+    "at": "2026-08-26T00:52:02",
     "candidates": 4,
-    "cheapest": 3463700,
+    "cheapest": 3452700,
     "confirmed": 4,
     "empty_final": 0,
     "empty_recovered": 2,
@@ -722,7 +723,7 @@
   ],
   "passengers": 2,
   "serpapi": {
-    "day": "2026-08-25",
+    "day": "2026-08-26",
     "day_used": 0,
     "month": "2026-08",
     "month_used": 8
