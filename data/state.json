@@ -118,7 +118,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.7114,
+      "ratio": 0.7182,
       "samples": [
         [
           4990307,
@@ -627,6 +627,26 @@
         [
           5156823,
           3750300
+        ],
+        [
+          4684208,
+          4476900
+        ],
+        [
+          5027659,
+          3569000
+        ],
+        [
+          5056848,
+          4586900
+        ],
+        [
+          5056848,
+          3692200
+        ],
+        [
+          5158672,
+          3750300
         ]
       ]
     }
@@ -637,13 +657,6 @@
     "route_key": "MAD|MAD|2027-01-01|2027-01-09"
   },
   "hot": [
-    {
-      "entry": "MAD",
-      "estimated_pp": 3467400,
-      "exit": "MAD",
-      "inbound_date": "2027-01-09",
-      "outbound_date": "2026-12-29"
-    },
     {
       "entry": "BCN",
       "estimated_pp": 3569000,
@@ -667,13 +680,6 @@
     },
     {
       "entry": "MAD",
-      "estimated_pp": 4309300,
-      "exit": "MAD",
-      "inbound_date": "2027-01-11",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "MAD",
       "estimated_pp": 4476900,
       "exit": "MAD",
       "inbound_date": "2027-01-09",
@@ -685,26 +691,19 @@
       "exit": "MAD",
       "inbound_date": "2027-01-08",
       "outbound_date": "2026-12-31"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 4742300,
-      "exit": "MAD",
-      "inbound_date": "2027-01-08",
-      "outbound_date": "2026-12-29"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-25T12:55:35",
-    "candidates": 8,
-    "cheapest": 3467400,
-    "confirmed": 8,
+    "at": "2026-08-25T13:49:31",
+    "candidates": 5,
+    "cheapest": 3569000,
+    "confirmed": 5,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 8
+    "mode": "full",
+    "queries": 45
   },
   "max_stops": 1,
   "outbound_window": [
