@@ -438,3 +438,15 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-08-26T00:51:52,round-trip,BCN,BCN,2026-12-30,2027-01-08,3562500,루프트한자,1,gflights
 2026-08-26T00:51:58,round-trip,BCN,BCN,2026-12-30,2027-01-11,3749800,핀란드항공,1,gflights
 2026-08-26T00:52:01,round-trip,MAD,MAD,2027-01-01,2027-01-10,3452700,카타르항공,1,gflights
+2026-08-26T01:49:07,round-trip,MAD,MAD,2026-12-29,2027-01-09,3456400,"카타르항공,이베리아항공",1,gflights
+2026-08-26T01:49:09,round-trip,MAD,MAD,2026-12-29,2027-01-10,3456400,"카타르항공,이베리아항공",1,gflights
+2026-08-26T01:49:14,round-trip,MAD,MAD,2026-12-31,2027-01-09,3456400,"카타르항공,이베리아항공",1,gflights
+2026-08-26T01:49:18,round-trip,MAD,MAD,2026-12-31,2027-01-10,3456400,"카타르항공,이베리아항공",1,gflights
+2026-08-26T01:49:26,round-trip,MAD,MAD,2026-12-29,2027-01-08,4602300,에미레이트항공,1,gflights
+2026-08-26T01:49:29,round-trip,MAD,MAD,2026-12-31,2027-01-08,4602300,에미레이트항공,1,gflights
+2026-08-26T01:49:33,round-trip,BCN,BCN,2026-12-30,2027-01-08,3562500,루프트한자,1,gflights
+2026-08-26T01:49:37,round-trip,MAD,MAD,2026-12-29,2027-01-11,4154100,LOT 폴란드항공,1,gflights
+2026-08-26T01:49:40,round-trip,MAD,MAD,2026-12-31,2027-01-11,3681200,카타르항공,1,gflights
+2026-08-26T01:49:44,round-trip,MAD,MAD,2027-01-01,2027-01-09,3452700,카타르항공,1,gflights
+2026-08-26T01:49:48,round-trip,MAD,MAD,2027-01-01,2027-01-10,3452700,카타르항공,1,gflights
+2026-08-26T01:49:51,round-trip,BCN,BCN,2026-12-30,2027-01-11,3749800,핀란드항공,1,gflights
