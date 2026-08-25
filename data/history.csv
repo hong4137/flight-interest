@@ -396,3 +396,8 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-08-25T14:38:32,round-trip,BCN,BCN,2026-12-30,2027-01-11,3750300,핀란드항공,1,gflights
 2026-08-25T14:38:36,round-trip,MAD,MAD,2026-12-31,2027-01-09,4476900,핀란드항공,1,gflights
 2026-08-25T14:38:39,round-trip,MAD,MAD,2026-12-31,2027-01-08,4617300,에미레이트항공,1,gflights
+2026-08-25T15:59:27,round-trip,BCN,BCN,2026-12-30,2027-01-08,3569000,루프트한자,1,gflights
+2026-08-25T15:59:32,round-trip,MAD,MAD,2026-12-31,2027-01-11,3692200,카타르항공,1,gflights
+2026-08-25T15:59:34,round-trip,BCN,BCN,2026-12-30,2027-01-11,3750300,핀란드항공,1,gflights
+2026-08-25T15:59:38,round-trip,MAD,MAD,2026-12-31,2027-01-09,4476900,핀란드항공,1,gflights
+2026-08-25T15:59:42,round-trip,MAD,MAD,2026-12-31,2027-01-08,4617300,에미레이트항공,1,gflights
