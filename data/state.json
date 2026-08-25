@@ -137,7 +137,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.7252,
+      "ratio": 0.7265,
       "samples": [
         [
           4990307,
@@ -730,6 +730,54 @@
         [
           5158918,
           3749800
+        ],
+        [
+          4682551,
+          3456400
+        ],
+        [
+          4682551,
+          3456400
+        ],
+        [
+          4682551,
+          3456400
+        ],
+        [
+          4682551,
+          3456400
+        ],
+        [
+          5005324,
+          4602300
+        ],
+        [
+          5005324,
+          4602300
+        ],
+        [
+          5026226,
+          3562500
+        ],
+        [
+          5055241,
+          4154100
+        ],
+        [
+          5055241,
+          3681200
+        ],
+        [
+          5096251,
+          3452700
+        ],
+        [
+          5096251,
+          3452700
+        ],
+        [
+          5157320,
+          3749800
         ]
       ]
     }
@@ -798,44 +846,44 @@
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3595979,
+      "estimated_pp": 3629861,
       "exit": "MAD",
       "inbound_date": "2027-01-08",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3595979,
+      "estimated_pp": 3629861,
       "exit": "MAD",
       "inbound_date": "2027-01-08",
       "outbound_date": "2026-12-31"
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3631848,
+      "estimated_pp": 3666061,
       "exit": "MAD",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 3705135,
+      "estimated_pp": 3740088,
       "exit": "BCN",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-30"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-26T04:38:41",
+    "at": "2026-08-26T05:40:52",
     "candidates": 12,
     "cheapest": 3452700,
     "confirmed": 12,
     "empty_final": 0,
-    "empty_recovered": 1,
+    "empty_recovered": 3,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 12
+    "mode": "full",
+    "queries": 52
   },
   "max_stops": 1,
   "outbound_window": [
