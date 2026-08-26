@@ -154,7 +154,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.7273,
+      "ratio": 0.727,
       "samples": [
         [
           4990307,
@@ -895,6 +895,30 @@
         [
           5120636,
           3452700
+        ],
+        [
+          4829726,
+          3456400
+        ],
+        [
+          4829726,
+          3456400
+        ],
+        [
+          5029081,
+          3558800
+        ],
+        [
+          5098926,
+          3931000
+        ],
+        [
+          5098926,
+          3452700
+        ],
+        [
+          5152834,
+          3398600
         ]
       ]
     }
@@ -905,13 +929,6 @@
     "route_key": "MAD|MAD|2026-12-31|2027-01-12"
   },
   "hot": [
-    {
-      "entry": "MAD",
-      "estimated_pp": 3372800,
-      "exit": "MAD",
-      "inbound_date": "2027-01-12",
-      "outbound_date": "2026-12-31"
-    },
     {
       "entry": "MAD",
       "estimated_pp": 3398600,
@@ -941,66 +958,31 @@
       "outbound_date": "2026-12-29"
     },
     {
-      "entry": "MAD",
-      "estimated_pp": 3456400,
-      "exit": "MAD",
-      "inbound_date": "2027-01-09",
-      "outbound_date": "2026-12-31"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 3456400,
-      "exit": "MAD",
-      "inbound_date": "2027-01-10",
-      "outbound_date": "2026-12-31"
-    },
-    {
       "entry": "BCN",
-      "estimated_pp": 3562500,
+      "estimated_pp": 3558800,
       "exit": "BCN",
       "inbound_date": "2027-01-08",
       "outbound_date": "2026-12-30"
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3640238,
+      "estimated_pp": 3931000,
       "exit": "MAD",
-      "inbound_date": "2027-01-08",
-      "outbound_date": "2026-12-31"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 3676848,
-      "exit": "MAD",
-      "inbound_date": "2027-01-11",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 3676848,
-      "exit": "MAD",
-      "inbound_date": "2027-01-12",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 3676848,
-      "exit": "MAD",
-      "inbound_date": "2027-01-11",
-      "outbound_date": "2026-12-31"
+      "inbound_date": "2027-01-09",
+      "outbound_date": "2027-01-01"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-26T23:52:33",
-    "candidates": 12,
-    "cheapest": 3372800,
-    "confirmed": 12,
+    "at": "2026-08-27T01:27:27",
+    "candidates": 6,
+    "cheapest": 3398600,
+    "confirmed": 6,
     "empty_final": 0,
-    "empty_recovered": 1,
+    "empty_recovered": 8,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 12
+    "mode": "full",
+    "queries": 46
   },
   "max_stops": 1,
   "outbound_window": [
@@ -1009,7 +991,7 @@
   ],
   "passengers": 2,
   "serpapi": {
-    "day": "2026-08-26",
+    "day": "2026-08-27",
     "day_used": 0,
     "month": "2026-08",
     "month_used": 8
