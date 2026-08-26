@@ -82,6 +82,14 @@
       "price": 4154100,
       "stops": 1
     },
+    "MAD|MAD|2026-12-29|2027-01-12": {
+      "airlines": "에미레이트항공",
+      "at": "2026-08-26T17:56:18",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 4607600,
+      "stops": 1
+    },
     "MAD|MAD|2026-12-31|2027-01-08": {
       "airlines": "에티하드항공",
       "at": "2026-08-25T05:42:20",
@@ -114,6 +122,14 @@
       "price": 3681200,
       "stops": 1
     },
+    "MAD|MAD|2026-12-31|2027-01-12": {
+      "airlines": "카타르항공,이베리아항공",
+      "at": "2026-08-26T17:56:25",
+      "kind": "round-trip",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
+      "price": 3372800,
+      "stops": 1
+    },
     "MAD|MAD|2027-01-01|2027-01-09": {
       "airlines": "카타르항공",
       "at": "2026-08-26T00:51:49",
@@ -138,7 +154,7 @@
       "samples": []
     },
     "round-trip": {
-      "ratio": 0.7269,
+      "ratio": 0.7273,
       "samples": [
         [
           4990307,
@@ -827,22 +843,81 @@
         [
           5161704,
           3749800
+        ],
+        [
+          4684836,
+          3456400
+        ],
+        [
+          4684836,
+          3456400
+        ],
+        [
+          4684836,
+          3456400
+        ],
+        [
+          4684836,
+          3456400
+        ],
+        [
+          5007894,
+          3398600
+        ],
+        [
+          5007894,
+          4645800
+        ],
+        [
+          5028664,
+          3562500
+        ],
+        [
+          5058259,
+          4154100
+        ],
+        [
+          5058259,
+          4607600
+        ],
+        [
+          5058259,
+          3681200
+        ],
+        [
+          5058259,
+          3372800
+        ],
+        [
+          5120636,
+          3931000
+        ],
+        [
+          5120636,
+          3452700
         ]
       ]
     }
   },
   "global_best": {
-    "at": "2026-08-26T14:41:05",
-    "price": 3398600,
-    "route_key": "MAD|MAD|2026-12-29|2027-01-08"
+    "at": "2026-08-26T17:56:25",
+    "price": 3372800,
+    "route_key": "MAD|MAD|2026-12-31|2027-01-12"
   },
   "hot": [
     {
       "entry": "MAD",
-      "estimated_pp": 3452700,
+      "estimated_pp": 3372800,
       "exit": "MAD",
-      "inbound_date": "2027-01-09",
-      "outbound_date": "2027-01-01"
+      "inbound_date": "2027-01-12",
+      "outbound_date": "2026-12-31"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3398600,
+      "exit": "MAD",
+      "inbound_date": "2027-01-08",
+      "outbound_date": "2026-12-29"
     },
     {
       "entry": "MAD",
@@ -888,51 +963,44 @@
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3681200,
-      "exit": "MAD",
-      "inbound_date": "2027-01-11",
-      "outbound_date": "2026-12-31"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 3639572,
-      "exit": "MAD",
-      "inbound_date": "2027-01-08",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 3639572,
+      "estimated_pp": 3640238,
       "exit": "MAD",
       "inbound_date": "2027-01-08",
       "outbound_date": "2026-12-31"
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3676186,
+      "estimated_pp": 3676848,
       "exit": "MAD",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-29"
     },
     {
-      "entry": "BCN",
-      "estimated_pp": 3749978,
-      "exit": "BCN",
+      "entry": "MAD",
+      "estimated_pp": 3676848,
+      "exit": "MAD",
+      "inbound_date": "2027-01-12",
+      "outbound_date": "2026-12-29"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3676848,
+      "exit": "MAD",
       "inbound_date": "2027-01-11",
-      "outbound_date": "2026-12-30"
+      "outbound_date": "2026-12-31"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-26T16:53:05",
-    "candidates": 12,
-    "cheapest": 3398600,
-    "confirmed": 12,
+    "at": "2026-08-26T17:56:34",
+    "candidates": 13,
+    "cheapest": 3372800,
+    "confirmed": 13,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 12
+    "mode": "full",
+    "queries": 53
   },
   "max_stops": 1,
   "outbound_window": [
