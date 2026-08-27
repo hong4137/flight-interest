@@ -7,6 +7,7 @@
   ],
   "alerts": {
     "0f7be67f58b91cad": "2026-08-23T02:28:12",
+    "266c052d686589d3": "2026-08-27T17:58:33",
     "3b6c54bfcf284dbf": "2026-08-26T01:49:14",
     "6a830e9129fe5443": "2026-08-26T14:41:05",
     "96b7849f19bd94fa": "2026-08-25T17:54:53",
@@ -28,10 +29,10 @@
     },
     "BCN|BCN|2026-12-30|2027-01-11": {
       "airlines": "핀란드항공",
-      "at": "2026-08-25T16:50:37",
+      "at": "2026-08-27T17:58:51",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3749800,
+      "price": 3749700,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-12": {
@@ -48,6 +49,14 @@
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 4249600,
+      "stops": 1
+    },
+    "BCN|MAD|2026-12-30|2027-01-09": {
+      "airlines": "카타르항공",
+      "at": "2026-08-27T17:59:00",
+      "kind": "open-jaw",
+      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
+      "price": 3462900,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-08": {
@@ -75,19 +84,19 @@
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-11": {
-      "airlines": "LOT 폴란드항공",
-      "at": "2026-08-26T01:49:37",
+      "airlines": "에티하드항공",
+      "at": "2026-08-27T17:58:32",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4154100,
+      "price": 3456300,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-12": {
-      "airlines": "에미레이트항공",
-      "at": "2026-08-26T17:56:18",
+      "airlines": "KLM,에어유로파",
+      "at": "2026-08-27T17:58:35",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4607600,
+      "price": 4404800,
       "stops": 1
     },
     "MAD|MAD|2026-12-31|2027-01-08": {
@@ -150,32 +159,17 @@
   "cabin": "business",
   "calibration": {
     "open-jaw": {
-      "ratio": null,
-      "samples": []
-    },
-    "round-trip": {
-      "ratio": 0.727,
+      "ratio": 0.7397,
       "samples": [
         [
-          4990307,
-          3413320
-        ],
-        [
-          4990307,
-          4061400
-        ],
-        [
-          4990307,
-          3413320
-        ],
-        [
-          4990307,
-          4516200
-        ],
-        [
-          5009951,
-          3564200
-        ],
+          4681568,
+          3462900
+        ]
+      ]
+    },
+    "round-trip": {
+      "ratio": 0.7276,
+      "samples": [
         [
           5009951,
           3564200
@@ -919,6 +913,62 @@
         [
           5152834,
           3398600
+        ],
+        [
+          4512268,
+          3479900
+        ],
+        [
+          4512268,
+          4476300
+        ],
+        [
+          4672240,
+          3457800
+        ],
+        [
+          4672240,
+          4476300
+        ],
+        [
+          4948068,
+          3476200
+        ],
+        [
+          4984190,
+          3558800
+        ],
+        [
+          4993632,
+          3400000
+        ],
+        [
+          4993632,
+          4646400
+        ],
+        [
+          5043882,
+          3456300
+        ],
+        [
+          5043882,
+          4404800
+        ],
+        [
+          5043882,
+          3682600
+        ],
+        [
+          5043882,
+          4319900
+        ],
+        [
+          5108040,
+          3766200
+        ],
+        [
+          5145304,
+          3749700
         ]
       ]
     }
@@ -931,30 +981,44 @@
   "hot": [
     {
       "entry": "MAD",
-      "estimated_pp": 3398600,
+      "estimated_pp": 3400000,
       "exit": "MAD",
       "inbound_date": "2027-01-08",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3452700,
+      "estimated_pp": 3456300,
       "exit": "MAD",
-      "inbound_date": "2027-01-10",
-      "outbound_date": "2027-01-01"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 3456400,
-      "exit": "MAD",
-      "inbound_date": "2027-01-09",
+      "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3456400,
+      "estimated_pp": 3457800,
       "exit": "MAD",
       "inbound_date": "2027-01-10",
+      "outbound_date": "2026-12-29"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 3462900,
+      "exit": "MAD",
+      "inbound_date": "2027-01-09",
+      "outbound_date": "2026-12-30"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3476200,
+      "exit": "MAD",
+      "inbound_date": "2027-01-09",
+      "outbound_date": "2027-01-01"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3479900,
+      "exit": "MAD",
+      "inbound_date": "2027-01-09",
       "outbound_date": "2026-12-29"
     },
     {
@@ -966,23 +1030,51 @@
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3931000,
+      "estimated_pp": 3682600,
+      "exit": "MAD",
+      "inbound_date": "2027-01-11",
+      "outbound_date": "2026-12-31"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 3749700,
+      "exit": "BCN",
+      "inbound_date": "2027-01-11",
+      "outbound_date": "2026-12-30"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3280419,
       "exit": "MAD",
       "inbound_date": "2027-01-09",
-      "outbound_date": "2027-01-01"
+      "outbound_date": "2026-12-31"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3396718,
+      "exit": "MAD",
+      "inbound_date": "2027-01-10",
+      "outbound_date": "2026-12-31"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3630370,
+      "exit": "MAD",
+      "inbound_date": "2027-01-08",
+      "outbound_date": "2026-12-31"
     }
   ],
   "last_sweep": {
-    "at": "2026-08-27T08:17:51",
-    "candidates": 6,
+    "at": "2026-08-27T17:59:00",
+    "candidates": 15,
     "cheapest": 3400000,
-    "confirmed": 6,
-    "empty_final": 0,
+    "confirmed": 15,
+    "empty_final": 1,
     "empty_recovered": 1,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 6
+    "mode": "full",
+    "queries": 54
   },
   "max_stops": 1,
   "outbound_window": [
@@ -992,9 +1084,9 @@
   "passengers": 2,
   "serpapi": {
     "day": "2026-08-27",
-    "day_used": 0,
+    "day_used": 1,
     "month": "2026-08",
-    "month_used": 8
+    "month_used": 9
   },
   "target_per_person": 3000000,
   "version": 1
