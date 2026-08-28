@@ -7,6 +7,7 @@
   ],
   "alerts": {
     "0f7be67f58b91cad": "2026-08-23T02:28:12",
+    "12d60e1e723188c2": "2026-08-29T02:19:11",
     "266c052d686589d3": "2026-08-27T17:58:33",
     "3b6c54bfcf284dbf": "2026-08-26T01:49:14",
     "6a830e9129fe5443": "2026-08-26T14:41:05",
@@ -24,18 +25,18 @@
   "best_by_route": {
     "BCN|BCN|2026-12-29|2027-01-08": {
       "airlines": "카타르항공",
-      "at": "2026-08-28T13:14:05",
+      "at": "2026-08-29T02:18:53",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3361100,
+      "price": 3357000,
       "stops": 1
     },
     "BCN|BCN|2026-12-29|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-08-28T13:13:57",
+      "at": "2026-08-29T02:18:41",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3105900,
+      "price": 3102000,
       "stops": 1
     },
     "BCN|BCN|2026-12-29|2027-01-11": {
@@ -48,10 +49,10 @@
     },
     "BCN|BCN|2026-12-30|2027-01-08": {
       "airlines": "카타르항공",
-      "at": "2026-08-28T13:14:28",
+      "at": "2026-08-29T02:19:03",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3361100,
+      "price": 3357000,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-10": {
@@ -64,10 +65,10 @@
     },
     "BCN|BCN|2026-12-30|2027-01-11": {
       "airlines": "카타르항공",
-      "at": "2026-08-28T13:13:32",
+      "at": "2026-08-29T02:18:50",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3361100,
+      "price": 3357000,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-12": {
@@ -127,19 +128,19 @@
       "stops": 1
     },
     "MAD|BCN|2026-12-29|2027-01-11": {
-      "airlines": "SAS항공",
-      "at": "2026-08-28T13:14:17",
+      "airlines": "카타르항공",
+      "at": "2026-08-29T02:19:10",
       "kind": "open-jaw",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
-      "price": 4155800,
+      "price": 3370400,
       "stops": 1
     },
     "MAD|BCN|2026-12-30|2027-01-11": {
       "airlines": "카타르항공",
-      "at": "2026-08-28T13:14:21",
+      "at": "2026-08-29T02:19:07",
       "kind": "open-jaw",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
-      "price": 3374500,
+      "price": 3370400,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-08": {
@@ -1105,8 +1106,8 @@
     }
   },
   "global_best": {
-    "at": "2026-08-28T13:13:57",
-    "price": 3105900,
+    "at": "2026-08-29T02:18:41",
+    "price": 3102000,
     "route_key": "BCN|BCN|2026-12-29|2027-01-10"
   },
   "hot": [
@@ -1196,16 +1197,16 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-28T13:14:56",
-    "candidates": 33,
-    "cheapest": 3105900,
-    "confirmed": 27,
+    "at": "2026-08-29T02:19:15",
+    "candidates": 12,
+    "cheapest": 3102000,
+    "confirmed": 12,
     "empty_final": 0,
-    "empty_recovered": 1,
+    "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "full",
-    "queries": 65
+    "mode": "hot",
+    "queries": 10
   },
   "max_stops": 1,
   "outbound_window": [
@@ -1214,10 +1215,10 @@
   ],
   "passengers": 2,
   "serpapi": {
-    "day": "2026-08-28",
-    "day_used": 3,
+    "day": "2026-08-29",
+    "day_used": 2,
     "month": "2026-08",
-    "month_used": 12
+    "month_used": 14
   },
   "target_per_person": 3000000,
   "version": 1
