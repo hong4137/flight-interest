@@ -58,9 +58,13 @@ def make_deal(price: int, *, entry="FCO", exit_city="FCO", airlines=("LH",)) -> 
 
 # ── 파서 ─────────────────────────────────────────────────────
 
-def _payload(entries: list) -> str:
-    """ds:1 스크립트를 흉내낸 최소 HTML."""
-    doc = [None, None, None, [entries], None, None, None, [None, [[], []]]]
+def _payload(entries: list, best: list | None = None) -> str:
+    """ds:1 스크립트를 흉내낸 최소 HTML.
+
+    결과는 두 묶음으로 온다 — payload[2][0] "인기 출발 항공편",
+    payload[3][0] "기타 출발 항공편".
+    """
+    doc = [None, None, [best or []], [entries], None, None, None, [None, [[], []]]]
     return (
         '<html><body><script class="ds:1">AF_initDataCallback({key: 1, data:'
         + json.dumps(doc)
@@ -805,3 +809,55 @@ def test_로직_명령의_별칭(cfgfile, store):
         reply, changed = _run(alias, cfgfile, store)
         assert not changed
         assert "지금 하고 있는 일" in reply, alias
+
+
+# ── 두 결과 묶음 ─────────────────────────────────────────────
+
+def test_인기와_기타_묶음을_모두_읽는다():
+    """Google 은 결과를 '인기 출발 항공편'(payload[2][0])과
+    '기타 출발 항공편'(payload[3][0]) 두 묶음으로 내려준다. 어느 쪽이 싼지는
+    그때그때 다르다. [3] 만 읽던 동안 왕복 최저가를 1인 15만원씩 놓쳤고,
+    알림이 실제 최저가가 아닌 항공편을 가리켰다."""
+    html = _payload(entries=[_entry(7_031_600)], best=[_entry(6_722_200)])
+
+    got = parse_itineraries(html, passengers=2)
+
+    assert [it.price_per_person for it in got] == [3_361_100, 3_515_800]
+
+
+def test_한쪽_묶음만_있어도_동작한다():
+    assert len(parse_itineraries(_payload([_entry(1000)]), 1)) == 1
+    assert len(parse_itineraries(_payload([], best=[_entry(1000)]), 1)) == 1
+    assert parse_itineraries(_payload([], best=[]), 1) == []
+
+
+def test_두_묶음에_같은_여정이_있으면_한_번만_센다():
+    """인기 묶음은 기타 묶음의 일부를 다시 보여주기도 한다."""
+    same = _entry(1_000_000)
+    got = parse_itineraries(_payload(entries=[same], best=[same]), passengers=1)
+    assert len(got) == 1
+
+
+def test_가격이_같아도_다른_여정이면_둘_다_남는다():
+    a = _entry(1_000_000, dep_t=(9, 0))
+    b = _entry(1_000_000, dep_t=(21, 0))
+    got = parse_itineraries(_payload(entries=[a], best=[b]), passengers=1)
+    assert len(got) == 2
+
+
+def test_알림은_가는_편만_설명한다는_것을_밝힌다(cfg, store):
+    """왕복 조회 결과에는 가는 편 구간만 담긴다 (가격은 왕복 총액).
+    여정 전체인 것처럼 쓰면 링크를 눌렀을 때 '전혀 다른 항공편' 으로 보인다."""
+    deal = make_deal(3_361_100, airlines=["카타르항공"])
+    deal.outbound_depart = datetime(2026, 12, 30, 0, 20)
+    deal.outbound_arrive = datetime(2026, 12, 30, 13, 25)
+    deal.outbound_via = "DOH"
+    deal.korea_arrival = datetime(2027, 1, 9, 17, 30)
+
+    text = format_deal(deal, cfg, evaluate(deal, store, cfg))
+
+    assert "가는 편" in text
+    assert "DOH" in text                      # 경유지를 밝혀 찾아갈 수 있게
+    assert "12/30 00:20" in text
+    assert "오는 편" in text
+    assert "왕복 총액" in text                  # 가격이 무엇의 합인지

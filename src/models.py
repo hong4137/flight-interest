@@ -116,6 +116,13 @@ class Deal:
     kind: Literal["round-trip", "open-jaw"] = "round-trip"
     korea_arrival: datetime | None = None
     total_minutes: int = 0
+
+    # 왕복 조회 결과에는 "가는 편" 구간만 담긴다 (가격은 왕복 총액).
+    # 오는 편이 무엇인지는 이 응답만으로 알 수 없으므로, 알림에서 가는 편임을
+    # 분명히 밝히고 찾아갈 수 있을 만큼의 정보를 남긴다.
+    outbound_depart: datetime | None = None
+    outbound_arrive: datetime | None = None
+    outbound_via: str = ""
     found_at: datetime = field(default_factory=now)
 
     @property

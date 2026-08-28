@@ -78,18 +78,31 @@ def parse_itineraries(html: str, passengers: int, deep_link: str = "") -> list[I
     if not payload:
         return []
 
-    # payload[3][0] 이 결과 묶음. 결과가 없거나(멀티시티 등) 구조가 다르면 빈 목록.
-    try:
-        groups = payload[3][0]
-    except (IndexError, TypeError):
-        return []
-    if not groups:
+    # 결과는 두 묶음으로 온다 — payload[2][0] "인기 출발 항공편",
+    # payload[3][0] "기타 출발 항공편". 어느 쪽이 싼지는 그때그때 다르므로
+    # 반드시 둘 다 읽어야 한다.
+    #
+    # 2026-08-23 실측 (왕복 ICN-BCN 12/30~1/8):
+    #   payload[2][0] 최저 6,722,200 / payload[3][0] 최저 7,031,600
+    # [3] 만 읽던 동안 왕복 최저가를 1인 15만원씩 놓치고 있었고,
+    # 그래서 알림이 실제 최저가가 아닌 항공편을 가리켰다.
+    entries: list = []
+    for slot in (2, 3):
+        try:
+            group = payload[slot][0]
+        except (IndexError, TypeError):
+            continue
+        if isinstance(group, list):
+            entries.extend(group)
+
+    if not entries:
         return []
 
     out: list[Itinerary] = []
     skipped = 0
+    seen: set[tuple] = set()
 
-    for entry in groups:
+    for entry in entries:
         try:
             price_total = entry[1][0][1]
         except (IndexError, TypeError, KeyError):
@@ -121,6 +134,15 @@ def parse_itineraries(html: str, passengers: int, deep_link: str = "") -> list[I
         if not segments:
             skipped += 1
             continue
+
+        # 같은 여정이 두 묶음에 모두 실릴 수 있다.
+        fingerprint = (
+            int(price_total),
+            tuple((s.from_airport, s.to_airport, s.depart, s.arrive) for s in segments),
+        )
+        if fingerprint in seen:
+            continue
+        seen.add(fingerprint)
 
         out.append(
             Itinerary(

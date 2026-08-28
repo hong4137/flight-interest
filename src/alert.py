@@ -140,11 +140,26 @@ def format_deal(deal: Deal, cfg: Config, decision: AlertDecision) -> str:
         "{} {}".format(_esc(route), "(오픈조)" if deal.kind == "open-jaw" else ""),
         "{} 출발 · {} 귀국편".format(md(deal.outbound_date), md(deal.inbound_date)),
     ]
-    if deal.korea_arrival:
-        lines.append("인천 도착 {}".format(mdhm(deal.korea_arrival)))
+    # 왕복 조회 결과에는 "가는 편" 구간만 담긴다 (가격은 왕복 총액). 여정 전체인
+    # 것처럼 쓰면 링크를 눌렀을 때 "전혀 다른 항공편" 으로 보인다.
+    lines.append("")
     lines.append(
-        "{} · 경유 {}회".format(_esc(", ".join(deal.airlines) or "?"), deal.stops)
+        "<b>가는 편</b>  {} · 경유 {}회{}".format(
+            _esc(", ".join(deal.airlines) or "?"),
+            deal.stops,
+            " · " + _esc(deal.outbound_via) if deal.outbound_via else "",
+        )
     )
+    if deal.outbound_depart and deal.outbound_arrive:
+        lines.append(
+            "     {} → {}".format(mdhm(deal.outbound_depart), mdhm(deal.outbound_arrive))
+        )
+    if deal.korea_arrival:
+        lines.append(
+            "<b>오는 편</b>  인천 {} 도착 <i>(편도 조회 기준)</i>".format(
+                mdhm(deal.korea_arrival)
+            )
+        )
 
     if decision.previous_best:
         diff = decision.previous_best - deal.price_per_person
@@ -159,7 +174,13 @@ def format_deal(deal: Deal, cfg: Config, decision: AlertDecision) -> str:
         lines.append("목표({})까지 {} 남음".format(won(cfg.threshold_pp), won(gap)))
 
     if deal.deep_link:
-        lines += ["", '<a href="{}">▶ Google Flights 에서 열기</a>'.format(_esc(deal.deep_link))]
+        lines += [
+            "",
+            "<i>표시가는 위 <b>가는 편</b>에 가장 싼 오는 편을 붙였을 때의 왕복 총액입니다. "
+            "링크에서 가는 편을 먼저 고른 뒤 가장 싼 오는 편을 선택하세요.</i>",
+            "",
+            '<a href="{}">▶ Google Flights 에서 열기</a>'.format(_esc(deal.deep_link)),
+        ]
     if cfg.dashboard_url:
         lines.append('<a href="{}">📊 다른 조합 보기</a>'.format(_esc(cfg.dashboard_url)))
 

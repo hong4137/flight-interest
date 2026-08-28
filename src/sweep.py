@@ -207,6 +207,9 @@ def _confirm(
             kind="round-trip",
             korea_arrival=korea_arrival,
             total_minutes=best.total_minutes,
+            outbound_depart=best.depart_at,
+            outbound_arrive=best.arrive_at,
+            outbound_via=best.via(),
         )
 
     # 오픈조 — fast-flights 로는 불가능하므로 SerpApi 를 쓴다.
@@ -258,6 +261,9 @@ def _confirm(
         kind="open-jaw",
         korea_arrival=korea_arrival,
         total_minutes=best.total_minutes,
+        outbound_depart=best.depart_at,
+        outbound_arrive=best.arrive_at,
+        outbound_via=best.via(),
     )
 
 
