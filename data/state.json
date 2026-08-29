@@ -534,10 +534,10 @@
     },
     "MAD|MAD|2027-01-01|2027-01-11": {
       "airlines": "카타르항공,이베리아항공",
-      "at": "2026-08-28T13:14:45",
+      "at": "2026-08-30T06:39:03",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3972500,
+      "price": 3969800,
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-12": {
@@ -1634,7 +1634,7 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-30T03:19:37",
+    "at": "2026-08-30T06:39:08",
     "candidates": 12,
     "cheapest": 2994000,
     "confirmed": 12,
