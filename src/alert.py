@@ -163,11 +163,11 @@ def format_deal(deal: Deal, cfg: Config, decision: AlertDecision) -> str:
             "     {} → {}".format(mdhm(deal.outbound_depart), mdhm(deal.outbound_arrive))
         )
     if deal.korea_arrival:
-        # 왕복 응답에는 오는 편 정보가 없다. 이 도착 시각은 같은 날짜 편도
-        # 조회에서 가져온 참고값이다 — "(편도 조회 기준)" 이라고만 적었더니
-        # 가격까지 편도로 뽑은 것으로 오해를 샀다. 무엇의 참고값인지 밝힌다.
+        # 왕복 응답에는 오는 편 정보가 없어, 이 도착 시각만 같은 날짜 편도
+        # 조회에서 가져온다. "예상" 한 단어로 성격을 밝히고 끝낸다 — 안 하는 일을
+        # 문단으로 해명하면 정작 읽어야 할 내용이 묻힌다.
         lines.append(
-            "<b>오는 편</b>  {} {} 출발 · 인천 {} 도착".format(
+            "<b>오는 편</b>  {} {} 출발 · 인천 {} 도착 예상".format(
                 md(deal.inbound_date), _esc(deal.exit), mdhm(deal.korea_arrival)
             )
         )
@@ -187,10 +187,7 @@ def format_deal(deal: Deal, cfg: Config, decision: AlertDecision) -> str:
     if deal.deep_link:
         lines += [
             "",
-            "<i>가격은 <b>왕복 조회</b>에서 나온 총액입니다 (편도 두 장 합이 아닙니다). "
-            "위 <b>가는 편</b>에 가장 싼 오는 편을 붙였을 때의 값이며, 오는 편 시각은 "
-            "같은 날짜 편도 조회의 참고값입니다.\n"
-            "링크에서 가는 편을 먼저 고른 뒤 가장 싼 오는 편을 선택하세요.</i>",
+            "<i>링크에서 위 <b>가는 편</b>을 고른 뒤 가장 싼 오는 편을 선택하세요.</i>",
             "",
             '<a href="{}">▶ Google Flights 에서 열기</a>'.format(_esc(deal.deep_link)),
         ]

@@ -1050,7 +1050,6 @@ def test_알림이_왕복_가격임을_분명히_한다(cfg, store):
 
     text = format_deal(deal, cfg, evaluate(deal, store, cfg))
 
-    assert "왕복" in text
-    assert "편도 두 장 합이 아닙니다" in text
-    assert "편도 조회 기준" not in text          # 오해를 부르던 표기
+    assert "왕복" in text                       # 한 단어로 충분하다
+    assert "편도" not in text                   # 안 하는 일을 해명하지 않는다
     assert "BCN 출발" in text                    # 오는 편이 어디서 뜨는지
