@@ -907,3 +907,15 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-08-29T23:35:20,round-trip,OPO,OPO,2026-12-29,2027-01-12,4982000,KLM,1,gflights
 2026-08-29T23:35:24,round-trip,OPO,OPO,2026-12-31,2027-01-11,5326100,에어프랑스,1,gflights
 2026-08-29T23:35:28,round-trip,OPO,OPO,2026-12-31,2027-01-12,4328200,에어프랑스,1,gflights
+2026-08-30T03:19:01,round-trip,BCN,BCN,2026-12-29,2027-01-12,2994000,에티하드항공,1,gflights
+2026-08-30T03:19:05,round-trip,BCN,BCN,2026-12-29,2027-01-10,2994000,에티하드항공,1,gflights
+2026-08-30T03:19:09,round-trip,MAD,MAD,2026-12-29,2027-01-10,3132700,에티하드항공,1,gflights
+2026-08-30T03:19:12,round-trip,MAD,MAD,2026-12-29,2027-01-12,3128700,에티하드항공,1,gflights
+2026-08-30T03:19:16,round-trip,LIS,LIS,2026-12-29,2027-01-12,3298100,에티하드항공,1,gflights
+2026-08-30T03:19:18,round-trip,BCN,BCN,2026-12-29,2027-01-11,3317000,에티하드항공,1,gflights
+2026-08-30T03:19:21,round-trip,BCN,BCN,2026-12-30,2027-01-11,3357000,카타르항공,1,gflights
+2026-08-30T03:19:24,round-trip,BCN,BCN,2026-12-29,2027-01-08,3357000,카타르항공,1,gflights
+2026-08-30T03:19:26,round-trip,MAD,MAD,2027-01-01,2027-01-09,3763500,"카타르항공,이베리아항공",1,gflights
+2026-08-30T03:19:30,round-trip,MAD,MAD,2027-01-01,2027-01-10,3745400,"카타르항공,이베리아항공",1,gflights
+2026-08-30T03:19:33,round-trip,MAD,MAD,2027-01-01,2027-01-11,3973800,"카타르항공,이베리아항공",1,gflights
+2026-08-30T03:19:36,round-trip,MAD,MAD,2026-12-29,2027-01-09,3477700,카타르항공,1,gflights
