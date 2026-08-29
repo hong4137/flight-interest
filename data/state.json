@@ -97,10 +97,10 @@
     },
     "BCN|BCN|2026-12-31|2027-01-11": {
       "airlines": "카타르항공",
-      "at": "2026-08-28T13:14:21",
+      "at": "2026-08-29T10:42:30",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3361100,
+      "price": 3357000,
       "stops": 1
     },
     "BCN|BCN|2027-01-01|2027-01-10": {
@@ -113,10 +113,10 @@
     },
     "BCN|BCN|2027-01-01|2027-01-11": {
       "airlines": "카타르항공",
-      "at": "2026-08-28T13:14:24",
+      "at": "2026-08-29T10:42:33",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3361100,
+      "price": 3357000,
       "stops": 1
     },
     "BCN|MAD|2026-12-30|2027-01-09": {
@@ -1197,7 +1197,7 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-08-29T02:19:15",
+    "at": "2026-08-29T10:42:47",
     "candidates": 12,
     "cheapest": 3102000,
     "confirmed": 12,
@@ -1216,9 +1216,9 @@
   "passengers": 2,
   "serpapi": {
     "day": "2026-08-29",
-    "day_used": 2,
+    "day_used": 4,
     "month": "2026-08",
-    "month_used": 14
+    "month_used": 16
   },
   "target_per_person": 3000000,
   "version": 1
