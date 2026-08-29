@@ -41,6 +41,7 @@ class Config:
     ow_to_rt_ratio: float
     ow_to_openjaw_ratio: float
     t2_margin: float
+    screening_percentile: int
     new_low_drop_pct: float
 
     cooldown_hours: int
@@ -59,6 +60,7 @@ class Config:
     hot_roundtrip_count: int
     hot_openjaw_count: int
     full_confirm_count: int
+    direct_roundtrip_cap: int
     fail_rate_alert_threshold: float
 
     raw: dict = field(default_factory=dict)
@@ -186,6 +188,7 @@ def load_config(path: str | Path | None = None) -> Config:
         ow_to_rt_ratio=float(thr.get("ow_to_rt_ratio", 0.70)),
         ow_to_openjaw_ratio=float(thr.get("ow_to_openjaw_ratio", 0.80)),
         t2_margin=float(thr.get("t2_margin", 1.25)),
+        screening_percentile=int(thr.get("screening_percentile", 10)),
         new_low_drop_pct=float(thr.get("new_low_alert_drop_pct", 5)),
         cooldown_hours=int(alerting.get("duplicate_cooldown_hours", 24)),
         digest_top_n=int(alerting.get("digest_top_n", 5)),
@@ -201,6 +204,7 @@ def load_config(path: str | Path | None = None) -> Config:
         hot_roundtrip_count=int(runtime.get("hot_roundtrip_count", 8)),
         hot_openjaw_count=int(runtime.get("hot_openjaw_count", 4)),
         full_confirm_count=int(runtime.get("full_confirm_count", 30)),
+        direct_roundtrip_cap=int(runtime.get("direct_roundtrip_cap", 120)),
         fail_rate_alert_threshold=float(runtime.get("fail_rate_alert_threshold", 0.35)),
         raw=raw,
     )

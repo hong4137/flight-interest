@@ -116,35 +116,90 @@ def _scan_one_ways(
     return outbound, inbound
 
 
-def _build_candidates(
+def _same_city_targets(
     cfg: Config,
     store: Store,
     outbound: dict[tuple[str, date], Itinerary],
     inbound: dict[tuple[str, date], Itinerary],
 ) -> list[Candidate]:
-    # 왕복과 오픈조는 운임 구조가 달라 환산비를 따로 쓴다. 하나로 뭉치면
-    # 오픈조를 과소평가해 후보 상위를 점령하고 확인 예산을 낭비한다.
-    ratios = {
-        False: store.calibrated_ratio(cfg.ow_to_rt_ratio, "round-trip"),
-        True: store.calibrated_ratio(cfg.ow_to_openjaw_ratio, "open-jaw"),
-    }
+    """같은 도시 왕복은 **추정하지 않고 전부 직접 조회**한다.
+
+    편도 합산은 왕복가를 예측하는 힘이 약하다. 실측 환산비가 0.563~0.941 로
+    1.67배 벌어져, 추정으로 거르면 실제로 싼 조합이 탈락했다 (전수 감사에서
+    80개 중 10개 이상). 조합 수가 `도시 × 출발일 × 귀국일` 이라 감당 가능하다.
+
+    다만 도시를 늘리면 조회량이 폭발하므로 상한을 둔다. 상한을 넘으면 유망한
+    것부터 채우고 나머지는 스윕마다 순환하며 훑어, 몇 번에 걸쳐 전체를 덮는다.
+    """
+    ratio = store.calibrated_ratio(cfg.ow_to_rt_ratio, "round-trip")
+    targets: list[Candidate] = []
+
+    for (city, out_date), ob in outbound.items():
+        for (exit_city, in_date), ib in inbound.items():
+            if exit_city != city:
+                continue
+            targets.append(
+                Candidate(
+                    entry=city,
+                    exit=city,
+                    outbound_date=out_date,
+                    inbound_date=in_date,
+                    # 순위용 참고값일 뿐, 거르는 데는 쓰지 않는다.
+                    estimated_pp=int(round((ob.price_per_person + ib.price_per_person) * ratio)),
+                    outbound=ob,
+                    inbound=ib,
+                )
+            )
+
+    targets.sort(key=lambda c: c.estimated_pp)
+    cap = cfg.direct_roundtrip_cap
+    if len(targets) <= cap:
+        log.info("같은 도시 왕복 %d개 전수 조회 (상한 %d)", len(targets), cap)
+        return targets
+
+    # 상한 초과 — 상위 60% 는 늘 보고, 나머지 40% 는 순환한다.
+    head = int(cap * 0.6)
+    tail_slots = cap - head
+    rest = targets[head:]
+    start = store.rotation_offset("same_city", len(rest), tail_slots)
+    rotated = [rest[(start + i) % len(rest)] for i in range(tail_slots)]
     log.info(
-        "환산비 — 왕복 %.3f / 오픈조 %.3f", ratios[False], ratios[True]
+        "같은 도시 왕복 %d개 중 %d개 조회 (상위 %d + 순환 %d, 순환 위치 %d)",
+        len(targets), cap, head, tail_slots, start,
+    )
+    return targets[:head] + rotated
+
+
+def _open_jaw_candidates(
+    cfg: Config,
+    store: Store,
+    outbound: dict[tuple[str, date], Itinerary],
+    inbound: dict[tuple[str, date], Itinerary],
+) -> list[Candidate]:
+    """오픈조는 조합 수가 커서(도시² × 날짜²) 여전히 추정으로 좁힌다.
+
+    다만 중앙값 대신 낮은 백분위를 써서, 유난히 싼 조합이 과대 추정으로
+    탈락하는 일을 줄인다. 확인 예산은 SerpApi 크레딧으로 어차피 막혀 있다.
+    """
+    if not cfg.allow_open_jaw:
+        return []
+
+    ratio = store.screening_ratio(
+        cfg.ow_to_openjaw_ratio, "open-jaw", cfg.screening_percentile
     )
     trigger = cfg.threshold_trigger_pp()
-    candidates: list[Candidate] = []
+    log.info("오픈조 스크리닝 환산비 %.3f (하위 %d%%), 임계 %s원",
+             ratio, cfg.screening_percentile, format(trigger, ","))
 
+    out: list[Candidate] = []
     for (entry, out_date), ob in outbound.items():
         for (exit_city, in_date), ib in inbound.items():
-            is_open_jaw = entry != exit_city
-            if is_open_jaw and not cfg.allow_open_jaw:
+            if exit_city == entry:
                 continue
-            estimate = int(
-                round((ob.price_per_person + ib.price_per_person) * ratios[is_open_jaw])
-            )
+            estimate = int(round((ob.price_per_person + ib.price_per_person) * ratio))
             if estimate > trigger:
                 continue
-            candidates.append(
+            out.append(
                 Candidate(
                     entry=entry,
                     exit=exit_city,
@@ -155,9 +210,8 @@ def _build_candidates(
                     inbound=ib,
                 )
             )
-
-    candidates.sort(key=lambda c: c.estimated_pp)
-    return candidates
+    out.sort(key=lambda c: c.estimated_pp)
+    return out
 
 
 # ── 2단계: 실가 확인 ─────────────────────────────────────────
@@ -319,13 +373,19 @@ def run_sweep(
             "편도 스크리닝 완료: 출국 %d개, 귀국 %d개 (도착창 통과)",
             len(outbound), len(inbound),
         )
-        candidates = _build_candidates(cfg, store, outbound, inbound)
-        result.candidates = len(candidates)
-        log.info(
-            "임계값 %s원 이내 후보 %d개 (상위 %d개 확인)",
-            format(cfg.threshold_trigger_pp(), ","), len(candidates), cfg.full_confirm_count,
+        # 같은 도시 왕복은 무료(fast-flights)이므로 추정 없이 직접 조회한다.
+        same_city = _same_city_targets(cfg, store, outbound, inbound)
+
+        # 오픈조는 SerpApi 크레딧을 쓰므로 추정으로 좁히고 예산만큼만 확인한다.
+        open_jaw = _open_jaw_candidates(cfg, store, outbound, inbound)
+        open_jaw = _select_for_confirmation(
+            cfg, open_jaw, serp, result, cfg.full_confirm_count
         )
-        selected = _select_for_confirmation(cfg, candidates, serp, result, cfg.full_confirm_count)
+
+        result.candidates = len(same_city) + len(open_jaw)
+        log.info("확인 대상 — 같은 도시 %d개 · 오픈조 %d개", len(same_city), len(open_jaw))
+
+        selected = same_city + open_jaw
         _process(cfg, store, selected, fetcher, serp, result, dry_run=dry_run)
         store.set_hot(_hot_list(cfg, selected, result))
 

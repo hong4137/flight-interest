@@ -861,3 +861,90 @@ def test_알림은_가는_편만_설명한다는_것을_밝힌다(cfg, store):
     assert "12/30 00:20" in text
     assert "오는 편" in text
     assert "왕복 총액" in text                  # 가격이 무엇의 합인지
+
+
+# ── 같은 도시 왕복은 추정하지 않는다 ──────────────────────────
+
+def _legs(cfg, cities, n_out=None, n_in=None, price=2_500_000):
+    """편도 스캔 결과를 흉내낸다."""
+    seg = Segment("ICN", "XXX", datetime(2027, 1, 3, 10), datetime(2027, 1, 3, 20))
+    def it(p):
+        return Itinerary(price_per_person=p, airlines=["LH"], segments=[seg])
+    outs = cfg.outbound_dates[: n_out or len(cfg.outbound_dates)]
+    ins = cfg.return_search_dates[: n_in or len(cfg.return_search_dates)]
+    ob = {(c, d): it(price) for c in cities for d in outs}
+    ib = {(c, d): it(price) for c in cities for d in ins}
+    return ob, ib
+
+
+def test_같은_도시_왕복은_비싸_보여도_전부_조회한다(cfg, store):
+    """편도 합산은 왕복가를 예측하는 힘이 약하다 (실측 환산비 0.563~0.941).
+    추정으로 거르면 실제로 싼 조합이 탈락한다 — 전수 감사에서 80개 중 10개 이상."""
+    from src.sweep import _same_city_targets
+
+    # 편도 합산이 임계값을 한참 넘는 값이어도 걸러지면 안 된다
+    ob, ib = _legs(cfg, ["FCO", "BCN"], price=9_000_000)
+
+    targets = _same_city_targets(cfg, store, ob, ib)
+
+    assert len(targets) == 2 * len(cfg.outbound_dates) * len(cfg.return_search_dates)
+    assert all(not t.is_open_jaw for t in targets)
+
+
+def test_조합이_상한을_넘으면_상한만큼만_조회한다(cfg, store, monkeypatch):
+    from src.sweep import _same_city_targets
+
+    monkeypatch.setattr(cfg, "direct_roundtrip_cap", 10)
+    ob, ib = _legs(cfg, ["FCO", "BCN", "MAD"])
+
+    assert len(_same_city_targets(cfg, store, ob, ib)) == 10
+
+
+def test_상한을_넘으면_스윕마다_다른_구간을_훑는다(cfg, store, monkeypatch):
+    """늘 같은 상위 N 만 보면 나머지는 영영 확인되지 않는다."""
+    from src.sweep import _same_city_targets
+
+    monkeypatch.setattr(cfg, "direct_roundtrip_cap", 10)
+    # 도시마다 가격을 달리해 순위를 만든다
+    ob, ib = _legs(cfg, ["FCO"])
+    for i, key in enumerate(list(ob)):
+        ob[key] = Itinerary(2_000_000 + i * 100_000, ["LH"], ob[key].segments)
+
+    first = {t.key for t in _same_city_targets(cfg, store, ob, ib)}
+    second = {t.key for t in _same_city_targets(cfg, store, ob, ib)}
+
+    assert first != second          # 순환했다
+    assert len(first | second) > 10  # 두 번에 걸쳐 더 넓게 덮었다
+
+
+def test_오픈조는_보수적_환산비로_거른다(cfg, store):
+    """중앙값으로 거르면 싼 쪽 꼬리가 과대 추정돼 탈락한다.
+    실측 분포(0.563~0.941)처럼 넓게 퍼진 표본으로 확인한다."""
+    for pct in range(56, 96):            # 0.56 ~ 0.95 를 고르게
+        store.add_calibration(1_000_000, pct * 10_000, "open-jaw")
+
+    median = store.calibrated_ratio(0.80, "open-jaw")
+    screening = store.screening_ratio(0.80, "open-jaw", 10)
+
+    assert median == pytest.approx(0.76, abs=0.02)
+    assert screening == pytest.approx(0.60, abs=0.02)
+    assert screening < median            # 스크리닝은 더 낮게 잡아 덜 거른다
+
+
+def test_보수적_환산비는_싼_조합을_살려낸다(cfg, store):
+    """실제로 있었던 누락: 추정 386.9만으로 걸러졌지만 실제는 329.8만이었다."""
+    for pct in range(56, 96):
+        store.add_calibration(1_000_000, pct * 10_000, "open-jaw")
+
+    ow_sum = 5_318_562                   # LIS 12/29~1/12 의 편도 합산
+    trigger = cfg.threshold_trigger_pp()
+
+    with_median = ow_sum * store.calibrated_ratio(0.80, "open-jaw")
+    with_screening = ow_sum * store.screening_ratio(0.80, "open-jaw", 10)
+
+    assert with_median > trigger         # 중앙값이면 탈락했다
+    assert with_screening <= trigger     # 보수적 비율이면 확인 대상에 남는다
+
+
+def test_표본이_적으면_설정값을_쓴다(cfg, store):
+    assert store.screening_ratio(0.80, "open-jaw", 10) == 0.80

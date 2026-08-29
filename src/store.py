@@ -48,6 +48,7 @@ _EMPTY: dict[str, Any] = {
     },
     "serpapi": {"month": "", "month_used": 0, "day": "", "day_used": 0},
     "hot": [],             # 시간당 스윕이 재확인할 조합 목록
+    "rotation": {},        # 조합이 상한보다 많을 때 훑는 위치
     "last_sweep": None,
 }
 
@@ -178,6 +179,35 @@ class Store:
         if ratio and len(bucket.get("samples", [])) >= 5:
             return float(ratio)
         return fallback
+
+    def screening_ratio(self, fallback: float, kind: str, percentile: int) -> float:
+        """스크리닝용 보수적 환산비.
+
+        중앙값으로 거르면 유난히 싼 조합이 과대 추정돼 탈락한다. 실측 분포가
+        0.563~0.941 로 넓어, 낮은 백분위를 써서 놓치는 쪽보다 더 보는 쪽으로
+        기운다. 확인 예산은 어차피 상한으로 막혀 있다.
+        """
+        bucket = self._calib_bucket(kind)
+        samples = bucket.get("samples", [])
+        if len(samples) < 10:
+            return fallback
+        ratios = sorted(rt / ow for ow, rt in samples if ow > 0)
+        if not ratios:
+            return fallback
+        idx = max(0, min(len(ratios) - 1, int(len(ratios) * percentile / 100)))
+        return round(ratios[idx], 4)
+
+    def rotation_offset(self, key: str, span: int, step: int) -> int:
+        """조합이 상한보다 많을 때, 스윕마다 다른 구간을 훑도록 커서를 돌린다.
+
+        늘 같은 상위 N 만 보면 나머지는 영영 확인되지 않는다.
+        """
+        if span <= 0 or step <= 0:
+            return 0
+        cursors = self.state.setdefault("rotation", {})
+        current = int(cursors.get(key, 0)) % span
+        cursors[key] = (current + step) % span
+        return current
 
     def calibration_summary(self) -> list[tuple[str, float | None, int]]:
         out = []
