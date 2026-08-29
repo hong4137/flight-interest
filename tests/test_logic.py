@@ -860,7 +860,7 @@ def test_알림은_가는_편만_설명한다는_것을_밝힌다(cfg, store):
     assert "DOH" in text                      # 경유지를 밝혀 찾아갈 수 있게
     assert "12/30 00:20" in text
     assert "오는 편" in text
-    assert "왕복 총액" in text                  # 가격이 무엇의 합인지
+    assert "왕복" in text                      # 가격이 무엇의 합인지
 
 
 # ── 같은 도시 왕복은 추정하지 않는다 ──────────────────────────
@@ -1037,3 +1037,20 @@ def test_알림은_싼_것부터_판단한다(cfg, store, monkeypatch):
 
     # 싼 쪽이 먼저 전체 최저가 되므로, 비싼 쪽은 최저 갱신이 아니다.
     assert result.alerted <= 1
+
+
+def test_알림이_왕복_가격임을_분명히_한다(cfg, store):
+    """'(편도 조회 기준)' 이라고만 적었더니 가격까지 편도로 뽑은 것으로 오해를 샀다.
+    실제로는 fetcher.round_trip 결과다."""
+    deal = make_deal(3_357_000, entry="BCN", exit_city="BCN", airlines=["카타르항공"])
+    deal.outbound_depart = datetime(2026, 12, 31, 0, 20)
+    deal.outbound_arrive = datetime(2026, 12, 31, 13, 25)
+    deal.outbound_via = "DOH"
+    deal.korea_arrival = datetime(2027, 1, 10, 12, 25)
+
+    text = format_deal(deal, cfg, evaluate(deal, store, cfg))
+
+    assert "왕복" in text
+    assert "편도 두 장 합이 아닙니다" in text
+    assert "편도 조회 기준" not in text          # 오해를 부르던 표기
+    assert "BCN 출발" in text                    # 오는 편이 어디서 뜨는지
