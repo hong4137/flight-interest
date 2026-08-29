@@ -85,22 +85,30 @@ def won(value: int) -> str:
 
 def evaluate(deal: Deal, store: Store, cfg: Config) -> AlertDecision:
     """이 딜을 알릴지 판단한다. 상태를 갱신하는 부수효과가 있다."""
-    improved, previous = store.record_price(deal)
+    # 기록하기 전의 전체 최저를 잡아둔다.
+    previous_global = store.global_best()
+    _improved, previous_route = store.record_price(deal)
 
     if deal.price_per_person <= cfg.threshold_pp:
         # 임계값 이하는 무조건 알린다. 단 같은 지문으로 이미 보냈고 더 싸지지도
         # 않았다면 침묵한다.
-        cheaper_than_last = previous is None or deal.price_per_person < previous
+        cheaper_than_last = previous_route is None or deal.price_per_person < previous_route
         if store.should_alert(deal, cfg.cooldown_hours) or cheaper_than_last:
-            return AlertDecision(True, "threshold", previous)
-        return AlertDecision(False, None, previous)
+            return AlertDecision(True, "threshold", previous_route)
+        return AlertDecision(False, None, previous_route)
 
-    if improved and previous is not None:
-        drop_pct = (previous - deal.price_per_person) / previous * 100
+    # "역대 최저 갱신" 은 **전체 최저**를 깼을 때만 알린다.
+    #
+    # 노선별로 판단하면, 이미 아는 것보다 비싼 가격에 "최저 갱신" 이 뜬다.
+    # 실제로 전체 최저가 299만원인 상태에서 336만원 알림이 나갔다 — 그 노선의
+    # 옛 기록(440만원)보다는 쌌기 때문이다. 파서를 고쳐 80개 노선 가격이
+    # 한꺼번에 내려간 날, 이런 알림이 줄줄이 나갔다.
+    if previous_global is not None and deal.price_per_person < previous_global:
+        drop_pct = (previous_global - deal.price_per_person) / previous_global * 100
         if drop_pct >= cfg.new_low_drop_pct and store.should_alert(deal, cfg.cooldown_hours):
-            return AlertDecision(True, "new_low", previous)
+            return AlertDecision(True, "new_low", previous_global)
 
-    return AlertDecision(False, None, previous)
+    return AlertDecision(False, None, previous_route)
 
 
 # ── 메시지 조립 ──────────────────────────────────────────────

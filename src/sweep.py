@@ -331,6 +331,7 @@ def _process(
     *,
     dry_run: bool,
 ) -> None:
+    # 1) 먼저 전부 확인만 한다.
     for cand in candidates:
         deal = _confirm(cfg, store, fetcher, serp, cand, result)
         if deal is None:
@@ -342,15 +343,30 @@ def _process(
             deal.outbound_date, deal.inbound_date,
             format(deal.price_per_person, ","), format(cand.estimated_pp, ","),
         )
-        decision = evaluate(deal, store, cfg)
-        if decision.send:
-            if dry_run:
-                log.info("[dry-run] 알림 생략: %s", deal.route_key)
-            elif notify_deal(cfg, store, deal, decision):
-                result.alerted += 1
 
-    if result.confirmed:
-        result.cheapest = min(result.confirmed, key=lambda d: d.price_per_person)
+    if not result.confirmed:
+        return
+    result.cheapest = min(result.confirmed, key=lambda d: d.price_per_person)
+
+    # 2) 판단은 **싼 것부터** 한다.
+    #
+    # 확인 순서대로 판단하면 비싼 것이 먼저 전체 최저를 갱신해 알림이 나가고,
+    # 뒤이어 더 싼 것이 또 알림을 낸다. 싼 것부터 보면 가장 싼 것 하나만
+    # 전체 최저를 깨므로 연쇄가 생기지 않는다.
+    for deal in sorted(result.confirmed, key=lambda d: d.price_per_person):
+        decision = evaluate(deal, store, cfg)
+        if not decision.send:
+            continue
+        if dry_run:
+            log.info("[dry-run] 알림 생략: %s", deal.route_key)
+            continue
+        if result.alerted >= cfg.max_alerts_per_sweep:
+            # 한 스윕에서 쏟아내면 정작 중요한 것을 못 본다. 나머지는
+            # 대시보드와 일일 요약에 남는다.
+            log.info("알림 상한(%d)에 도달 — 나머지는 보내지 않습니다", cfg.max_alerts_per_sweep)
+            break
+        if notify_deal(cfg, store, deal, decision):
+            result.alerted += 1
 
 
 # ── 진입점 ───────────────────────────────────────────────────

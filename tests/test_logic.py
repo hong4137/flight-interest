@@ -948,3 +948,92 @@ def test_보수적_환산비는_싼_조합을_살려낸다(cfg, store):
 
 def test_표본이_적으면_설정값을_쓴다(cfg, store):
     assert store.screening_ratio(0.80, "open-jaw", 10) == 0.80
+
+
+# ── 역대 최저 갱신은 전체 기준이어야 한다 ────────────────────
+
+def test_전체_최저보다_비싸면_최저갱신_알림을_보내지_않는다(cfg, store):
+    """노선별로 판단하면 이미 아는 것보다 비싼 가격에 '최저 갱신' 이 뜬다.
+    실제로 전체 최저 299만원인 상태에서 336만원 알림이 나갔다 — 그 노선의
+    옛 기록(440만원)보다는 쌌기 때문이다."""
+    cheap = make_deal(2_994_000, entry="BCN", exit_city="BCN")
+    evaluate(cheap, store, cfg)                       # 전체 최저 299.4만
+
+    expensive_route = make_deal(4_400_000, entry="MAD", exit_city="MAD")
+    evaluate(expensive_route, store, cfg)             # 그 노선 첫 관측
+
+    # 그 노선 기준으로는 -24% 지만, 전체 최저(299만)보다는 비싸다
+    decision = evaluate(make_deal(3_357_000, entry="MAD", exit_city="MAD"), store, cfg)
+
+    assert not decision.send
+
+
+def test_전체_최저를_깨면_알린다(cfg, store):
+    evaluate(make_deal(4_000_000, entry="BCN", exit_city="BCN"), store, cfg)
+
+    decision = evaluate(make_deal(3_400_000, entry="MAD", exit_city="MAD"), store, cfg)
+
+    assert decision.send and decision.reason == "new_low"
+    assert decision.previous_best == 4_000_000        # 노선이 아니라 전체 기준
+
+
+def test_임계값_이하는_전체_최저가_아니어도_알린다(cfg, store):
+    """목표 달성은 그 자체로 알릴 가치가 있다. 더 싼 게 있어도 마찬가지다."""
+    evaluate(make_deal(2_500_000, entry="BCN", exit_city="BCN"), store, cfg)
+
+    decision = evaluate(make_deal(2_900_000, entry="MAD", exit_city="MAD"), store, cfg)
+
+    assert decision.send and decision.reason == "threshold"
+
+
+def test_한_스윕의_알림은_상한을_넘지_않는다(cfg, store, monkeypatch):
+    """파서를 고쳐 80개 노선 가격이 한꺼번에 내려간 날, 알림이 줄줄이 나갔다."""
+    import src.sweep as sw
+    from src.alert import AlertDecision
+    from src.models import Candidate
+
+    monkeypatch.setattr(cfg, "max_alerts_per_sweep", 2)
+    deals = [make_deal(3_000_000 + i) for i in range(5)]
+    for i, d in enumerate(deals):
+        d.entry = d.exit = "C{}".format(i)          # 노선을 다르게
+
+    it = iter(deals)
+    monkeypatch.setattr(sw, "_confirm", lambda *a, **k: next(it, None))
+    monkeypatch.setattr(sw, "evaluate", lambda d, s, c: AlertDecision(True, "threshold", None))
+    sent = []
+    monkeypatch.setattr(sw, "notify_deal", lambda c, s, d, dec: sent.append(d) or True)
+
+    result = sw.SweepResult(mode="full")
+    cands = [Candidate("C{}".format(i), "C{}".format(i),
+                       date(2027, 1, 3), date(2027, 1, 17), 0) for i in range(5)]
+
+    sw._process(cfg, store, cands, None, None, result, dry_run=False)
+
+    assert len(result.confirmed) == 5      # 확인은 전부 한다
+    assert result.alerted == 2             # 알림만 상한에서 멈춘다
+    assert [d.price_per_person for d in sent] == [3_000_000, 3_000_001]  # 싼 것부터
+
+
+def test_알림은_싼_것부터_판단한다(cfg, store, monkeypatch):
+    """확인 순서대로 판단하면 비싼 것이 먼저 전체 최저를 갱신해 알림이 나가고,
+    뒤이어 더 싼 것이 또 알림을 낸다."""
+    import src.sweep as sw
+    from src.models import Candidate
+
+    monkeypatch.setattr(cfg, "max_alerts_per_sweep", 9)
+    # 비싼 것 -> 싼 것 순으로 확인된다고 하자. 둘 다 임계값 위다.
+    order = [make_deal(cfg.threshold_pp + 900_000, entry="AAA", exit_city="AAA"),
+             make_deal(cfg.threshold_pp + 100_000, entry="BBB", exit_city="BBB")]
+    it = iter(order)
+    monkeypatch.setattr(sw, "_confirm", lambda *a, **k: next(it, None))
+    sent = []
+    monkeypatch.setattr(sw, "notify_deal", lambda c, s, d, dec: sent.append(d) or True)
+
+    result = sw.SweepResult(mode="full")
+    cands = [Candidate("AAA", "AAA", date(2027, 1, 3), date(2027, 1, 17), 0),
+             Candidate("BBB", "BBB", date(2027, 1, 3), date(2027, 1, 17), 0)]
+
+    sw._process(cfg, store, cands, None, None, result, dry_run=False)
+
+    # 싼 쪽이 먼저 전체 최저가 되므로, 비싼 쪽은 최저 갱신이 아니다.
+    assert result.alerted <= 1

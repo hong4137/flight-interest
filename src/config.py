@@ -46,6 +46,7 @@ class Config:
 
     cooldown_hours: int
     digest_top_n: int
+    max_alerts_per_sweep: int
     dashboard_url: str
 
     serpapi_monthly_cap: int
@@ -192,6 +193,7 @@ def load_config(path: str | Path | None = None) -> Config:
         new_low_drop_pct=float(thr.get("new_low_alert_drop_pct", 5)),
         cooldown_hours=int(alerting.get("duplicate_cooldown_hours", 24)),
         digest_top_n=int(alerting.get("digest_top_n", 5)),
+        max_alerts_per_sweep=int(alerting.get("max_alerts_per_sweep", 3)),
         dashboard_url=str(alerting.get("dashboard_url", "") or "").strip(),
         serpapi_monthly_cap=int(budget.get("serpapi_monthly_cap", 240)),
         serpapi_daily_cap=int(budget.get("serpapi_daily_cap", 8)),

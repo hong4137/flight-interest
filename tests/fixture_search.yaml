@@ -36,6 +36,7 @@ threshold:
 alerting:
   duplicate_cooldown_hours: 24
   digest_top_n: 5
+  max_alerts_per_sweep: 3
   dashboard_url: "https://hong4137.github.io/flight-interest/"
 
 budget:
