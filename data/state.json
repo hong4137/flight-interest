@@ -6,7 +6,7 @@
     "OPO"
   ],
   "alerts": {
-    "019ae86d27b1e27e": "2026-08-31T04:43:32",
+    "019ae86d27b1e27e": "2026-09-01T06:52:03",
     "03aa4e574335557c": "2026-08-31T17:40:22",
     "0f7be67f58b91cad": "2026-08-23T02:28:12",
     "12d60e1e723188c2": "2026-08-29T02:19:11",
@@ -1659,16 +1659,16 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-01T02:06:53",
-    "candidates": 82,
+    "at": "2026-09-01T06:52:03",
+    "candidates": 12,
     "cheapest": 2666700,
-    "confirmed": 82,
+    "confirmed": 12,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "full",
-    "queries": 120
+    "mode": "hot",
+    "queries": 10
   },
   "max_stops": 1,
   "outbound_window": [
@@ -1679,9 +1679,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-01",
-    "day_used": 2,
+    "day_used": 4,
     "month": "2026-09",
-    "month_used": 2
+    "month_used": 4
   },
   "target_per_person": 3000000,
   "version": 1
