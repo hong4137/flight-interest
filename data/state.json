@@ -6,7 +6,7 @@
     "OPO"
   ],
   "alerts": {
-    "019ae86d27b1e27e": "2026-09-01T06:52:03",
+    "019ae86d27b1e27e": "2026-09-01T10:11:42",
     "03aa4e574335557c": "2026-08-31T17:40:22",
     "0f7be67f58b91cad": "2026-08-23T02:28:12",
     "12d60e1e723188c2": "2026-08-29T02:19:11",
@@ -19,6 +19,7 @@
     "a62027e82f2ad0bc": "2026-09-01T02:06:53",
     "b27e5c1034940f5e": "2026-08-29T17:58:54",
     "c08c2a366e29ff33": "2026-08-28T13:14:39",
+    "c5244ea5dd6ea5e2": "2026-09-01T10:11:41",
     "c9104dd364efd5df": "2026-08-29T17:59:35",
     "d057e47f605f782a": "2026-08-28T13:13:33",
     "e820211f824ea393": "2026-08-26T00:52:02",
@@ -39,18 +40,18 @@
     },
     "BCN|BCN|2026-12-29|2027-01-09": {
       "airlines": "에티하드항공",
-      "at": "2026-08-30T09:06:56",
+      "at": "2026-09-01T10:11:27",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3302000,
+      "price": 3267600,
       "stops": 1
     },
     "BCN|BCN|2026-12-29|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-08-30T03:19:05",
+      "at": "2026-09-01T10:11:09",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2994000,
+      "price": 2959600,
       "stops": 1
     },
     "BCN|BCN|2026-12-29|2027-01-11": {
@@ -518,11 +519,11 @@
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-09": {
-      "airlines": "카타르항공",
-      "at": "2026-08-26T00:51:49",
+      "airlines": "중국남방항공",
+      "at": "2026-09-01T10:11:38",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3452700,
+      "price": 2665100,
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-10": {
@@ -1568,9 +1569,9 @@
     }
   },
   "global_best": {
-    "at": "2026-08-31T17:36:29",
-    "price": 2666700,
-    "route_key": "MAD|MAD|2027-01-01|2027-01-12"
+    "at": "2026-09-01T10:11:38",
+    "price": 2665100,
+    "route_key": "MAD|MAD|2027-01-01|2027-01-09"
   },
   "hot": [
     {
@@ -1659,9 +1660,9 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-01T06:52:03",
+    "at": "2026-09-01T10:11:42",
     "candidates": 12,
-    "cheapest": 2666700,
+    "cheapest": 2665100,
     "confirmed": 12,
     "empty_final": 0,
     "empty_recovered": 0,
@@ -1679,9 +1680,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-01",
-    "day_used": 4,
+    "day_used": 6,
     "month": "2026-09",
-    "month_used": 4
+    "month_used": 6
   },
   "target_per_person": 3000000,
   "version": 1
