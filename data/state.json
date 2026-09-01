@@ -1660,7 +1660,7 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-01T10:11:42",
+    "at": "2026-09-01T16:40:14",
     "candidates": 12,
     "cheapest": 2665100,
     "confirmed": 12,
@@ -1680,9 +1680,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-01",
-    "day_used": 6,
+    "day_used": 8,
     "month": "2026-09",
-    "month_used": 6
+    "month_used": 8
   },
   "target_per_person": 3000000,
   "version": 1
