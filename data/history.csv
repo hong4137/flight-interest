@@ -1875,3 +1875,15 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-09-04T06:00:40,round-trip,OPO,OPO,2026-12-31,2027-01-12,4964100,"대한항공,에어프랑스",1,gflights
 2026-09-04T06:00:44,open-jaw,MAD,BCN,2027-01-01,2027-01-11,3671800,카타르항공,1,serpapi
 2026-09-04T06:00:50,open-jaw,MAD,BCN,2027-01-01,2027-01-10,3750100,카타르항공,1,serpapi
+2026-09-04T08:11:30,round-trip,MAD,MAD,2027-01-01,2027-01-09,2663500,중국남방항공,1,gflights
+2026-09-04T08:11:34,round-trip,MAD,MAD,2027-01-01,2027-01-12,2663500,중국남방항공,1,gflights
+2026-09-04T08:11:36,round-trip,BCN,BCN,2026-12-29,2027-01-10,2956000,에티하드항공,1,gflights
+2026-09-04T08:11:40,round-trip,BCN,BCN,2026-12-29,2027-01-12,2946100,에티하드항공,1,gflights
+2026-09-04T08:11:44,round-trip,MAD,MAD,2026-12-29,2027-01-10,2981000,에티하드항공,1,gflights
+2026-09-04T08:11:47,round-trip,MAD,MAD,2026-12-29,2027-01-12,2981000,에티하드항공,1,gflights
+2026-09-04T08:11:51,round-trip,OPO,OPO,2026-12-30,2027-01-10,3020500,LOT 폴란드항공,1,gflights
+2026-09-04T08:11:55,round-trip,LIS,LIS,2026-12-29,2027-01-09,3020500,LOT 폴란드항공,1,gflights
+2026-09-04T08:11:59,open-jaw,MAD,BCN,2027-01-01,2027-01-11,3671800,카타르항공,1,serpapi
+2026-09-04T08:12:02,open-jaw,MAD,BCN,2027-01-01,2027-01-10,3750100,카타르항공,1,serpapi
+2026-09-04T08:12:03,round-trip,MAD,MAD,2027-01-01,2027-01-10,4197100,"루프트한자,Lufthansa City Airlines",1,gflights
+2026-09-04T08:12:07,round-trip,MAD,MAD,2027-01-01,2027-01-11,4166300,"카타르항공,이베리아항공",1,gflights
