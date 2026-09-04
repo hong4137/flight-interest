@@ -18,7 +18,7 @@
     "5af7cf2fd9ff6e3b": "2026-09-04T08:12:07",
     "6a830e9129fe5443": "2026-08-26T14:41:05",
     "939de30d0558f7e4": "2026-08-28T13:13:36",
-    "94577199847dd991": "2026-09-04T18:29:13",
+    "94577199847dd991": "2026-09-05T03:16:32",
     "96b7849f19bd94fa": "2026-08-25T17:54:53",
     "a62027e82f2ad0bc": "2026-09-03T18:00:07",
     "b27e5c1034940f5e": "2026-08-29T17:58:54",
@@ -388,10 +388,10 @@
     },
     "MAD|BCN|2027-01-01|2027-01-11": {
       "airlines": "카타르항공",
-      "at": "2026-09-04T06:00:44",
+      "at": "2026-09-05T03:16:27",
       "kind": "open-jaw",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
-      "price": 3671800,
+      "price": 3666000,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-08": {
@@ -428,10 +428,10 @@
     },
     "MAD|MAD|2026-12-29|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-09-04T18:28:47",
+      "at": "2026-09-05T03:16:12",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2971000,
+      "price": 2964700,
       "stops": 1
     },
     "MAD|MAD|2026-12-30|2027-01-08": {
@@ -1704,10 +1704,10 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-04T23:10:45",
+    "at": "2026-09-05T03:16:32",
     "candidates": 12,
     "cheapest": 2946100,
-    "confirmed": 10,
+    "confirmed": 12,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
@@ -1723,10 +1723,10 @@
   "passengers": 2,
   "rotation": {},
   "serpapi": {
-    "day": "2026-09-04",
-    "day_used": 8,
+    "day": "2026-09-05",
+    "day_used": 2,
     "month": "2026-09",
-    "month_used": 32
+    "month_used": 34
   },
   "target_per_person": 3000000,
   "version": 1
