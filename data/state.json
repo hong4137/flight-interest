@@ -13,7 +13,8 @@
     "23a8c2b9e552bef0": "2026-08-29T23:33:17",
     "266c052d686589d3": "2026-08-27T17:58:33",
     "3b6c54bfcf284dbf": "2026-08-26T01:49:14",
-    "47c71b3d5c2c5df4": "2026-09-04T13:20:47",
+    "47c71b3d5c2c5df4": "2026-09-04T23:10:45",
+    "568cda312ae00e7f": "2026-09-04T23:10:44",
     "5af7cf2fd9ff6e3b": "2026-09-04T08:12:07",
     "6a830e9129fe5443": "2026-08-26T14:41:05",
     "939de30d0558f7e4": "2026-08-28T13:13:36",
@@ -51,10 +52,10 @@
     },
     "BCN|BCN|2026-12-29|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-02T13:13:39",
+      "at": "2026-09-04T23:10:24",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2952900,
+      "price": 2946100,
       "stops": 1
     },
     "BCN|BCN|2026-12-29|2027-01-11": {
@@ -211,10 +212,10 @@
     },
     "LIS|LIS|2026-12-29|2027-01-09": {
       "airlines": "LOT 폴란드항공",
-      "at": "2026-09-03T13:13:07",
+      "at": "2026-09-04T23:10:36",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMDkoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3020500,
+      "price": 3019000,
       "stops": 1
     },
     "LIS|LIS|2026-12-29|2027-01-10": {
@@ -411,10 +412,10 @@
     },
     "MAD|MAD|2026-12-29|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-03T13:10:23",
+      "at": "2026-09-04T23:10:27",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2981000,
+      "price": 2971000,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-11": {
@@ -611,10 +612,10 @@
     },
     "OPO|OPO|2026-12-30|2027-01-10": {
       "airlines": "LOT 폴란드항공",
-      "at": "2026-09-02T06:00:48",
+      "at": "2026-09-04T23:10:34",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTAoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3020500,
+      "price": 3019400,
       "stops": 1
     },
     "OPO|OPO|2026-12-30|2027-01-11": {
@@ -1703,10 +1704,10 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-04T18:29:13",
+    "at": "2026-09-04T23:10:45",
     "candidates": 12,
-    "cheapest": 2663500,
-    "confirmed": 12,
+    "cheapest": 2946100,
+    "confirmed": 10,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
