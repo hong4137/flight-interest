@@ -13,7 +13,7 @@
     "23a8c2b9e552bef0": "2026-08-29T23:33:17",
     "266c052d686589d3": "2026-08-27T17:58:33",
     "3b6c54bfcf284dbf": "2026-08-26T01:49:14",
-    "47c71b3d5c2c5df4": "2026-09-04T23:10:45",
+    "47c71b3d5c2c5df4": "2026-09-06T00:55:46",
     "568cda312ae00e7f": "2026-09-05T21:40:59",
     "5af7cf2fd9ff6e3b": "2026-09-05T13:17:01",
     "6a830e9129fe5443": "2026-08-26T14:41:05",
@@ -1712,16 +1712,16 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-05T21:40:59",
-    "candidates": 80,
+    "at": "2026-09-06T00:55:46",
+    "candidates": 12,
     "cheapest": 2939700,
-    "confirmed": 80,
+    "confirmed": 12,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "full",
-    "queries": 120
+    "mode": "hot",
+    "queries": 12
   },
   "max_stops": 1,
   "outbound_window": [
@@ -1731,8 +1731,8 @@
   "passengers": 2,
   "rotation": {},
   "serpapi": {
-    "day": "2026-09-05",
-    "day_used": 8,
+    "day": "2026-09-06",
+    "day_used": 0,
     "month": "2026-09",
     "month_used": 40
   },
