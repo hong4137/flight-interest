@@ -1743,12 +1743,12 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-07T06:12:05",
+    "at": "2026-09-07T08:44:14",
     "candidates": 12,
     "cheapest": 2659000,
     "confirmed": 12,
     "empty_final": 0,
-    "empty_recovered": 0,
+    "empty_recovered": 2,
     "fail_rate": 0.0,
     "failures": 0,
     "mode": "hot",
@@ -1763,9 +1763,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-07",
-    "day_used": 6,
+    "day_used": 8,
     "month": "2026-09",
-    "month_used": 54
+    "month_used": 56
   },
   "target_per_person": 3000000,
   "version": 1
