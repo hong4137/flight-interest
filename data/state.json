@@ -1743,16 +1743,16 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-07T02:02:54",
-    "candidates": 82,
+    "at": "2026-09-07T04:01:08",
+    "candidates": 12,
     "cheapest": 2659000,
-    "confirmed": 82,
+    "confirmed": 12,
     "empty_final": 0,
-    "empty_recovered": 2,
+    "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "full",
-    "queries": 120
+    "mode": "hot",
+    "queries": 10
   },
   "max_stops": 1,
   "outbound_window": [
@@ -1763,9 +1763,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-07",
-    "day_used": 2,
+    "day_used": 4,
     "month": "2026-09",
-    "month_used": 50
+    "month_used": 52
   },
   "target_per_person": 3000000,
   "version": 1
