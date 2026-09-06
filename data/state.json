@@ -17,7 +17,7 @@
     "5af7cf2fd9ff6e3b": "2026-09-06T14:45:42",
     "6a830e9129fe5443": "2026-08-26T14:41:05",
     "939de30d0558f7e4": "2026-08-28T13:13:36",
-    "94577199847dd991": "2026-09-06T05:23:18",
+    "94577199847dd991": "2026-09-07T06:12:05",
     "96b7849f19bd94fa": "2026-08-25T17:54:53",
     "a62027e82f2ad0bc": "2026-09-03T18:00:07",
     "b27e5c1034940f5e": "2026-08-29T17:58:54",
@@ -194,11 +194,11 @@
       "stops": 1
     },
     "BCN|MAD|2026-12-29|2027-01-09": {
-      "airlines": "카타르항공",
-      "at": "2026-09-07T02:02:54",
+      "airlines": "LOT 폴란드항공",
+      "at": "2026-09-07T06:11:57",
       "kind": "open-jaw",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
-      "price": 3343700,
+      "price": 3051100,
       "stops": 1
     },
     "BCN|MAD|2026-12-30|2027-01-09": {
@@ -1743,7 +1743,7 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-07T04:01:08",
+    "at": "2026-09-07T06:12:05",
     "candidates": 12,
     "cheapest": 2659000,
     "confirmed": 12,
@@ -1763,9 +1763,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-07",
-    "day_used": 4,
+    "day_used": 6,
     "month": "2026-09",
-    "month_used": 52
+    "month_used": 54
   },
   "target_per_person": 3000000,
   "version": 1
