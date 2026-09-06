@@ -1727,12 +1727,12 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-06T14:45:42",
+    "at": "2026-09-06T19:46:01",
     "candidates": 12,
     "cheapest": 2659000,
-    "confirmed": 12,
+    "confirmed": 10,
     "empty_final": 0,
-    "empty_recovered": 1,
+    "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
     "mode": "hot",
