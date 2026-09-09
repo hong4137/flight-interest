@@ -12,7 +12,7 @@
     "23a8c2b9e552bef0": "2026-08-29T23:33:17",
     "266c052d686589d3": "2026-08-27T17:58:33",
     "47c71b3d5c2c5df4": "2026-09-09T03:30:23",
-    "568cda312ae00e7f": "2026-09-09T00:03:20",
+    "568cda312ae00e7f": "2026-09-10T03:29:12",
     "5af7cf2fd9ff6e3b": "2026-09-09T09:09:06",
     "939de30d0558f7e4": "2026-08-28T13:13:36",
     "94577199847dd991": "2026-09-09T09:09:07",
@@ -199,10 +199,10 @@
     },
     "BCN|MAD|2026-12-30|2027-01-09": {
       "airlines": "LOT 폴란드항공",
-      "at": "2026-09-09T13:34:34",
+      "at": "2026-09-10T03:29:03",
       "kind": "open-jaw",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
-      "price": 3049400,
+      "price": 3049000,
       "stops": 1
     },
     "LIS|LIS|2026-12-29|2027-01-08": {
@@ -1755,12 +1755,12 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-09T23:22:55",
+    "at": "2026-09-10T03:29:12",
     "candidates": 12,
     "cheapest": 2655100,
     "confirmed": 12,
     "empty_final": 0,
-    "empty_recovered": 0,
+    "empty_recovered": 1,
     "fail_rate": 0.0,
     "failures": 0,
     "mode": "hot",
@@ -1774,10 +1774,10 @@
   "passengers": 2,
   "rotation": {},
   "serpapi": {
-    "day": "2026-09-09",
-    "day_used": 8,
+    "day": "2026-09-10",
+    "day_used": 2,
     "month": "2026-09",
-    "month_used": 64
+    "month_used": 66
   },
   "target_per_person": 3000000,
   "version": 1
