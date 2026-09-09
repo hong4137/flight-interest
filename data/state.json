@@ -17,10 +17,11 @@
     "939de30d0558f7e4": "2026-08-28T13:13:36",
     "94577199847dd991": "2026-09-09T09:09:07",
     "a62027e82f2ad0bc": "2026-09-03T18:00:07",
+    "a9dcd31f86a6fdf3": "2026-09-10T06:37:54",
     "b27e5c1034940f5e": "2026-08-29T17:58:54",
     "c08c2a366e29ff33": "2026-08-28T13:14:39",
     "c5244ea5dd6ea5e2": "2026-09-03T22:30:32",
-    "c5432d58b2ed016d": "2026-09-09T13:34:35",
+    "c5432d58b2ed016d": "2026-09-10T06:37:55",
     "c9104dd364efd5df": "2026-08-29T17:59:35",
     "d057e47f605f782a": "2026-08-28T13:13:33"
   },
@@ -103,10 +104,10 @@
     },
     "BCN|BCN|2026-12-30|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T09:05:30",
+      "at": "2026-09-10T06:37:32",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2977100,
+      "price": 2973600,
       "stops": 1
     },
     "BCN|BCN|2026-12-31|2027-01-08": {
@@ -415,10 +416,10 @@
     },
     "MAD|MAD|2026-12-29|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T03:29:50",
+      "at": "2026-09-10T06:37:25",
       "kind": "round-trip",
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2952200,
+      "price": 2948300,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-11": {
@@ -1755,12 +1756,12 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-10T03:29:12",
+    "at": "2026-09-10T06:37:55",
     "candidates": 12,
     "cheapest": 2655100,
     "confirmed": 12,
     "empty_final": 0,
-    "empty_recovered": 1,
+    "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
     "mode": "hot",
@@ -1775,9 +1776,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-10",
-    "day_used": 2,
+    "day_used": 4,
     "month": "2026-09",
-    "month_used": 66
+    "month_used": 68
   },
   "target_per_person": 3000000,
   "version": 1
