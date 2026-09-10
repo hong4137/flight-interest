@@ -14,6 +14,10 @@
       "price": 2923400
     },
     "23a8c2b9e552bef0": "2026-08-29T23:33:17",
+    "3bad1a7816407acc": {
+      "at": "2026-09-11T06:32:46",
+      "price": 2948300
+    },
     "47c71b3d5c2c5df4": "2026-09-09T03:30:23",
     "568cda312ae00e7f": "2026-09-10T13:29:11",
     "5af7cf2fd9ff6e3b": "2026-09-10T09:09:29",
@@ -29,7 +33,15 @@
     "939de30d0558f7e4": "2026-08-28T13:13:36",
     "94577199847dd991": "2026-09-10T09:09:30",
     "a62027e82f2ad0bc": "2026-09-03T18:00:07",
+    "a67d26f975046d8a": {
+      "at": "2026-09-11T06:32:47",
+      "price": 2970600
+    },
     "a9dcd31f86a6fdf3": "2026-09-10T06:37:54",
+    "ae6d0e4c95faea97": {
+      "at": "2026-09-11T06:32:47",
+      "price": 2970600
+    },
     "b27e5c1034940f5e": "2026-08-29T17:58:54",
     "c08c2a366e29ff33": "2026-08-28T13:14:39",
     "c5244ea5dd6ea5e2": "2026-09-03T22:30:32",
@@ -61,14 +73,14 @@
     },
     "BCN|BCN|2026-12-29|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-10T13:23:24",
+      "at": "2026-09-11T06:32:13",
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
-      "last_price": 2923400,
-      "last_seen": "2026-09-11T03:17:01",
+      "last_price": 2920400,
+      "last_seen": "2026-09-11T06:32:13",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2923400,
+      "price": 2920400,
       "stops": 1
     },
     "BCN|BCN|2026-12-29|2027-01-11": {
@@ -85,7 +97,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2923400,
-      "last_seen": "2026-09-11T03:17:04",
+      "last_seen": "2026-09-11T06:32:16",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2923400,
@@ -109,10 +121,14 @@
     },
     "BCN|BCN|2026-12-30|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-10T13:23:28",
+      "at": "2026-09-11T06:32:27",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 2970600,
+      "last_seen": "2026-09-11T06:32:27",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2973600,
+      "price": 2970600,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-11": {
@@ -127,6 +143,10 @@
       "airlines": "에티하드항공",
       "at": "2026-09-10T06:37:32",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 2973600,
+      "last_seen": "2026-09-11T06:32:31",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2973600,
       "stops": 1
@@ -149,10 +169,14 @@
     },
     "BCN|BCN|2026-12-31|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-10T13:23:35",
+      "at": "2026-09-11T06:32:35",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 2970600,
+      "last_seen": "2026-09-11T06:32:35",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2977500,
+      "price": 2970600,
       "stops": 1
     },
     "BCN|BCN|2026-12-31|2027-01-11": {
@@ -437,14 +461,14 @@
     },
     "MAD|MAD|2026-12-29|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-10T06:37:25",
+      "at": "2026-09-11T06:32:20",
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
-      "last_price": 2948300,
-      "last_seen": "2026-09-11T03:17:08",
+      "last_price": 2945300,
+      "last_seen": "2026-09-11T06:32:20",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2948300,
+      "price": 2945300,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-11": {
@@ -461,7 +485,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2948300,
-      "last_seen": "2026-09-11T03:17:12",
+      "last_seen": "2026-09-11T06:32:24",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2948300,
@@ -1801,9 +1825,9 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-11T03:17:33",
+    "at": "2026-09-11T06:32:47",
     "candidates": 12,
-    "cheapest": 2923400,
+    "cheapest": 2920400,
     "confirmed": 12,
     "empty_final": 0,
     "empty_recovered": 0,
@@ -1821,9 +1845,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-11",
-    "day_used": 2,
+    "day_used": 4,
     "month": "2026-09",
-    "month_used": 74
+    "month_used": 76
   },
   "target_per_person": 3000000,
   "version": 1
