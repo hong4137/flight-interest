@@ -134,9 +134,14 @@ class Deal:
         )
 
     def fingerprint(self) -> str:
-        """중복 알림 억제용. 가격은 5만원 버킷으로 뭉개 미세 변동을 무시한다."""
-        bucket = self.price_per_person // 50_000
-        raw = f"{self.route_key}|{','.join(sorted(self.airlines))}|{self.stops}|{bucket}"
+        """중복 알림 억제용 — 이 여정이 무엇인지만 담는다.
+
+        예전에는 가격을 5만원 버킷으로 넣었는데, 2,948,300 -> 2,952,200 처럼
+        살짝만 움직여도 버킷이 바뀌어 "처음 보는 조합" 이 되고 쿨다운이
+        무력화됐다. 사실상 같은 가격에 하루 8건이 나갔다.
+        가격 변화는 store.should_alert 가 "의미 있게 싸졌는가" 로 따진다.
+        """
+        raw = f"{self.route_key}|{','.join(sorted(self.airlines))}|{self.stops}"
         return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
 
     def to_row(self) -> dict:

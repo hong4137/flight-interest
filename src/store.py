@@ -102,6 +102,13 @@ class Store:
             }
             self.state["best_by_route"][deal.route_key] = entry
 
+        # 역대 최저와 **지금 살 수 있는 값**은 다르다. 266만원짜리가 사라진 뒤에도
+        # 요약이 "현재 최저가 266만원" 이라고 알렸다. 관측할 때마다 최신값을 남긴다.
+        entry["last_price"] = deal.price_per_person
+        entry["last_seen"] = deal.found_at.isoformat(timespec="seconds")
+        entry["last_airlines"] = ",".join(deal.airlines)
+        entry["last_stops"] = deal.stops
+
         # 예약 링크는 노선과 날짜만으로 정해지므로 가격이 갱신되지 않아도 최신이다.
         # 갱신될 때만 쓰면 값이 안 떨어지는 노선은 영영 링크가 비어 있게 된다.
         entry["link"] = deal.deep_link
@@ -116,28 +123,44 @@ class Store:
         return improved, prev
 
     # ── 알림 중복 억제 ───────────────────────────────────────
-    def should_alert(self, deal: Deal, cooldown_hours: int) -> bool:
-        """쿨다운 내에 같은 지문으로 이미 보냈으면 False."""
-        last = self.state["alerts"].get(deal.fingerprint())
-        if not last:
+    def should_alert(self, deal: Deal, cooldown_hours: int, min_drop_pct: float = 0.0) -> bool:
+        """쿨다운 안이면, 의미 있게 싸졌을 때만 다시 알린다.
+
+        쿨다운만 보면 같은 가격이 하루 뒤 또 나가고, 가격만 보면 1원 차이로도
+        나간다. 실제로 "직전 최저 295만원 대비 -0%" 알림이 반복됐다.
+        """
+        record = self.state["alerts"].get(deal.fingerprint())
+        if not record:
             return True
+        if isinstance(record, str):        # 예전 형식(시각 문자열)
+            record = {"at": record, "price": None}
         try:
-            sent_at = datetime.fromisoformat(last)
-        except ValueError:
+            sent_at = datetime.fromisoformat(record["at"])
+        except (ValueError, KeyError, TypeError):
             return True
-        return now() - sent_at >= timedelta(hours=cooldown_hours)
+        if now() - sent_at >= timedelta(hours=cooldown_hours):
+            return True
+
+        last_price = record.get("price")
+        if last_price is None:
+            return False
+        return deal.price_per_person <= last_price * (1 - min_drop_pct / 100)
 
     def mark_alerted(self, deal: Deal) -> None:
-        self.state["alerts"][deal.fingerprint()] = now().isoformat(timespec="seconds")
+        self.state["alerts"][deal.fingerprint()] = {
+            "at": now().isoformat(timespec="seconds"),
+            "price": deal.price_per_person,
+        }
 
     def prune_alerts(self, keep_days: int = 14) -> None:
         cutoff = now() - timedelta(days=keep_days)
         kept = {}
-        for fp, ts in self.state["alerts"].items():
+        for fp, record in self.state["alerts"].items():
+            at = record["at"] if isinstance(record, dict) else record
             try:
-                if datetime.fromisoformat(ts) >= cutoff:
-                    kept[fp] = ts
-            except ValueError:
+                if datetime.fromisoformat(at) >= cutoff:
+                    kept[fp] = record
+            except (ValueError, TypeError):
                 continue
         self.state["alerts"] = kept
 

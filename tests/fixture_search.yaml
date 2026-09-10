@@ -32,6 +32,7 @@ threshold:
   ow_to_openjaw_ratio: 0.80
   t2_margin: 1.25
   new_low_alert_drop_pct: 5
+  realert_min_drop_pct: 3
 
 alerting:
   duplicate_cooldown_hours: 24

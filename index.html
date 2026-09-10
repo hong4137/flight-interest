@@ -207,10 +207,12 @@ function drawChart(rows, target) {
 
 function fillRoutes(state) {
   const body = document.querySelector("#routes tbody");
+  // 역대 최저가 아니라 가장 최근에 관측한 값으로 줄 세운다. 특가가 사라진 뒤에도
+  // "현재 최저가" 로 못 사는 값을 보여주면 안 된다.
   const rows = Object.entries(state.best_by_route || {})
-    .map(([key, v]) => ({ ...splitKey(key), ...v }))
+    .map(([key, v]) => ({ ...splitKey(key), ...v, now: v.last_price ?? v.price }))
     .filter(r => r.entry)
-    .sort((a, b) => a.price - b.price)
+    .sort((a, b) => a.now - b.now)
     .slice(0, 12);
 
   if (!rows.length) {
@@ -221,11 +223,12 @@ function fillRoutes(state) {
     const openJaw = r.entry !== r.exit;
     const route = openJaw ? `ICN→${r.entry} / ${r.exit}→ICN` : `ICN↔${r.entry}`;
     return `<tr>
-      <td class="price">${won(r.price)}</td>
+      <td class="price">${won(r.now)}${
+        r.price < r.now ? `<div class="dim" style="font-weight:400">역대 ${won(r.price)}</div>` : ""}</td>
       <td>${route}${openJaw ? '<span class="tag">오픈조</span>' : ""}</td>
       <td class="dim">${md(r.out)} → ${md(r.back)}</td>
-      <td class="dim">${r.airlines || "?"}${
-        r.stops != null ? `<span class="tag">경유 ${r.stops}</span>` : ""}</td>
+      <td class="dim">${r.last_airlines || r.airlines || "?"}${
+        (r.last_stops ?? r.stops) != null ? `<span class="tag">경유 ${r.last_stops ?? r.stops}</span>` : ""}</td>
       <td>${r.link ? `<a href="${r.link}" target="_blank" rel="noopener">열기</a>` : ""}</td>
     </tr>`;
   }).join("");

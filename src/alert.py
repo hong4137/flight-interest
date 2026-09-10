@@ -90,12 +90,12 @@ def evaluate(deal: Deal, store: Store, cfg: Config) -> AlertDecision:
     _improved, previous_route = store.record_price(deal)
 
     if deal.price_per_person <= cfg.threshold_pp:
-        # 임계값 이하는 무조건 알린다. 단 같은 지문으로 이미 보냈고 더 싸지지도
-        # 않았다면 침묵한다.
-        cheaper_than_last = previous_route is None or deal.price_per_person < previous_route
-        if store.should_alert(deal, cfg.cooldown_hours) or cheaper_than_last:
-            return AlertDecision(True, "threshold", previous_route)
-        return AlertDecision(False, None, previous_route)
+        # 목표 달성은 알릴 가치가 있다. 다만 이미 달성한 뒤에는 매 스윕마다
+        # 같은 소식이 반복된다 — 하루 8건이 나갔고 절반이 "-0%" 였다.
+        # 같은 여정을 다시 알리려면 의미 있게 싸져야 한다.
+        if store.should_alert(deal, cfg.cooldown_hours, cfg.realert_min_drop_pct):
+            return AlertDecision(True, "threshold", previous_global)
+        return AlertDecision(False, None, previous_global)
 
     # "역대 최저 갱신" 은 **전체 최저**를 깼을 때만 알린다.
     #
@@ -105,7 +105,9 @@ def evaluate(deal: Deal, store: Store, cfg: Config) -> AlertDecision:
     # 한꺼번에 내려간 날, 이런 알림이 줄줄이 나갔다.
     if previous_global is not None and deal.price_per_person < previous_global:
         drop_pct = (previous_global - deal.price_per_person) / previous_global * 100
-        if drop_pct >= cfg.new_low_drop_pct and store.should_alert(deal, cfg.cooldown_hours):
+        if drop_pct >= cfg.new_low_drop_pct and store.should_alert(
+            deal, cfg.cooldown_hours, cfg.realert_min_drop_pct
+        ):
             return AlertDecision(True, "new_low", previous_global)
 
     return AlertDecision(False, None, previous_route)
@@ -174,8 +176,9 @@ def format_deal(deal: Deal, cfg: Config, decision: AlertDecision) -> str:
 
     if decision.previous_best:
         diff = decision.previous_best - deal.price_per_person
-        if diff > 0:
-            pct = diff / decision.previous_best * 100
+        pct = diff / decision.previous_best * 100 if diff > 0 else 0
+        # 반올림해서 0% 면 적지 않는다. "-0%" 는 알려주는 게 없다.
+        if round(pct) >= 1:
             lines.append(
                 "직전 최저 {} 대비 <b>-{:.0f}%</b>".format(won(decision.previous_best), pct)
             )
@@ -209,14 +212,19 @@ def format_digest(cfg: Config, store: Store) -> str:
     rows = read_history(days=7)
     best_map = store.state.get("best_by_route", {})
 
-    ranked = sorted(best_map.items(), key=lambda kv: kv[1]["price"])[: cfg.digest_top_n]
+    # 역대 최저가 아니라 **가장 최근에 관측한 값**으로 줄 세운다. 266만원짜리가
+    # 사라진 뒤에도 "현재 최저가 266만원" 이라고 알렸다.
+    def current(info: dict) -> int:
+        return int(info.get("last_price") or info["price"])
+
+    ranked = sorted(best_map.items(), key=lambda kv: current(kv[1]))[: cfg.digest_top_n]
 
     lines = ["📊 <b>일일 요약</b> · {}".format(md(now())), ""]
 
     if not ranked:
         lines.append("아직 확인된 왕복/오픈조 가격이 없습니다.")
     else:
-        lines.append("<b>현재 최저가 TOP {}</b> (1인)".format(len(ranked)))
+        lines.append("<b>최근 조회 최저가 TOP {}</b> (1인)".format(len(ranked)))
         shown = 0
         for route_key, info in ranked:
             parsed = split_route_key(route_key)
@@ -233,24 +241,28 @@ def format_digest(cfg: Config, store: Store) -> str:
                 link = ""
 
             tag = " · 오픈조" if entry != exit_city else ""
+            price_now = current(info)
             lines.append(
                 "{}. <b>{}</b> · {} · {} → {}{}".format(
                     shown,
-                    won(info["price"]),
+                    won(price_now),
                     _esc(route_label(cfg.origin, entry, exit_city)),
                     out_d[5:], in_d[5:], tag,
                 )
             )
+            if info.get("price") and info["price"] < price_now:
+                lines.append("    <i>역대 최저 {} (지금은 아님)</i>".format(won(info["price"])))
 
-            detail = _esc(info.get("airlines") or "?")
-            stops = info.get("stops")
+            detail = _esc(info.get("last_airlines") or info.get("airlines") or "?")
+            stops = info.get("last_stops", info.get("stops"))
             if stops is not None:
                 detail += " · 경유 {}회".format(stops)
             if link:
                 detail += ' · <a href="{}">열기</a>'.format(_esc(link))
             lines.append("    {}".format(detail))
 
-    gb = store.state.get("global_best")
+    current_best = min((current(v) for v in best_map.values()), default=None)
+    gb = {"price": current_best} if current_best is not None else None
     if gb:
         gap = gb["price"] - cfg.threshold_pp
         if gap <= 0:

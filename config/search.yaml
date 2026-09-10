@@ -49,8 +49,12 @@ threshold:
   # 과대 추정돼 탈락합니다. 실측 분포가 0.563~0.941 로 넓어 낮은 쪽을 씁니다.
   screening_percentile: 10
 
-  # 임계값을 넘더라도 역대 최저를 이만큼(%) 깨면 알림
+  # 임계값을 넘더라도 전체 최저를 이만큼(%) 깨면 알림
   new_low_alert_drop_pct: 5
+
+  # 이미 알린 여정을 다시 알릴 최소 하락폭(%). 목표를 이미 달성한 뒤에는
+  # 매번 "목표가 달성" 이 반복되므로, 의미 있게 싸질 때만 다시 알립니다.
+  realert_min_drop_pct: 3
 
 alerting:
   duplicate_cooldown_hours: 24

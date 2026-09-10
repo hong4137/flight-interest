@@ -43,6 +43,7 @@ class Config:
     t2_margin: float
     screening_percentile: int
     new_low_drop_pct: float
+    realert_min_drop_pct: float
 
     cooldown_hours: int
     digest_top_n: int
@@ -191,6 +192,7 @@ def load_config(path: str | Path | None = None) -> Config:
         t2_margin=float(thr.get("t2_margin", 1.25)),
         screening_percentile=int(thr.get("screening_percentile", 10)),
         new_low_drop_pct=float(thr.get("new_low_alert_drop_pct", 5)),
+        realert_min_drop_pct=float(thr.get("realert_min_drop_pct", 3)),
         cooldown_hours=int(alerting.get("duplicate_cooldown_hours", 24)),
         digest_top_n=int(alerting.get("digest_top_n", 5)),
         max_alerts_per_sweep=int(alerting.get("max_alerts_per_sweep", 3)),

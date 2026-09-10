@@ -1053,3 +1053,76 @@ def test_알림이_왕복_가격임을_분명히_한다(cfg, store):
     assert "왕복" in text                       # 한 단어로 충분하다
     assert "편도" not in text                   # 안 하는 일을 해명하지 않는다
     assert "BCN 출발" in text                    # 오는 편이 어디서 뜨는지
+
+
+# ── 목표 달성 뒤의 반복 알림 ──────────────────────────────────
+
+def test_같은_여정은_의미있게_싸질_때만_다시_알린다(cfg, store):
+    """목표를 이미 달성한 뒤에는 매 스윕마다 같은 소식이 반복된다.
+    실제로 하루 8건이 나갔고 절반이 '직전 최저 295만원 대비 -0%' 였다."""
+    first = make_deal(2_950_000)
+    assert evaluate(first, store, cfg).send
+    store.mark_alerted(first)
+
+    # 0.06% 하락 — 사실상 같은 가격
+    assert not evaluate(make_deal(2_948_300), store, cfg).send
+    # 1% 하락 — 아직 부족하다 (기준 3%)
+    assert not evaluate(make_deal(2_920_500), store, cfg).send
+    # 4% 하락 — 알릴 만하다
+    assert evaluate(make_deal(2_832_000), store, cfg).send
+
+
+def test_가격이_조금_움직여도_같은_여정으로_본다():
+    """지문에 가격 버킷이 있어 2,948,300 -> 2,952,200 이 '처음 보는 조합' 이 됐고
+    쿨다운이 무력화됐다."""
+    a = make_deal(2_948_300)
+    b = make_deal(2_952_200)
+    assert a.fingerprint() == b.fingerprint()
+
+    different_flight = make_deal(2_948_300, airlines=("QR",))
+    assert a.fingerprint() != different_flight.fingerprint()
+
+
+def test_쿨다운이_지나면_다시_알린다(cfg, store):
+    deal = make_deal(2_950_000)
+    evaluate(deal, store, cfg)
+    store.mark_alerted(deal)
+    assert not evaluate(make_deal(2_949_000), store, cfg).send
+
+    store.state["alerts"][deal.fingerprint()]["at"] = (
+        datetime.now() - timedelta(hours=cfg.cooldown_hours + 1)
+    ).isoformat()
+    assert evaluate(make_deal(2_949_000), store, cfg).send
+
+
+def test_예전_알림_이력_형식도_읽는다(cfg, store):
+    """state.json 은 코드 변경을 넘어 살아남는다. 예전에는 시각 문자열만 넣었다."""
+    deal = make_deal(2_950_000)
+    store.state["alerts"][deal.fingerprint()] = now_iso = datetime.now().isoformat()
+    assert isinstance(store.state["alerts"][deal.fingerprint()], str)
+
+    # 가격 기록이 없으면 쿨다운 안에서는 보내지 않는다
+    assert not store.should_alert(deal, cfg.cooldown_hours, cfg.realert_min_drop_pct)
+
+
+def test_하락폭이_0으로_반올림되면_적지_않는다(cfg, store):
+    """'직전 최저 295만원 대비 -0%' 는 알려주는 게 없다."""
+    from src.alert import AlertDecision
+
+    text = format_deal(make_deal(2_948_300), cfg, AlertDecision(True, "threshold", 2_950_000))
+    assert "-0%" not in text
+    assert "직전 최저" not in text
+
+    text2 = format_deal(make_deal(2_800_000), cfg, AlertDecision(True, "threshold", 2_950_000))
+    assert "직전 최저" in text2
+
+
+def test_관측할_때마다_현재가를_남긴다(cfg, store):
+    """역대 최저와 지금 살 수 있는 값은 다르다. 266만원이 사라진 뒤에도
+    요약이 '현재 최저가 266만원' 이라고 알렸다."""
+    evaluate(make_deal(2_655_100), store, cfg)
+    evaluate(make_deal(3_087_200), store, cfg)          # 특가가 사라지고 올랐다
+
+    entry = store.state["best_by_route"][make_deal(1).route_key]
+    assert entry["price"] == 2_655_100        # 역대 최저는 그대로
+    assert entry["last_price"] == 3_087_200   # 현재가는 최신
