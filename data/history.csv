@@ -3216,3 +3216,15 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-09-11T06:32:42,open-jaw,BCN,MAD,2026-12-29,2027-01-09,3325900,카타르항공,1,serpapi
 2026-09-11T06:32:42,round-trip,BCN,BCN,2026-12-29,2027-01-11,3109100,에티하드항공,1,gflights
 2026-09-11T06:32:46,round-trip,BCN,BCN,2026-12-30,2027-01-11,3016800,LOT 폴란드항공,1,gflights
+2026-09-11T08:57:02,round-trip,MAD,MAD,2027-01-01,2027-01-12,3087200,에티하드항공,1,gflights
+2026-09-11T08:57:05,round-trip,BCN,BCN,2026-12-29,2027-01-10,2920400,에티하드항공,1,gflights
+2026-09-11T08:57:09,round-trip,BCN,BCN,2026-12-29,2027-01-12,2920400,에티하드항공,1,gflights
+2026-09-11T08:57:13,round-trip,MAD,MAD,2026-12-29,2027-01-10,2945300,에티하드항공,1,gflights
+2026-09-11T08:57:17,round-trip,MAD,MAD,2026-12-29,2027-01-12,2948300,에티하드항공,1,gflights
+2026-09-11T08:57:20,round-trip,BCN,BCN,2026-12-30,2027-01-10,2970600,에티하드항공,1,gflights
+2026-09-11T08:57:23,round-trip,BCN,BCN,2026-12-30,2027-01-12,2973600,에티하드항공,1,gflights
+2026-09-11T08:57:27,round-trip,BCN,BCN,2026-12-31,2027-01-10,2970600,에티하드항공,1,gflights
+2026-09-11T08:57:31,open-jaw,BCN,MAD,2026-12-30,2027-01-09,3048700,LOT 폴란드항공,1,serpapi
+2026-09-11T08:57:43,open-jaw,BCN,MAD,2026-12-29,2027-01-09,3325900,카타르항공,1,serpapi
+2026-09-11T08:57:43,round-trip,BCN,BCN,2026-12-29,2027-01-11,3097800,에티하드항공,1,gflights
+2026-09-11T08:57:47,round-trip,BCN,BCN,2026-12-30,2027-01-11,3016800,LOT 폴란드항공,1,gflights

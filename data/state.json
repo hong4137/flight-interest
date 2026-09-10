@@ -14,6 +14,10 @@
       "price": 2923400
     },
     "23a8c2b9e552bef0": "2026-08-29T23:33:17",
+    "2c9f4bb98186c870": {
+      "at": "2026-09-11T08:57:47",
+      "price": 2973600
+    },
     "3bad1a7816407acc": {
       "at": "2026-09-11T06:32:46",
       "price": 2948300
@@ -77,7 +81,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2920400,
-      "last_seen": "2026-09-11T06:32:13",
+      "last_seen": "2026-09-11T08:57:05",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2920400,
@@ -87,20 +91,24 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-05T13:12:25",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3097800,
+      "last_seen": "2026-09-11T08:57:43",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3018800,
       "stops": 1
     },
     "BCN|BCN|2026-12-29|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-09-10T09:05:53",
+      "at": "2026-09-11T08:57:09",
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
-      "last_price": 2923400,
-      "last_seen": "2026-09-11T06:32:16",
+      "last_price": 2920400,
+      "last_seen": "2026-09-11T08:57:09",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2923400,
+      "price": 2920400,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-08": {
@@ -125,7 +133,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2970600,
-      "last_seen": "2026-09-11T06:32:27",
+      "last_seen": "2026-09-11T08:57:20",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2970600,
@@ -133,10 +141,14 @@
     },
     "BCN|BCN|2026-12-30|2027-01-11": {
       "airlines": "LOT 폴란드항공",
-      "at": "2026-09-10T18:34:04",
+      "at": "2026-09-11T08:57:47",
       "kind": "round-trip",
+      "last_airlines": "LOT 폴란드항공",
+      "last_price": 3016800,
+      "last_seen": "2026-09-11T08:57:47",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3017000,
+      "price": 3016800,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-12": {
@@ -145,7 +157,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2973600,
-      "last_seen": "2026-09-11T06:32:31",
+      "last_seen": "2026-09-11T08:57:23",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2973600,
@@ -173,7 +185,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2970600,
-      "last_seen": "2026-09-11T06:32:35",
+      "last_seen": "2026-09-11T08:57:27",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2970600,
@@ -239,16 +251,24 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-07T06:11:57",
       "kind": "open-jaw",
+      "last_airlines": "카타르항공",
+      "last_price": 3325900,
+      "last_seen": "2026-09-11T08:57:43",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
       "price": 3051100,
       "stops": 1
     },
     "BCN|MAD|2026-12-30|2027-01-09": {
       "airlines": "LOT 폴란드항공",
-      "at": "2026-09-10T03:29:03",
+      "at": "2026-09-11T08:57:31",
       "kind": "open-jaw",
+      "last_airlines": "LOT 폴란드항공",
+      "last_price": 3048700,
+      "last_seen": "2026-09-11T08:57:31",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
-      "price": 3049000,
+      "price": 3048700,
       "stops": 1
     },
     "LIS|LIS|2026-12-29|2027-01-08": {
@@ -465,7 +485,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2945300,
-      "last_seen": "2026-09-11T06:32:20",
+      "last_seen": "2026-09-11T08:57:13",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2945300,
@@ -485,7 +505,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2948300,
-      "last_seen": "2026-09-11T06:32:24",
+      "last_seen": "2026-09-11T08:57:17",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2948300,
@@ -607,6 +627,10 @@
       "airlines": "중국남방항공",
       "at": "2026-09-09T09:05:52",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3087200,
+      "last_seen": "2026-09-11T08:57:02",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2655100,
       "stops": 1
@@ -1825,7 +1849,7 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-11T06:32:47",
+    "at": "2026-09-11T08:57:47",
     "candidates": 12,
     "cheapest": 2920400,
     "confirmed": 12,
@@ -1845,9 +1869,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-11",
-    "day_used": 4,
+    "day_used": 6,
     "month": "2026-09",
-    "month_used": 76
+    "month_used": 78
   },
   "target_per_person": 3000000,
   "version": 1
