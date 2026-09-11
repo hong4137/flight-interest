@@ -34,7 +34,6 @@
       "at": "2026-09-11T03:17:32",
       "price": 2923400
     },
-    "939de30d0558f7e4": "2026-08-28T13:13:36",
     "94577199847dd991": "2026-09-10T09:09:30",
     "a62027e82f2ad0bc": "2026-09-03T18:00:07",
     "a67d26f975046d8a": {
@@ -47,11 +46,9 @@
       "price": 2970600
     },
     "b27e5c1034940f5e": "2026-08-29T17:58:54",
-    "c08c2a366e29ff33": "2026-08-28T13:14:39",
     "c5244ea5dd6ea5e2": "2026-09-03T22:30:32",
     "c5432d58b2ed016d": "2026-09-10T06:37:55",
     "c9104dd364efd5df": "2026-08-29T17:59:35",
-    "d057e47f605f782a": "2026-08-28T13:13:33",
     "fc9618c3501dd06e": "2026-09-10T13:29:12"
   },
   "arrive_window": [
@@ -61,16 +58,24 @@
   "best_by_route": {
     "BCN|BCN|2026-12-29|2027-01-08": {
       "airlines": "카타르항공",
-      "at": "2026-09-08T00:46:55",
+      "at": "2026-09-11T13:24:05",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3228700,
+      "last_seen": "2026-09-11T13:24:05",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3234600,
+      "price": 3228700,
       "stops": 1
     },
     "BCN|BCN|2026-12-29|2027-01-09": {
       "airlines": "에티하드항공",
       "at": "2026-09-09T13:28:27",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3307000,
+      "last_seen": "2026-09-11T13:23:21",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3235300,
       "stops": 1
@@ -81,7 +86,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2920400,
-      "last_seen": "2026-09-11T08:57:05",
+      "last_seen": "2026-09-11T13:22:45",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2920400,
@@ -93,7 +98,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3097800,
-      "last_seen": "2026-09-11T08:57:43",
+      "last_seen": "2026-09-11T13:22:23",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3018800,
@@ -105,7 +110,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2920400,
-      "last_seen": "2026-09-11T08:57:09",
+      "last_seen": "2026-09-11T13:23:25",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2920400,
@@ -113,18 +118,26 @@
     },
     "BCN|BCN|2026-12-30|2027-01-08": {
       "airlines": "LOT 폴란드항공",
-      "at": "2026-09-09T13:26:55",
+      "at": "2026-09-11T13:24:07",
       "kind": "round-trip",
+      "last_airlines": "LOT 폴란드항공",
+      "last_price": 3016800,
+      "last_seen": "2026-09-11T13:24:07",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3017400,
+      "price": 3016800,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-09": {
-      "airlines": "카타르항공",
-      "at": "2026-09-09T13:28:46",
+      "airlines": "에티하드항공",
+      "at": "2026-09-11T13:23:28",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3278600,
+      "last_seen": "2026-09-11T13:23:28",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3312900,
+      "price": 3278600,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-10": {
@@ -133,7 +146,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2970600,
-      "last_seen": "2026-09-11T08:57:20",
+      "last_seen": "2026-09-11T13:22:48",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2970600,
@@ -145,7 +158,7 @@
       "kind": "round-trip",
       "last_airlines": "LOT 폴란드항공",
       "last_price": 3016800,
-      "last_seen": "2026-09-11T08:57:47",
+      "last_seen": "2026-09-11T13:22:27",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3016800,
@@ -153,30 +166,38 @@
     },
     "BCN|BCN|2026-12-30|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-09-10T06:37:32",
+      "at": "2026-09-11T13:23:33",
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
-      "last_price": 2973600,
-      "last_seen": "2026-09-11T08:57:23",
+      "last_price": 2970600,
+      "last_seen": "2026-09-11T13:23:33",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2973600,
+      "price": 2970600,
       "stops": 1
     },
     "BCN|BCN|2026-12-31|2027-01-08": {
       "airlines": "카타르항공",
-      "at": "2026-09-09T13:27:06",
+      "at": "2026-09-11T13:24:10",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3228700,
+      "last_seen": "2026-09-11T13:24:10",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3234800,
+      "price": 3228700,
       "stops": 1
     },
     "BCN|BCN|2026-12-31|2027-01-09": {
-      "airlines": "카타르항공",
-      "at": "2026-09-09T13:28:57",
+      "airlines": "에티하드항공",
+      "at": "2026-09-11T13:23:37",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3278600,
+      "last_seen": "2026-09-11T13:23:37",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3312900,
+      "price": 3278600,
       "stops": 1
     },
     "BCN|BCN|2026-12-31|2027-01-10": {
@@ -185,66 +206,94 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2970600,
-      "last_seen": "2026-09-11T08:57:27",
+      "last_seen": "2026-09-11T13:22:51",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2970600,
       "stops": 1
     },
     "BCN|BCN|2026-12-31|2027-01-11": {
-      "airlines": "카타르항공",
-      "at": "2026-09-09T13:26:32",
+      "airlines": "에티하드항공",
+      "at": "2026-09-11T13:22:29",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3156400,
+      "last_seen": "2026-09-11T13:22:29",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3234600,
+      "price": 3156400,
       "stops": 1
     },
     "BCN|BCN|2026-12-31|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T13:29:05",
+      "at": "2026-09-11T13:23:40",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 2970600,
+      "last_seen": "2026-09-11T13:23:40",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3064100,
+      "price": 2970600,
       "stops": 1
     },
     "BCN|BCN|2027-01-01|2027-01-08": {
       "airlines": "카타르항공",
-      "at": "2026-09-09T13:27:10",
+      "at": "2026-09-11T13:24:14",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3228700,
+      "last_seen": "2026-09-11T13:24:14",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDgoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3234800,
+      "price": 3228700,
       "stops": 1
     },
     "BCN|BCN|2027-01-01|2027-01-09": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T13:29:13",
+      "at": "2026-09-11T13:23:43",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3278600,
+      "last_seen": "2026-09-11T13:23:43",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3285500,
+      "price": 3278600,
       "stops": 1
     },
     "BCN|BCN|2027-01-01|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-10T13:23:45",
+      "at": "2026-09-11T13:22:55",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 2970600,
+      "last_seen": "2026-09-11T13:22:55",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2977500,
+      "price": 2970600,
       "stops": 1
     },
     "BCN|BCN|2027-01-01|2027-01-11": {
-      "airlines": "카타르항공",
-      "at": "2026-09-09T13:26:36",
+      "airlines": "에티하드항공",
+      "at": "2026-09-11T13:22:32",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3156400,
+      "last_seen": "2026-09-11T13:22:32",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3234600,
+      "price": 3156400,
       "stops": 1
     },
     "BCN|BCN|2027-01-01|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T13:29:20",
+      "at": "2026-09-11T13:23:45",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 2970600,
+      "last_seen": "2026-09-11T13:23:45",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3064100,
+      "price": 2970600,
       "stops": 1
     },
     "BCN|MAD|2026-12-29|2027-01-09": {
@@ -253,7 +302,7 @@
       "kind": "open-jaw",
       "last_airlines": "카타르항공",
       "last_price": 3325900,
-      "last_seen": "2026-09-11T08:57:43",
+      "last_seen": "2026-09-11T13:27:04",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
       "price": 3051100,
@@ -265,7 +314,7 @@
       "kind": "open-jaw",
       "last_airlines": "LOT 폴란드항공",
       "last_price": 3048700,
-      "last_seen": "2026-09-11T08:57:31",
+      "last_seen": "2026-09-11T13:27:07",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
       "price": 3048700,
@@ -275,6 +324,10 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-09T13:30:14",
       "kind": "round-trip",
+      "last_airlines": "루프트한자,Tap Air Portugal",
+      "last_price": 4258900,
+      "last_seen": "2026-09-11T13:24:28",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMDgoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3017200,
       "stops": 1
@@ -283,6 +336,10 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-09T13:29:38",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 4589300,
+      "last_seen": "2026-09-11T13:24:17",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMDkoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3017200,
       "stops": 1
@@ -291,38 +348,58 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-05T13:15:50",
       "kind": "round-trip",
+      "last_airlines": "LOT 폴란드항공",
+      "last_price": 3459000,
+      "last_seen": "2026-09-11T13:24:21",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3019000,
       "stops": 1
     },
     "LIS|LIS|2026-12-29|2027-01-11": {
       "airlines": "LOT 폴란드항공",
-      "at": "2026-09-09T13:29:35",
+      "at": "2026-09-11T13:24:25",
       "kind": "round-trip",
+      "last_airlines": "LOT 폴란드항공",
+      "last_price": 3016600,
+      "last_seen": "2026-09-11T13:24:25",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3017200,
+      "price": 3016600,
       "stops": 1
     },
     "LIS|LIS|2026-12-29|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-08-31T01:38:23",
+      "at": "2026-09-11T13:25:29",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3146400,
+      "last_seen": "2026-09-11T13:25:29",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTIoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3191600,
+      "price": 3146400,
       "stops": 1
     },
     "LIS|LIS|2026-12-30|2027-01-08": {
       "airlines": "루프트한자",
-      "at": "2026-09-09T13:32:20",
+      "at": "2026-09-11T13:25:33",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 3371700,
+      "last_seen": "2026-09-11T13:25:33",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMDgoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3374400,
+      "price": 3371700,
       "stops": 1
     },
     "LIS|LIS|2026-12-30|2027-01-09": {
       "airlines": "LOT 폴란드항공,Tap Air Portugal",
       "at": "2026-09-09T13:30:55",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 4171700,
+      "last_seen": "2026-09-11T13:24:33",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMDkoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3459600,
       "stops": 1
@@ -331,6 +408,10 @@
       "airlines": "LOT 폴란드항공,Tap Air Portugal",
       "at": "2026-09-09T13:30:58",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 4183500,
+      "last_seen": "2026-09-11T13:24:36",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3459600,
       "stops": 1
@@ -339,6 +420,10 @@
       "airlines": "LOT 폴란드항공,Tap Air Portugal",
       "at": "2026-09-09T13:30:20",
       "kind": "round-trip",
+      "last_airlines": "LOT 폴란드항공,Tap Air Portugal",
+      "last_price": 3849300,
+      "last_seen": "2026-09-11T13:24:40",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3459600,
       "stops": 1
@@ -347,6 +432,10 @@
       "airlines": "카타르항공",
       "at": "2026-09-06T09:53:07",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 3371700,
+      "last_seen": "2026-09-11T13:25:47",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTIoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3303800,
       "stops": 1
@@ -355,6 +444,10 @@
       "airlines": "카타르항공",
       "at": "2026-09-04T13:18:57",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3926100,
+      "last_seen": "2026-09-11T13:25:36",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMDgoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3306000,
       "stops": 1
@@ -363,6 +456,10 @@
       "airlines": "카타르항공",
       "at": "2026-09-09T13:31:02",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 4229500,
+      "last_seen": "2026-09-11T13:24:44",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMDkoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3584300,
       "stops": 1
@@ -371,6 +468,10 @@
       "airlines": "카타르항공",
       "at": "2026-09-03T13:11:51",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 4229500,
+      "last_seen": "2026-09-11T13:24:47",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3611500,
       "stops": 1
@@ -379,6 +480,10 @@
       "airlines": "SAS항공",
       "at": "2026-09-06T09:52:09",
       "kind": "round-trip",
+      "last_airlines": "SAS항공",
+      "last_price": 4159100,
+      "last_seen": "2026-09-11T13:24:51",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3590700,
       "stops": 1
@@ -387,6 +492,10 @@
       "airlines": "카타르항공",
       "at": "2026-09-06T09:53:11",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 4151200,
+      "last_seen": "2026-09-11T13:25:51",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTIoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3300300,
       "stops": 1
@@ -395,6 +504,10 @@
       "airlines": "루프트한자",
       "at": "2026-09-05T13:15:08",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 4171700,
+      "last_seen": "2026-09-11T13:25:40",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMDgoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3382800,
       "stops": 1
@@ -403,6 +516,10 @@
       "airlines": "카타르항공",
       "at": "2026-09-04T13:18:22",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 4392000,
+      "last_seen": "2026-09-11T13:24:54",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMDkoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3847000,
       "stops": 1
@@ -411,6 +528,10 @@
       "airlines": "카타르항공",
       "at": "2026-09-04T05:58:36",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 4433900,
+      "last_seen": "2026-09-11T13:24:58",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 4041200,
       "stops": 1
@@ -419,6 +540,10 @@
       "airlines": "루프트한자",
       "at": "2026-09-05T13:14:34",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 4983500,
+      "last_seen": "2026-09-11T13:25:02",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 4194700,
       "stops": 1
@@ -427,6 +552,10 @@
       "airlines": "루프트한자",
       "at": "2026-09-05T13:15:30",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3929600,
+      "last_seen": "2026-09-11T13:25:56",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTIoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3382800,
       "stops": 1
@@ -467,16 +596,24 @@
       "airlines": "에티하드항공",
       "at": "2026-09-09T13:29:56",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3263800,
+      "last_seen": "2026-09-11T13:23:55",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDgoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3138500,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-09": {
       "airlines": "카타르항공",
-      "at": "2026-09-09T13:27:47",
+      "at": "2026-09-11T13:22:58",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3338600,
+      "last_seen": "2026-09-11T13:22:58",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3344700,
+      "price": 3338600,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-10": {
@@ -485,7 +622,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2945300,
-      "last_seen": "2026-09-11T08:57:13",
+      "last_seen": "2026-09-11T13:25:05",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2945300,
@@ -493,10 +630,14 @@
     },
     "MAD|MAD|2026-12-29|2027-01-11": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T13:28:06",
+      "at": "2026-09-11T13:23:09",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3134600,
+      "last_seen": "2026-09-11T13:23:09",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3138500,
+      "price": 3134600,
       "stops": 1
     },
     "MAD|MAD|2026-12-29|2027-01-12": {
@@ -505,7 +646,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2948300,
-      "last_seen": "2026-09-11T08:57:17",
+      "last_seen": "2026-09-11T13:25:09",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2948300,
@@ -515,6 +656,10 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-09T13:30:00",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3409500,
+      "last_seen": "2026-09-11T13:23:59",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDgoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3017300,
       "stops": 1
@@ -523,6 +668,10 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-06T09:50:39",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3338600,
+      "last_seen": "2026-09-11T13:23:01",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3018700,
       "stops": 1
@@ -531,6 +680,10 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-06T09:51:47",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3084200,
+      "last_seen": "2026-09-11T13:25:12",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3018700,
       "stops": 1
@@ -539,62 +692,94 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-09T13:28:13",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3270500,
+      "last_seen": "2026-09-11T13:23:13",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3017300,
       "stops": 1
     },
     "MAD|MAD|2026-12-30|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T13:31:49",
+      "at": "2026-09-11T13:25:17",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3087200,
+      "last_seen": "2026-09-11T13:25:17",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3091100,
+      "price": 3087200,
       "stops": 1
     },
     "MAD|MAD|2026-12-31|2027-01-08": {
       "airlines": "카타르항공",
-      "at": "2026-09-02T13:15:01",
+      "at": "2026-09-11T13:24:02",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3266800,
+      "last_seen": "2026-09-11T13:24:02",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDgoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3561100,
+      "price": 3266800,
       "stops": 1
     },
     "MAD|MAD|2026-12-31|2027-01-09": {
       "airlines": "카타르항공",
-      "at": "2026-09-09T13:28:02",
+      "at": "2026-09-11T13:23:05",
       "kind": "round-trip",
+      "last_airlines": "카타르항공",
+      "last_price": 3338600,
+      "last_seen": "2026-09-11T13:23:05",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3344700,
+      "price": 3338600,
       "stops": 1
     },
     "MAD|MAD|2026-12-31|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T13:31:53",
+      "at": "2026-09-11T13:25:20",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3084200,
+      "last_seen": "2026-09-11T13:25:20",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3091100,
+      "price": 3084200,
       "stops": 1
     },
     "MAD|MAD|2026-12-31|2027-01-11": {
-      "airlines": "SAS항공",
-      "at": "2026-09-02T05:59:16",
+      "airlines": "에티하드항공",
+      "at": "2026-09-11T13:23:17",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3270500,
+      "last_seen": "2026-09-11T13:23:17",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3586700,
+      "price": 3270500,
       "stops": 1
     },
     "MAD|MAD|2026-12-31|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T13:31:57",
+      "at": "2026-09-11T13:25:23",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3084200,
+      "last_seen": "2026-09-11T13:25:23",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3091100,
+      "price": 3084200,
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-08": {
       "airlines": "에티하드항공",
       "at": "2026-09-09T00:03:19",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3409500,
+      "last_seen": "2026-09-11T13:22:42",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDgoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3277000,
       "stops": 1
@@ -603,24 +788,36 @@
       "airlines": "중국남방항공",
       "at": "2026-09-03T22:30:20",
       "kind": "round-trip",
+      "last_airlines": "카타르항공,이베리아항공",
+      "last_price": 3746400,
+      "last_seen": "2026-09-11T13:22:35",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2663500,
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T13:29:24",
+      "at": "2026-09-11T13:23:48",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3087200,
+      "last_seen": "2026-09-11T13:23:48",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3091100,
+      "price": 3087200,
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-11": {
       "airlines": "에티하드항공",
-      "at": "2026-09-09T13:26:43",
+      "at": "2026-09-11T13:22:39",
       "kind": "round-trip",
+      "last_airlines": "에티하드항공",
+      "last_price": 3273500,
+      "last_seen": "2026-09-11T13:22:39",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3277400,
+      "price": 3273500,
       "stops": 1
     },
     "MAD|MAD|2027-01-01|2027-01-12": {
@@ -629,7 +826,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3087200,
-      "last_seen": "2026-09-11T08:57:02",
+      "last_seen": "2026-09-11T13:23:51",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2655100,
@@ -637,56 +834,84 @@
     },
     "OPO|OPO|2026-12-29|2027-01-08": {
       "airlines": "SAS항공",
-      "at": "2026-09-09T13:32:52",
+      "at": "2026-09-11T13:26:04",
       "kind": "round-trip",
+      "last_airlines": "SAS항공",
+      "last_price": 4148600,
+      "last_seen": "2026-09-11T13:26:04",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMDgoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4148800,
+      "price": 4148600,
       "stops": 1
     },
     "OPO|OPO|2026-12-29|2027-01-09": {
       "airlines": "루프트한자",
-      "at": "2026-09-07T02:02:16",
+      "at": "2026-09-11T13:26:36",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 4298200,
+      "last_seen": "2026-09-11T13:26:36",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMDkoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4309300,
+      "price": 4298200,
       "stops": 1
     },
     "OPO|OPO|2026-12-29|2027-01-10": {
       "airlines": "루프트한자",
-      "at": "2026-09-09T13:33:17",
+      "at": "2026-09-11T13:26:14",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 3798200,
+      "last_seen": "2026-09-11T13:26:14",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTAoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3801600,
+      "price": 3798200,
       "stops": 1
     },
     "OPO|OPO|2026-12-29|2027-01-11": {
-      "airlines": "SAS항공",
-      "at": "2026-09-05T13:16:33",
+      "airlines": "루프트한자",
+      "at": "2026-09-11T13:26:43",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 3873300,
+      "last_seen": "2026-09-11T13:26:43",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTEoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4149500,
+      "price": 3873300,
       "stops": 1
     },
     "OPO|OPO|2026-12-29|2027-01-12": {
       "airlines": "KLM",
-      "at": "2026-09-05T13:16:44",
+      "at": "2026-09-11T13:26:58",
       "kind": "round-trip",
+      "last_airlines": "KLM",
+      "last_price": 4283600,
+      "last_seen": "2026-09-11T13:26:58",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTIoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4296600,
+      "price": 4283600,
       "stops": 1
     },
     "OPO|OPO|2026-12-30|2027-01-08": {
       "airlines": "LOT 폴란드항공",
-      "at": "2026-09-09T13:32:04",
+      "at": "2026-09-11T13:25:26",
       "kind": "round-trip",
+      "last_airlines": "LOT 폴란드항공",
+      "last_price": 3704100,
+      "last_seen": "2026-09-11T13:25:26",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMDgoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3704600,
+      "price": 3704100,
       "stops": 1
     },
     "OPO|OPO|2026-12-30|2027-01-09": {
       "airlines": "루프트한자",
       "at": "2026-08-29T23:34:38",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 3948800,
+      "last_seen": "2026-09-11T13:26:18",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMDkoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3938800,
       "stops": 1
@@ -695,6 +920,10 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-04T23:10:34",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 3448800,
+      "last_seen": "2026-09-11T13:25:43",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTAoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3019400,
       "stops": 1
@@ -703,96 +932,144 @@
       "airlines": "루프트한자",
       "at": "2026-09-07T02:01:54",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 3989200,
+      "last_seen": "2026-09-11T13:26:22",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTEoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3475500,
       "stops": 1
     },
     "OPO|OPO|2026-12-30|2027-01-12": {
       "airlines": "터키항공",
-      "at": "2026-09-05T13:16:19",
+      "at": "2026-09-11T13:26:29",
       "kind": "round-trip",
+      "last_airlines": "터키항공",
+      "last_price": 4841600,
+      "last_seen": "2026-09-11T13:26:29",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTIoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4856600,
+      "price": 4841600,
       "stops": 1
     },
     "OPO|OPO|2026-12-31|2027-01-08": {
       "airlines": "에어프랑스",
       "at": "2026-09-03T13:13:34",
       "kind": "round-trip",
+      "last_airlines": "에어프랑스",
+      "last_price": 4602100,
+      "last_seen": "2026-09-11T13:26:07",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMDgoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 4308900,
       "stops": 1
     },
     "OPO|OPO|2026-12-31|2027-01-09": {
-      "airlines": "에어프랑스",
-      "at": "2026-09-09T13:33:54",
+      "airlines": "터키항공",
+      "at": "2026-09-11T13:26:47",
       "kind": "round-trip",
+      "last_airlines": "터키항공",
+      "last_price": 4838300,
+      "last_seen": "2026-09-11T13:26:47",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMDkoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 5285300,
+      "price": 4838300,
       "stops": 1
     },
     "OPO|OPO|2026-12-31|2027-01-10": {
-      "airlines": "에어프랑스",
-      "at": "2026-09-07T02:02:03",
+      "airlines": "터키항공",
+      "at": "2026-09-11T13:26:25",
       "kind": "round-trip",
+      "last_airlines": "터키항공",
+      "last_price": 4938300,
+      "last_seen": "2026-09-11T13:26:25",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTAoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 5295400,
+      "price": 4938300,
       "stops": 1
     },
     "OPO|OPO|2026-12-31|2027-01-11": {
-      "airlines": "에어프랑스",
-      "at": "2026-09-09T13:34:02",
+      "airlines": "터키항공",
+      "at": "2026-09-11T13:26:54",
       "kind": "round-trip",
+      "last_airlines": "터키항공",
+      "last_price": 4838300,
+      "last_seen": "2026-09-11T13:26:54",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTEoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 5285300,
+      "price": 4838300,
       "stops": 1
     },
     "OPO|OPO|2026-12-31|2027-01-12": {
       "airlines": "에어프랑스",
-      "at": "2026-09-09T13:34:26",
+      "at": "2026-09-11T13:27:00",
       "kind": "round-trip",
+      "last_airlines": "에어프랑스",
+      "last_price": 4282800,
+      "last_seen": "2026-09-11T13:27:00",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTIoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4287200,
+      "price": 4282800,
       "stops": 1
     },
     "OPO|OPO|2027-01-01|2027-01-08": {
       "airlines": "루프트한자",
-      "at": "2026-09-09T13:32:48",
+      "at": "2026-09-11T13:26:00",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 4296200,
+      "last_seen": "2026-09-11T13:26:00",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMDgoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4297600,
+      "price": 4296200,
       "stops": 1
     },
     "OPO|OPO|2027-01-01|2027-01-09": {
       "airlines": "루프트한자",
-      "at": "2026-09-09T13:33:35",
+      "at": "2026-09-11T13:26:32",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 4284500,
+      "last_seen": "2026-09-11T13:26:32",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMDkoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4285800,
+      "price": 4284500,
       "stops": 1
     },
     "OPO|OPO|2027-01-01|2027-01-10": {
       "airlines": "루프트한자",
-      "at": "2026-09-05T13:15:36",
+      "at": "2026-09-11T13:26:10",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 3786500,
+      "last_seen": "2026-09-11T13:26:10",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTAoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 3794100,
+      "price": 3786500,
       "stops": 1
     },
     "OPO|OPO|2027-01-01|2027-01-11": {
       "airlines": "루프트한자",
       "at": "2026-09-05T13:16:31",
       "kind": "round-trip",
+      "last_airlines": "루프트한자",
+      "last_price": 4386900,
+      "last_seen": "2026-09-11T13:26:40",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTEoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3868300,
       "stops": 1
     },
     "OPO|OPO|2027-01-01|2027-01-12": {
       "airlines": "터키항공",
-      "at": "2026-09-05T13:16:40",
+      "at": "2026-09-11T13:26:50",
       "kind": "round-trip",
+      "last_airlines": "터키항공",
+      "last_price": 4844800,
+      "last_seen": "2026-09-11T13:26:50",
+      "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDT1BPGhwSCjIwMjctMDEtMTIoAWoFEgNPUE9yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 4856600,
+      "price": 4844800,
       "stops": 1
     }
   },
@@ -948,332 +1225,20 @@
         [
           4034844,
           3049000
+        ],
+        [
+          4037383,
+          3325900
+        ],
+        [
+          4037383,
+          3048700
         ]
       ]
     },
     "round-trip": {
       "ratio": 0.6636,
       "samples": [
-        [
-          4751184,
-          2655100
-        ],
-        [
-          4964072,
-          3017200
-        ],
-        [
-          4964088,
-          3017200
-        ],
-        [
-          5026150,
-          3138500
-        ],
-        [
-          5026150,
-          3017300
-        ],
-        [
-          5026150,
-          3703600
-        ],
-        [
-          5197436,
-          3017200
-        ],
-        [
-          5242672,
-          3459600
-        ],
-        [
-          5242688,
-          3459600
-        ],
-        [
-          5242688,
-          3459600
-        ],
-        [
-          5242688,
-          3584300
-        ],
-        [
-          5242688,
-          4010300
-        ],
-        [
-          5242688,
-          4440100
-        ],
-        [
-          5247084,
-          2952200
-        ],
-        [
-          5247084,
-          2952200
-        ],
-        [
-          5247084,
-          3091100
-        ],
-        [
-          5247084,
-          3091100
-        ],
-        [
-          5247084,
-          3091100
-        ],
-        [
-          5275526,
-          3704600
-        ],
-        [
-          5476036,
-          3374400
-        ],
-        [
-          5476036,
-          3932300
-        ],
-        [
-          5476036,
-          4175100
-        ],
-        [
-          5508874,
-          3452600
-        ],
-        [
-          5727570,
-          3375100
-        ],
-        [
-          5727570,
-          3506000
-        ],
-        [
-          5727570,
-          3935800
-        ],
-        [
-          5891026,
-          4297600
-        ],
-        [
-          5906126,
-          4148800
-        ],
-        [
-          6063604,
-          3952600
-        ],
-        [
-          6101226,
-          4605300
-        ],
-        [
-          6139474,
-          3801600
-        ],
-        [
-          6236234,
-          3993200
-        ],
-        [
-          6334574,
-          5942600
-        ],
-        [
-          6513560,
-          4856600
-        ],
-        [
-          6679104,
-          4285800
-        ],
-        [
-          6851734,
-          4395000
-        ],
-        [
-          6866834,
-          4149500
-        ],
-        [
-          6889304,
-          5285300
-        ],
-        [
-          7061934,
-          5285300
-        ],
-        [
-          7129060,
-          4856600
-        ],
-        [
-          7339260,
-          4287200
-        ],
-        [
-          4011138,
-          3109100
-        ],
-        [
-          4011138,
-          3017400
-        ],
-        [
-          4011138,
-          3163300
-        ],
-        [
-          4011138,
-          3163300
-        ],
-        [
-          4066960,
-          3778800
-        ],
-        [
-          4221782,
-          3277400
-        ],
-        [
-          4418348,
-          3234800
-        ],
-        [
-          4418348,
-          3017400
-        ],
-        [
-          4418348,
-          3234800
-        ],
-        [
-          4418348,
-          3234800
-        ],
-        [
-          4484108,
-          2927300
-        ],
-        [
-          4484108,
-          2977500
-        ],
-        [
-          4484108,
-          2977500
-        ],
-        [
-          4484108,
-          2977500
-        ],
-        [
-          4533295,
-          4137600
-        ],
-        [
-          4561360,
-          3341600
-        ],
-        [
-          4561360,
-          3341600
-        ],
-        [
-          4561360,
-          3344700
-        ],
-        [
-          4716182,
-          3138500
-        ],
-        [
-          4716182,
-          3477000
-        ],
-        [
-          4716182,
-          3277400
-        ],
-        [
-          4722572,
-          3235300
-        ],
-        [
-          4722572,
-          2923400
-        ],
-        [
-          4722572,
-          3285500
-        ],
-        [
-          4722572,
-          2973600
-        ],
-        [
-          4722572,
-          3285500
-        ],
-        [
-          4722572,
-          2977500
-        ],
-        [
-          4722572,
-          3285500
-        ],
-        [
-          4722572,
-          2977500
-        ],
-        [
-          4754500,
-          3091100
-        ],
-        [
-          4754500,
-          2655100
-        ],
-        [
-          4965754,
-          3017200
-        ],
-        [
-          4965754,
-          3017200
-        ],
-        [
-          4965754,
-          3017200
-        ],
-        [
-          5027695,
-          3700500
-        ],
-        [
-          5027695,
-          3700500
-        ],
-        [
-          5027695,
-          3700500
-        ],
-        [
-          5199388,
-          3017200
-        ],
-        [
-          5246054,
-          3459600
-        ],
         [
           5246054,
           3459600
@@ -1753,6 +1718,326 @@
         [
           7342750,
           4287200
+        ],
+        [
+          4013682,
+          3097800
+        ],
+        [
+          4013682,
+          3016800
+        ],
+        [
+          4013682,
+          3156400
+        ],
+        [
+          4013682,
+          3156400
+        ],
+        [
+          4070583,
+          3746400
+        ],
+        [
+          4225722,
+          3273500
+        ],
+        [
+          4456316,
+          3409500
+        ],
+        [
+          4487462,
+          2920400
+        ],
+        [
+          4487462,
+          2970600
+        ],
+        [
+          4487462,
+          2970600
+        ],
+        [
+          4487462,
+          2970600
+        ],
+        [
+          4563883,
+          3338600
+        ],
+        [
+          4563883,
+          3338600
+        ],
+        [
+          4563883,
+          3338600
+        ],
+        [
+          4719022,
+          3134600
+        ],
+        [
+          4719022,
+          3270500
+        ],
+        [
+          4719022,
+          3270500
+        ],
+        [
+          4725530,
+          3307000
+        ],
+        [
+          4725530,
+          2920400
+        ],
+        [
+          4725530,
+          3278600
+        ],
+        [
+          4725530,
+          2970600
+        ],
+        [
+          4725530,
+          3278600
+        ],
+        [
+          4725530,
+          2970600
+        ],
+        [
+          4725530,
+          3278600
+        ],
+        [
+          4725530,
+          2970600
+        ],
+        [
+          4758559,
+          3087200
+        ],
+        [
+          4758559,
+          3087200
+        ],
+        [
+          4949616,
+          3263800
+        ],
+        [
+          4949616,
+          3409500
+        ],
+        [
+          4949616,
+          3266800
+        ],
+        [
+          4955548,
+          3228700
+        ],
+        [
+          4955548,
+          3016800
+        ],
+        [
+          4955548,
+          3228700
+        ],
+        [
+          4955548,
+          3228700
+        ],
+        [
+          4969330,
+          4589300
+        ],
+        [
+          4969330,
+          3459000
+        ],
+        [
+          4969330,
+          3016600
+        ],
+        [
+          5203389,
+          4258900
+        ],
+        [
+          5251130,
+          4171700
+        ],
+        [
+          5251130,
+          4183500
+        ],
+        [
+          5251130,
+          3849300
+        ],
+        [
+          5251130,
+          4229500
+        ],
+        [
+          5251130,
+          4229500
+        ],
+        [
+          5251130,
+          4159100
+        ],
+        [
+          5251130,
+          4392000
+        ],
+        [
+          5251130,
+          4433900
+        ],
+        [
+          5251130,
+          4983500
+        ],
+        [
+          5251859,
+          2945300
+        ],
+        [
+          5251859,
+          2948300
+        ],
+        [
+          5251859,
+          3084200
+        ],
+        [
+          5251859,
+          3087200
+        ],
+        [
+          5251859,
+          3084200
+        ],
+        [
+          5251859,
+          3084200
+        ],
+        [
+          5282368,
+          3704100
+        ],
+        [
+          5454860,
+          3146400
+        ],
+        [
+          5485189,
+          3371700
+        ],
+        [
+          5485189,
+          3926100
+        ],
+        [
+          5485189,
+          4171700
+        ],
+        [
+          5516410,
+          3448800
+        ],
+        [
+          5736660,
+          3371700
+        ],
+        [
+          5736660,
+          4151200
+        ],
+        [
+          5736660,
+          3929600
+        ],
+        [
+          5898068,
+          4296200
+        ],
+        [
+          5913068,
+          4148600
+        ],
+        [
+          6106668,
+          4602100
+        ],
+        [
+          6132110,
+          3786500
+        ],
+        [
+          6147110,
+          3798200
+        ],
+        [
+          6150806,
+          3948800
+        ],
+        [
+          6323951,
+          3989200
+        ],
+        [
+          6340710,
+          4938300
+        ],
+        [
+          6524089,
+          4841600
+        ],
+        [
+          6766506,
+          4284500
+        ],
+        [
+          6781506,
+          4298200
+        ],
+        [
+          6939651,
+          4386900
+        ],
+        [
+          6954651,
+          3873300
+        ],
+        [
+          6975106,
+          4838300
+        ],
+        [
+          7139789,
+          4844800
+        ],
+        [
+          7148251,
+          4838300
+        ],
+        [
+          7154789,
+          4283600
+        ],
+        [
+          7348389,
+          4282800
         ]
       ]
     }
@@ -1764,101 +2049,101 @@
   },
   "hot": [
     {
-      "entry": "MAD",
-      "estimated_pp": 2655100,
-      "exit": "MAD",
-      "inbound_date": "2027-01-12",
-      "outbound_date": "2027-01-01"
-    },
-    {
       "entry": "BCN",
-      "estimated_pp": 2923400,
+      "estimated_pp": 2920400,
       "exit": "BCN",
       "inbound_date": "2027-01-10",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2923400,
+      "estimated_pp": 2920400,
       "exit": "BCN",
       "inbound_date": "2027-01-12",
+      "outbound_date": "2026-12-29"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 2945300,
+      "exit": "MAD",
+      "inbound_date": "2027-01-10",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "MAD",
       "estimated_pp": 2948300,
       "exit": "MAD",
-      "inbound_date": "2027-01-10",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 2952200,
-      "exit": "MAD",
       "inbound_date": "2027-01-12",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2973600,
+      "estimated_pp": 2970600,
       "exit": "BCN",
       "inbound_date": "2027-01-10",
       "outbound_date": "2026-12-30"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2973600,
-      "exit": "BCN",
-      "inbound_date": "2027-01-12",
-      "outbound_date": "2026-12-30"
-    },
-    {
-      "entry": "BCN",
-      "estimated_pp": 2977500,
+      "estimated_pp": 2970600,
       "exit": "BCN",
       "inbound_date": "2027-01-10",
       "outbound_date": "2026-12-31"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 3049000,
+      "estimated_pp": 2970600,
+      "exit": "BCN",
+      "inbound_date": "2027-01-10",
+      "outbound_date": "2027-01-01"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 2970600,
+      "exit": "BCN",
+      "inbound_date": "2027-01-12",
+      "outbound_date": "2026-12-30"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 3048700,
       "exit": "MAD",
       "inbound_date": "2027-01-09",
       "outbound_date": "2026-12-30"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 3328900,
+      "estimated_pp": 3325900,
       "exit": "MAD",
       "inbound_date": "2027-01-09",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2655373,
+      "estimated_pp": 2663479,
       "exit": "BCN",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2655373,
+      "estimated_pp": 2663479,
       "exit": "BCN",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-30"
     }
   ],
   "last_sweep": {
-    "at": "2026-09-11T08:57:47",
-    "candidates": 12,
+    "at": "2026-09-11T13:27:07",
+    "candidates": 82,
     "cheapest": 2920400,
-    "confirmed": 12,
+    "confirmed": 82,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 10
+    "mode": "full",
+    "queries": 120
   },
   "max_stops": 1,
   "outbound_window": [
@@ -1869,10 +2154,10 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-09-11",
-    "day_used": 6,
+    "day_used": 8,
     "month": "2026-09",
-    "month_used": 78
+    "month_used": 80
   },
-  "target_per_person": 3000000,
+  "target_per_person": 2900000,
   "version": 1
 }
