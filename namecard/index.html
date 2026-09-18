@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jintae namecard automation</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0 auto; padding: 48px 20px; max-width: 640px;
+    font: 16px/1.7 -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
+    color: #1a1a1a; background: #fff;
+  }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .sub { color: #666; margin: 0 0 36px; }
+  h2 { font-size: 1.05rem; margin: 32px 0 8px; }
+  ol, ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #e5e5e5; color: #666; font-size: .9rem; }
+  a { color: #0b5fff; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e8e8e8; background: #16181c; }
+    .sub, footer { color: #9aa0a6; }
+    footer { border-top-color: #2c2f36; }
+    a { color: #7aa7ff; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Jintae namecard automation</h1>
+<p class="sub">명함 사진을 구글 연락처로 옮겨주는 개인용 도구</p>
+
+<h2>무엇을 하나요</h2>
+<p>
+  텔레그램 봇에 명함 사진을 보내면, 사진 속 글자를 읽어 이름·회사·직책·연락처를
+  구글 연락처에 자동으로 등록합니다. 명함을 손으로 옮겨 적는 일을 없애기 위해 만든
+  개인용 도구입니다.
+</p>
+
+<h2>어떻게 동작하나요</h2>
+<ol>
+  <li>사용자가 텔레그램 봇에 명함 사진을 보냅니다.</li>
+  <li>Google Gemini API가 사진에서 텍스트를 추출합니다.</li>
+  <li>추출된 정보를 사용자가 권한을 허용한 구글 계정의 연락처에 저장합니다.</li>
+</ol>
+
+<h2>권한</h2>
+<p>
+  연락처를 만들기 위해 Google People API의 연락처 권한(<code>auth/contacts</code>)을 사용합니다.
+  다른 용도로는 사용하지 않으며, 권한은 언제든
+  <a href="https://myaccount.google.com/permissions">구글 계정 설정</a>에서 해제할 수 있습니다.
+</p>
+
+<h2>이용 대상</h2>
+<p>
+  공개 서비스가 아니라 제작자와 지인이 사용하는 비상업적 개인용 도구입니다.
+  등록된 사용자만 봇을 사용할 수 있습니다.
+</p>
+
+<footer>
+  <a href="./privacy.html">개인정보처리방침</a><br>
+  문의: repfootball@gmail.com
+</footer>
+
+</body>
+</html>

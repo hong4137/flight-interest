@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보처리방침 — Jintae namecard automation</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0 auto; padding: 48px 20px; max-width: 680px;
+    font: 16px/1.75 -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
+    color: #1a1a1a; background: #fff;
+  }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  .sub { color: #666; margin: 0 0 36px; font-size: .9rem; }
+  h2 { font-size: 1.05rem; margin: 32px 0 8px; }
+  ul { padding-left: 20px; }
+  li { margin: 5px 0; }
+  .callout {
+    margin: 20px 0; padding: 14px 16px; border-left: 3px solid #0b5fff;
+    background: #f5f8ff; font-size: .95rem;
+  }
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #e5e5e5; color: #666; font-size: .9rem; }
+  a { color: #0b5fff; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e8e8e8; background: #16181c; }
+    .sub, footer { color: #9aa0a6; }
+    footer { border-top-color: #2c2f36; }
+    .callout { background: #1b2233; border-left-color: #7aa7ff; }
+    a { color: #7aa7ff; }
+  }
+</style>
+</head>
+<body>
+
+<h1>개인정보처리방침</h1>
+<p class="sub">Jintae namecard automation · 최종 수정일 2026년 9월 18일</p>
+
+<p>
+  본 도구는 명함 사진을 읽어 사용자의 구글 연락처에 등록하는 비상업적 개인용 도구입니다.
+  아래는 이 과정에서 다루는 정보와 그 취급 방식입니다.
+</p>
+
+<h2>1. 다루는 정보</h2>
+<ul>
+  <li><strong>명함 이미지</strong> — 사용자가 텔레그램 봇에 직접 전송한 사진</li>
+  <li><strong>명함에 적힌 정보</strong> — 이름, 회사명, 부서, 직책, 전화번호, 팩스, 이메일, 주소, 홈페이지</li>
+  <li><strong>텔레그램 채팅 ID</strong> — 허용된 사용자인지 확인하기 위한 숫자 식별자</li>
+</ul>
+<p>그 밖의 정보는 수집하지 않습니다.</p>
+
+<h2>2. 이용 목적</h2>
+<p>
+  수집한 정보는 오직 <strong>사용자의 구글 연락처에 연락처 항목을 생성하는 목적</strong>으로만 사용합니다.
+  광고, 분석, 프로파일링, 모델 학습 등 다른 목적으로 사용하지 않습니다.
+</p>
+
+<h2>3. 보관</h2>
+<ul>
+  <li><strong>명함 이미지</strong>는 처리 후 별도로 저장하지 않습니다.</li>
+  <li><strong>추출된 연락처 정보</strong>는 사용자 본인의 구글 계정에만 저장되며, 제작자는 사본을 보관하지 않습니다.</li>
+  <li><strong>텔레그램 채팅 ID</strong>와 구글 계정 접근 토큰은 접근 권한 유지를 위해 Google Apps Script의 스크립트 속성에 저장됩니다.</li>
+</ul>
+
+<h2>4. 제3자 제공</h2>
+<p>
+  수집한 정보를 제3자에게 판매하거나 제공하지 않습니다.
+  처리 과정에서 아래 서비스를 경유합니다.
+</p>
+<ul>
+  <li><a href="https://telegram.org/privacy">Telegram</a> — 사진 전송 경로</li>
+  <li><a href="https://policies.google.com/privacy">Google (Gemini API, People API, Apps Script)</a> — 텍스트 추출 및 연락처 저장</li>
+</ul>
+
+<h2>5. 구글 사용자 데이터</h2>
+<div class="callout">
+  본 도구가 Google API로부터 받은 정보의 사용 및 다른 앱으로의 전송은
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 서비스 사용자 데이터 정책</a>의
+  제한적 사용(Limited Use) 요건을 준수합니다.
+</div>
+<p>
+  사용하는 권한은 <code>https://www.googleapis.com/auth/contacts</code> 하나이며,
+  연락처 생성 외의 용도로는 사용하지 않습니다.
+</p>
+
+<h2>6. 권한 철회와 삭제</h2>
+<ul>
+  <li>구글 권한은 <a href="https://myaccount.google.com/permissions">구글 계정 &rarr; 보안 &rarr; 서드 파티 앱</a>에서 언제든 해제할 수 있습니다.</li>
+  <li>이미 등록된 연락처는 사용자가 <a href="https://contacts.google.com">구글 연락처</a>에서 직접 삭제할 수 있습니다.</li>
+  <li>봇 사용 중단이나 저장된 채팅 ID 삭제는 아래 이메일로 요청하시면 처리합니다.</li>
+</ul>
+
+<h2>7. 아동</h2>
+<p>본 도구는 만 14세 미만 아동을 대상으로 하지 않습니다.</p>
+
+<h2>8. 변경</h2>
+<p>본 방침이 변경되면 이 페이지에 수정일과 함께 게시합니다.</p>
+
+<footer>
+  문의: repfootball@gmail.com<br>
+  <a href="./index.html">홈으로</a>
+</footer>
+
+</body>
+</html>
