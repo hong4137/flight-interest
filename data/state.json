@@ -35,8 +35,8 @@
       "price": 2755400
     },
     "86350462e601eb50": {
-      "at": "2026-09-23T09:21:51",
-      "price": 2760700
+      "at": "2026-09-24T01:49:54",
+      "price": 2675700
     },
     "87d34f458c5ec353": {
       "at": "2026-09-23T09:21:50",
@@ -65,6 +65,14 @@
       "price": 2745900
     },
     "c5432d58b2ed016d": "2026-09-10T06:37:55",
+    "e492976b220d17a0": {
+      "at": "2026-09-24T01:49:54",
+      "price": 2893700
+    },
+    "eddc39d103a03625": {
+      "at": "2026-09-24T01:49:55",
+      "price": 2893700
+    },
     "fc9618c3501dd06e": "2026-09-10T13:29:12"
   },
   "arrive_window": [
@@ -98,14 +106,14 @@
     },
     "BCN|BCN|2026-12-29|2027-01-10": {
       "airlines": "에티하드항공",
-      "at": "2026-09-20T05:31:41",
+      "at": "2026-09-24T01:45:43",
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
-      "last_price": 2755400,
-      "last_seen": "2026-09-23T20:20:55",
+      "last_price": 2681200,
+      "last_seen": "2026-09-24T01:45:43",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2750400,
+      "price": 2681200,
       "stops": 1
     },
     "BCN|BCN|2026-12-29|2027-01-11": {
@@ -114,7 +122,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2745900,
-      "last_seen": "2026-09-23T20:20:49",
+      "last_seen": "2026-09-24T01:45:12",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2745900,
@@ -126,7 +134,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2745900,
-      "last_seen": "2026-09-23T20:20:52",
+      "last_seen": "2026-09-24T01:46:37",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2745900,
@@ -170,14 +178,14 @@
     },
     "BCN|BCN|2026-12-30|2027-01-11": {
       "airlines": "에티하드항공",
-      "at": "2026-09-20T07:52:12",
+      "at": "2026-09-24T01:45:17",
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
-      "last_price": 2935500,
-      "last_seen": "2026-09-23T20:21:04",
+      "last_price": 2893700,
+      "last_seen": "2026-09-24T01:45:17",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzAoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2930500,
+      "price": 2893700,
       "stops": 1
     },
     "BCN|BCN|2026-12-30|2027-01-12": {
@@ -230,14 +238,14 @@
     },
     "BCN|BCN|2026-12-31|2027-01-11": {
       "airlines": "에티하드항공",
-      "at": "2026-09-20T07:52:15",
+      "at": "2026-09-24T01:45:20",
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
-      "last_price": 2935500,
-      "last_seen": "2026-09-23T20:21:07",
+      "last_price": 2893700,
+      "last_seen": "2026-09-24T01:45:20",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMzEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2930500,
+      "price": 2893700,
       "stops": 1
     },
     "BCN|BCN|2026-12-31|2027-01-12": {
@@ -290,14 +298,14 @@
     },
     "BCN|BCN|2027-01-01|2027-01-11": {
       "airlines": "에티하드항공",
-      "at": "2026-09-20T07:52:26",
+      "at": "2026-09-24T01:45:23",
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
-      "last_price": 2935500,
-      "last_seen": "2026-09-23T20:21:14",
+      "last_price": 2893700,
+      "last_seen": "2026-09-24T01:45:23",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2930500,
+      "price": 2893700,
       "stops": 1
     },
     "BCN|BCN|2027-01-01|2027-01-12": {
@@ -326,14 +334,14 @@
     },
     "BCN|MAD|2026-12-29|2027-01-12": {
       "airlines": "에티하드항공",
-      "at": "2026-09-23T09:21:49",
+      "at": "2026-09-24T01:49:53",
       "kind": "open-jaw",
       "last_airlines": "에티하드항공",
-      "last_price": 2760700,
-      "last_seen": "2026-09-23T14:47:42",
+      "last_price": 2675700,
+      "last_seen": "2026-09-24T01:49:53",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
-      "price": 2760700,
+      "price": 2675700,
       "stops": 1
     },
     "BCN|MAD|2026-12-30|2027-01-09": {
@@ -674,7 +682,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2769300,
-      "last_seen": "2026-09-23T20:20:58",
+      "last_seen": "2026-09-24T01:46:06",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2769300,
@@ -818,7 +826,7 @@
       "kind": "round-trip",
       "last_airlines": "중국남방항공",
       "last_price": 2664900,
-      "last_seen": "2026-09-23T20:20:45",
+      "last_seen": "2026-09-24T01:45:06",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMDkoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2658500,
@@ -854,7 +862,7 @@
       "kind": "round-trip",
       "last_airlines": "중국남방항공",
       "last_price": 2664900,
-      "last_seen": "2026-09-23T20:21:10",
+      "last_seen": "2026-09-24T01:45:09",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDEtMDEoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2655100,
@@ -1437,332 +1445,20 @@
         [
           4043804,
           2760700
+        ],
+        [
+          4051728,
+          3918600
+        ],
+        [
+          4051728,
+          2675700
         ]
       ]
     },
     "round-trip": {
-      "ratio": 0.6786,
+      "ratio": 0.6856,
       "samples": [
-        [
-          5281549,
-          3546000
-        ],
-        [
-          5281549,
-          4346000
-        ],
-        [
-          5281549,
-          3558000
-        ],
-        [
-          5281549,
-          4358000
-        ],
-        [
-          5281549,
-          4160700
-        ],
-        [
-          5281549,
-          4979000
-        ],
-        [
-          5281549,
-          4588000
-        ],
-        [
-          5281549,
-          4160700
-        ],
-        [
-          5281549,
-          4346000
-        ],
-        [
-          5281549,
-          4982700
-        ],
-        [
-          5281549,
-          4358000
-        ],
-        [
-          5281549,
-          5158000
-        ],
-        [
-          5329560,
-          3484500
-        ],
-        [
-          5386886,
-          3023800
-        ],
-        [
-          5386886,
-          3273800
-        ],
-        [
-          5386886,
-          3273800
-        ],
-        [
-          5386886,
-          3273800
-        ],
-        [
-          5399660,
-          3637200
-        ],
-        [
-          5566035,
-          3472500
-        ],
-        [
-          5636135,
-          3625200
-        ],
-        [
-          5782149,
-          3157100
-        ],
-        [
-          5782149,
-          3546000
-        ],
-        [
-          5782149,
-          4265200
-        ],
-        [
-          5782149,
-          4346000
-        ],
-        [
-          6014360,
-          3969300
-        ],
-        [
-          6156860,
-          4623100
-        ],
-        [
-          6207368,
-          3972500
-        ],
-        [
-          6250835,
-          3957300
-        ],
-        [
-          6277468,
-          4125200
-        ],
-        [
-          6382312,
-          3591100
-        ],
-        [
-          6393335,
-          4979700
-        ],
-        [
-          6452412,
-          3683600
-        ],
-        [
-          6584528,
-          4303300
-        ],
-        [
-          6654628,
-          4303300
-        ],
-        [
-          6892168,
-          4457300
-        ],
-        [
-          7034668,
-          4879700
-        ],
-        [
-          7067112,
-          4075900
-        ],
-        [
-          7209612,
-          4879700
-        ],
-        [
-          7269328,
-          4879700
-        ],
-        [
-          7411828,
-          4303800
-        ],
-        [
-          4121068,
-          2755400
-        ],
-        [
-          4121068,
-          2930500
-        ],
-        [
-          4121068,
-          2935500
-        ],
-        [
-          4121068,
-          2935500
-        ],
-        [
-          4508465,
-          2750400
-        ],
-        [
-          4508465,
-          2930500
-        ],
-        [
-          4508465,
-          2935500
-        ],
-        [
-          4508465,
-          2935500
-        ],
-        [
-          4563306,
-          3173800
-        ],
-        [
-          4563306,
-          2778900
-        ],
-        [
-          4563306,
-          3423800
-        ],
-        [
-          4563306,
-          3028900
-        ],
-        [
-          4563306,
-          3423800
-        ],
-        [
-          4563306,
-          3028900
-        ],
-        [
-          4563306,
-          3278900
-        ],
-        [
-          4563306,
-          3028900
-        ],
-        [
-          4717514,
-          2778900
-        ],
-        [
-          4717514,
-          3028900
-        ],
-        [
-          4717514,
-          3028900
-        ],
-        [
-          4717514,
-          3028900
-        ],
-        [
-          4755590,
-          3620000
-        ],
-        [
-          4755590,
-          2755400
-        ],
-        [
-          4755590,
-          3748500
-        ],
-        [
-          4755590,
-          2935500
-        ],
-        [
-          4755590,
-          3830900
-        ],
-        [
-          4755590,
-          2935500
-        ],
-        [
-          4755590,
-          4282600
-        ],
-        [
-          4755590,
-          2935500
-        ],
-        [
-          4918624,
-          4129000
-        ],
-        [
-          4918624,
-          4141300
-        ],
-        [
-          4918624,
-          4141300
-        ],
-        [
-          4918624,
-          4119100
-        ],
-        [
-          4976091,
-          3545600
-        ],
-        [
-          4976091,
-          3698300
-        ],
-        [
-          4976091,
-          3970900
-        ],
-        [
-          4976091,
-          3970900
-        ],
-        [
-          5248338,
-          3728500
-        ],
-        [
-          5248338,
-          4154000
-        ],
-        [
-          5248338,
-          3740500
-        ],
-        [
-          5248338,
-          4154700
-        ],
         [
           5248338,
           3546000
@@ -2242,6 +1938,326 @@
         [
           7327445,
           4299900
+        ],
+        [
+          4070928,
+          2664900
+        ],
+        [
+          4070928,
+          2664900
+        ],
+        [
+          4113072,
+          2745900
+        ],
+        [
+          4113072,
+          2893700
+        ],
+        [
+          4113072,
+          2893700
+        ],
+        [
+          4113072,
+          2893700
+        ],
+        [
+          4224964,
+          3178700
+        ],
+        [
+          4313166,
+          3542800
+        ],
+        [
+          4313166,
+          3695000
+        ],
+        [
+          4313166,
+          3941700
+        ],
+        [
+          4313166,
+          3941700
+        ],
+        [
+          4500000,
+          2681200
+        ],
+        [
+          4500000,
+          2893700
+        ],
+        [
+          4500000,
+          2893700
+        ],
+        [
+          4500000,
+          2893700
+        ],
+        [
+          4536275,
+          4154900
+        ],
+        [
+          4555428,
+          3131400
+        ],
+        [
+          4555428,
+          2769300
+        ],
+        [
+          4555428,
+          3368900
+        ],
+        [
+          4555428,
+          3019300
+        ],
+        [
+          4555428,
+          3368900
+        ],
+        [
+          4555428,
+          2941200
+        ],
+        [
+          4709464,
+          3019300
+        ],
+        [
+          4709464,
+          3178700
+        ],
+        [
+          4709464,
+          3178700
+        ],
+        [
+          4747351,
+          4042800
+        ],
+        [
+          4747351,
+          2745900
+        ],
+        [
+          4747351,
+          3748500
+        ],
+        [
+          4747351,
+          2926000
+        ],
+        [
+          4747351,
+          4274100
+        ],
+        [
+          4747351,
+          2893700
+        ],
+        [
+          4747351,
+          4130400
+        ],
+        [
+          4747351,
+          2893700
+        ],
+        [
+          4857750,
+          3178700
+        ],
+        [
+          5020775,
+          4086600
+        ],
+        [
+          5020775,
+          4148500
+        ],
+        [
+          5020775,
+          4155500
+        ],
+        [
+          5244261,
+          3725100
+        ],
+        [
+          5244261,
+          4525100
+        ],
+        [
+          5244261,
+          3737000
+        ],
+        [
+          5244261,
+          4153400
+        ],
+        [
+          5244261,
+          3543000
+        ],
+        [
+          5244261,
+          3903400
+        ],
+        [
+          5244261,
+          3554900
+        ],
+        [
+          5244261,
+          3903400
+        ],
+        [
+          5244261,
+          4160400
+        ],
+        [
+          5244261,
+          4975100
+        ],
+        [
+          5244261,
+          4309400
+        ],
+        [
+          5244261,
+          4211600
+        ],
+        [
+          5244261,
+          4343000
+        ],
+        [
+          5244261,
+          4587800
+        ],
+        [
+          5244261,
+          4354900
+        ],
+        [
+          5244261,
+          4781100
+        ],
+        [
+          5284508,
+          3981500
+        ],
+        [
+          5342250,
+          2941200
+        ],
+        [
+          5342250,
+          3178700
+        ],
+        [
+          5342250,
+          3278900
+        ],
+        [
+          5353608,
+          4133700
+        ],
+        [
+          5458308,
+          4975200
+        ],
+        [
+          5517990,
+          3469600
+        ],
+        [
+          5587090,
+          3621800
+        ],
+        [
+          5691790,
+          4975200
+        ],
+        [
+          5738482,
+          3152600
+        ],
+        [
+          5738482,
+          3543000
+        ],
+        [
+          5738482,
+          4261300
+        ],
+        [
+          5738482,
+          4343000
+        ],
+        [
+          5969508,
+          4466200
+        ],
+        [
+          6162916,
+          3969600
+        ],
+        [
+          6202990,
+          3954300
+        ],
+        [
+          6232016,
+          4121800
+        ],
+        [
+          6323895,
+          3588000
+        ],
+        [
+          6336716,
+          4875200
+        ],
+        [
+          6392995,
+          3680100
+        ],
+        [
+          6497695,
+          4875200
+        ],
+        [
+          6523554,
+          3623200
+        ],
+        [
+          6592654,
+          4299300
+        ],
+        [
+          6697354,
+          4299900
+        ],
+        [
+          6847916,
+          4454300
+        ],
+        [
+          7008895,
+          4572700
+        ],
+        [
+          7208554,
+          4875200
         ]
       ]
     }
@@ -2254,100 +2270,100 @@
   "hot": [
     {
       "entry": "MAD",
-      "estimated_pp": 2667700,
+      "estimated_pp": 2664900,
       "exit": "MAD",
       "inbound_date": "2027-01-09",
       "outbound_date": "2027-01-01"
     },
     {
-      "entry": "BCN",
-      "estimated_pp": 2745900,
-      "exit": "BCN",
-      "inbound_date": "2027-01-11",
-      "outbound_date": "2026-12-29"
+      "entry": "MAD",
+      "estimated_pp": 2664900,
+      "exit": "MAD",
+      "inbound_date": "2027-01-12",
+      "outbound_date": "2027-01-01"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2745900,
-      "exit": "BCN",
+      "estimated_pp": 2675700,
+      "exit": "MAD",
       "inbound_date": "2027-01-12",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2755400,
+      "estimated_pp": 2681200,
       "exit": "BCN",
       "inbound_date": "2027-01-10",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2760700,
-      "exit": "MAD",
-      "inbound_date": "2027-01-12",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 2778900,
-      "exit": "MAD",
-      "inbound_date": "2027-01-12",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "MAD",
-      "estimated_pp": 2778900,
-      "exit": "MAD",
+      "estimated_pp": 2745900,
+      "exit": "BCN",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2935500,
+      "estimated_pp": 2745900,
+      "exit": "BCN",
+      "inbound_date": "2027-01-12",
+      "outbound_date": "2026-12-29"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 2769300,
+      "exit": "MAD",
+      "inbound_date": "2027-01-12",
+      "outbound_date": "2026-12-29"
+    },
+    {
+      "entry": "BCN",
+      "estimated_pp": 2893700,
       "exit": "BCN",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-30"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 2935500,
+      "estimated_pp": 2893700,
       "exit": "BCN",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-31"
     },
     {
       "entry": "BCN",
-      "estimated_pp": 4256700,
+      "estimated_pp": 3918600,
       "exit": "MAD",
       "inbound_date": "2027-01-09",
       "outbound_date": "2026-12-29"
     },
     {
-      "entry": "MAD",
-      "estimated_pp": 2727901,
-      "exit": "MAD",
-      "inbound_date": "2027-01-12",
+      "entry": "BCN",
+      "estimated_pp": 2791131,
+      "exit": "BCN",
+      "inbound_date": "2027-01-11",
       "outbound_date": "2027-01-01"
     },
     {
-      "entry": "BCN",
-      "estimated_pp": 2756057,
-      "exit": "BCN",
+      "entry": "MAD",
+      "estimated_pp": 2867061,
+      "exit": "MAD",
       "inbound_date": "2027-01-11",
       "outbound_date": "2027-01-01"
     }
   ],
   "last_sweep": {
-    "at": "2026-09-23T20:21:16",
-    "candidates": 12,
+    "at": "2026-09-24T01:49:55",
+    "candidates": 82,
     "cheapest": 2664900,
-    "confirmed": 10,
+    "confirmed": 82,
     "empty_final": 0,
-    "empty_recovered": 0,
+    "empty_recovered": 1,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 10
+    "mode": "full",
+    "queries": 120
   },
   "max_stops": 1,
   "outbound_window": [
@@ -2357,10 +2373,10 @@
   "passengers": 2,
   "rotation": {},
   "serpapi": {
-    "day": "2026-09-23",
-    "day_used": 8,
+    "day": "2026-09-24",
+    "day_used": 2,
     "month": "2026-09",
-    "month_used": 176
+    "month_used": 178
   },
   "target_per_person": 2900000,
   "version": 1
