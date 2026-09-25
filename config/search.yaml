@@ -8,7 +8,7 @@ trip:
   outbound_dates: {start: 2026-12-28, end: 2026-12-30}
 
   # 인천 "도착" 가능일. 유럽 출발일은 여기서 역산합니다.
-  arrive_korea: {start: 2027-01-10, end: 2027-01-13}
+  arrive_korea: {start: 2027-01-12, end: 2027-01-13}
   # 유럽 출발일을 도착창보다 며칠 앞에서부터 조회할지 (도착일로 최종 필터링)
   return_search_pad_days: 2
 
