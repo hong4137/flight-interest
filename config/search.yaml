@@ -18,7 +18,7 @@ trip:
   entry_airports:
     IT: []                     # 제외: BLQ, NAP
     ES: [BCN, MAD]             # 제외: VLC, AGP
-    PT: [LIS, OPO]
+    PT: [LIS]
   # 출국 도시 후보. same_as_entry 또는 위와 같은 형식의 목록.
   exit_airports: same_as_entry
 
