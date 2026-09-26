@@ -1,6 +1,5 @@
 {
   "airports": [
-    "BCN",
     "MAD",
     "LIS"
   ],
@@ -71,54 +70,6 @@
     "2027-01-12"
   ],
   "best_by_route": {
-    "BCN|BCN|2026-12-29|2027-01-10": {
-      "airlines": "에티하드항공",
-      "at": "2026-09-24T18:51:56",
-      "kind": "round-trip",
-      "last_airlines": "에티하드항공",
-      "last_price": 2672900,
-      "last_seen": "2026-09-26T10:25:16",
-      "last_stops": 1,
-      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTAoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2661500,
-      "stops": 1
-    },
-    "BCN|BCN|2026-12-29|2027-01-11": {
-      "airlines": "에티하드항공",
-      "at": "2026-09-24T13:30:30",
-      "kind": "round-trip",
-      "last_airlines": "에티하드항공",
-      "last_price": 2672900,
-      "last_seen": "2026-09-26T10:25:08",
-      "last_stops": 1,
-      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2661500,
-      "stops": 1
-    },
-    "BCN|BCN|2026-12-29|2027-01-12": {
-      "airlines": "에티하드항공",
-      "at": "2026-09-24T13:31:39",
-      "kind": "round-trip",
-      "last_airlines": "에티하드항공",
-      "last_price": 2672900,
-      "last_seen": "2026-09-26T10:25:12",
-      "last_stops": 1,
-      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
-      "price": 2661500,
-      "stops": 1
-    },
-    "BCN|MAD|2026-12-29|2027-01-12": {
-      "airlines": "에티하드항공",
-      "at": "2026-09-24T01:49:53",
-      "kind": "open-jaw",
-      "last_airlines": "에티하드항공",
-      "last_price": 2687200,
-      "last_seen": "2026-09-26T10:25:15",
-      "last_stops": 1,
-      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDQkNOGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
-      "price": 2675700,
-      "stops": 1
-    },
     "LIS|LIS|2026-12-29|2027-01-10": {
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-14T01:09:34",
@@ -155,14 +106,6 @@
       "price": 2984700,
       "stops": 1
     },
-    "MAD|BCN|2026-12-29|2027-01-11": {
-      "airlines": "카타르항공",
-      "at": "2026-08-29T02:19:10",
-      "kind": "open-jaw",
-      "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNCQ05yBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
-      "price": 3370400,
-      "stops": 1
-    },
     "MAD|MAD|2026-12-29|2027-01-10": {
       "airlines": "에티하드항공",
       "at": "2026-09-11T06:32:20",
@@ -193,7 +136,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2695400,
-      "last_seen": "2026-09-26T10:25:20",
+      "last_seen": "2026-09-26T16:28:08",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTIoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2683900,
@@ -1370,39 +1313,11 @@
     }
   },
   "global_best": {
-    "at": "2026-09-24T18:51:56",
-    "price": 2661500,
-    "route_key": "BCN|BCN|2026-12-29|2027-01-10"
+    "at": "2026-09-24T23:52:10",
+    "price": 2683900,
+    "route_key": "MAD|MAD|2026-12-29|2027-01-12"
   },
   "hot": [
-    {
-      "entry": "BCN",
-      "estimated_pp": 2661500,
-      "exit": "BCN",
-      "inbound_date": "2027-01-11",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "BCN",
-      "estimated_pp": 2661500,
-      "exit": "BCN",
-      "inbound_date": "2027-01-12",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "BCN",
-      "estimated_pp": 2675700,
-      "exit": "MAD",
-      "inbound_date": "2027-01-12",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "BCN",
-      "estimated_pp": 2681200,
-      "exit": "BCN",
-      "inbound_date": "2027-01-10",
-      "outbound_date": "2026-12-29"
-    },
     {
       "entry": "MAD",
       "estimated_pp": 2769300,
@@ -1412,16 +1327,16 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-09-26T10:25:20",
-    "candidates": 5,
-    "cheapest": 2672900,
-    "confirmed": 5,
+    "at": "2026-09-26T16:28:08",
+    "candidates": 1,
+    "cheapest": 2695400,
+    "confirmed": 1,
     "empty_final": 0,
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
     "mode": "hot",
-    "queries": 4
+    "queries": 1
   },
   "max_stops": 1,
   "outbound_window": [
