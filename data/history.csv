@@ -6109,3 +6109,11 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-09-26T10:25:16,round-trip,BCN,BCN,2026-12-29,2027-01-10,2672900,에티하드항공,1,gflights
 2026-09-26T10:25:20,round-trip,MAD,MAD,2026-12-29,2027-01-12,2695400,에티하드항공,1,gflights
 2026-09-26T16:28:08,round-trip,MAD,MAD,2026-12-29,2027-01-12,2695400,에티하드항공,1,gflights
+2026-09-26T21:57:46,round-trip,MAD,MAD,2026-12-28,2027-01-11,2932900,에티하드항공,1,gflights
+2026-09-26T21:57:50,round-trip,MAD,MAD,2026-12-29,2027-01-11,2695400,에티하드항공,1,gflights
+2026-09-26T21:57:55,round-trip,LIS,LIS,2026-12-28,2027-01-10,3556900,루프트한자,1,gflights
+2026-09-26T21:57:59,round-trip,LIS,LIS,2026-12-29,2027-01-10,3721900,루프트한자,1,gflights
+2026-09-26T21:58:02,round-trip,MAD,MAD,2026-12-28,2027-01-10,3170400,에티하드항공,1,gflights
+2026-09-26T21:58:05,round-trip,MAD,MAD,2026-12-29,2027-01-10,2932900,에티하드항공,1,gflights
+2026-09-26T21:58:08,round-trip,LIS,LIS,2026-12-28,2027-01-11,4290800,"LOT 폴란드항공,Tap Air Portugal",1,gflights
+2026-09-26T21:58:12,round-trip,LIS,LIS,2026-12-29,2027-01-11,3767500,루프트한자,1,gflights
