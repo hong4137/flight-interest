@@ -6141,3 +6141,11 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-09-27T07:38:23,round-trip,LIS,LIS,2026-12-29,2027-01-10,3721900,루프트한자,1,gflights
 2026-09-27T07:38:26,round-trip,LIS,LIS,2026-12-29,2027-01-11,3767500,루프트한자,1,gflights
 2026-09-27T07:38:29,round-trip,LIS,LIS,2026-12-28,2027-01-11,4290800,"LOT 폴란드항공,Tap Air Portugal",1,gflights
+2026-09-27T10:17:04,round-trip,MAD,MAD,2026-12-29,2027-01-11,2695400,에티하드항공,1,gflights
+2026-09-27T10:17:08,round-trip,MAD,MAD,2026-12-28,2027-01-11,2932900,에티하드항공,1,gflights
+2026-09-27T10:17:11,round-trip,MAD,MAD,2026-12-29,2027-01-10,3123100,에티하드항공,1,gflights
+2026-09-27T10:17:15,round-trip,MAD,MAD,2026-12-28,2027-01-10,3170400,에티하드항공,1,gflights
+2026-09-27T10:17:17,round-trip,LIS,LIS,2026-12-28,2027-01-10,3556900,루프트한자,1,gflights
+2026-09-27T10:17:21,round-trip,LIS,LIS,2026-12-29,2027-01-10,3721900,루프트한자,1,gflights
+2026-09-27T10:17:25,round-trip,LIS,LIS,2026-12-29,2027-01-11,3767500,루프트한자,1,gflights
+2026-09-27T10:17:30,round-trip,LIS,LIS,2026-12-28,2027-01-11,4290800,"LOT 폴란드항공,Tap Air Portugal",1,gflights
