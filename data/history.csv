@@ -6181,3 +6181,11 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-09-28T07:00:02,round-trip,LIS,LIS,2026-12-29,2027-01-10,3721900,루프트한자,1,gflights
 2026-09-28T07:00:05,round-trip,LIS,LIS,2026-12-29,2027-01-11,3767500,루프트한자,1,gflights
 2026-09-28T07:00:09,round-trip,LIS,LIS,2026-12-28,2027-01-11,3662200,루프트한자,1,gflights
+2026-09-28T09:30:08,round-trip,MAD,MAD,2026-12-28,2027-01-11,3170400,에티하드항공,1,gflights
+2026-09-28T09:30:12,round-trip,MAD,MAD,2026-12-29,2027-01-11,2932900,에티하드항공,1,gflights
+2026-09-28T09:30:15,round-trip,LIS,LIS,2026-12-28,2027-01-10,3556900,루프트한자,1,gflights
+2026-09-28T09:30:19,round-trip,LIS,LIS,2026-12-29,2027-01-10,3721900,루프트한자,1,gflights
+2026-09-28T09:30:22,round-trip,MAD,MAD,2026-12-28,2027-01-10,3360600,에티하드항공,1,gflights
+2026-09-28T09:30:26,round-trip,MAD,MAD,2026-12-29,2027-01-10,3123100,에티하드항공,1,gflights
+2026-09-28T09:30:30,round-trip,LIS,LIS,2026-12-28,2027-01-11,3662200,루프트한자,1,gflights
+2026-09-28T09:30:33,round-trip,LIS,LIS,2026-12-29,2027-01-11,3767500,루프트한자,1,gflights
