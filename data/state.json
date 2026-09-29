@@ -75,8 +75,8 @@
       "at": "2026-09-30T00:38:32",
       "kind": "round-trip",
       "last_airlines": "루프트한자",
-      "last_price": 3548300,
-      "last_seen": "2026-09-30T00:38:32",
+      "last_price": 3550200,
+      "last_seen": "2026-09-30T05:39:43",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3548300,
@@ -87,8 +87,8 @@
       "at": "2026-09-27T16:58:40",
       "kind": "round-trip",
       "last_airlines": "루프트한자",
-      "last_price": 4348300,
-      "last_seen": "2026-09-30T00:38:41",
+      "last_price": 4350200,
+      "last_seen": "2026-09-30T05:39:59",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3662200,
@@ -100,7 +100,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 3721900,
-      "last_seen": "2026-09-30T00:38:34",
+      "last_seen": "2026-09-30T05:39:48",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3017000,
@@ -112,7 +112,7 @@
       "kind": "round-trip",
       "last_airlines": "LOT 폴란드항공",
       "last_price": 4148500,
-      "last_seen": "2026-09-30T00:38:38",
+      "last_seen": "2026-09-30T05:40:04",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3016600,
@@ -136,7 +136,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자,Lufthansa City Airlines",
       "last_price": 3536900,
-      "last_seen": "2026-09-30T00:38:27",
+      "last_seen": "2026-09-30T05:39:51",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3170400,
@@ -148,7 +148,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3237000,
-      "last_seen": "2026-09-30T00:38:17",
+      "last_seen": "2026-09-30T05:39:35",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2932900,
@@ -160,7 +160,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 3553700,
-      "last_seen": "2026-09-30T00:38:23",
+      "last_seen": "2026-09-30T05:39:55",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2932900,
@@ -172,7 +172,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3237000,
-      "last_seen": "2026-09-30T00:38:21",
+      "last_seen": "2026-09-30T05:39:39",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2695400,
@@ -557,38 +557,6 @@
     "round-trip": {
       "ratio": 0.6766,
       "samples": [
-        [
-          5738482,
-          4261300
-        ],
-        [
-          5738482,
-          4343000
-        ],
-        [
-          5969508,
-          4466200
-        ],
-        [
-          6162916,
-          3969600
-        ],
-        [
-          6202990,
-          3954300
-        ],
-        [
-          6232016,
-          4121800
-        ],
-        [
-          6323895,
-          3588000
-        ],
-        [
-          6336716,
-          4875200
-        ],
         [
           6392995,
           3680100
@@ -1356,6 +1324,38 @@
         [
           5559879,
           3767500
+        ],
+        [
+          5328912,
+          3237000
+        ],
+        [
+          5328912,
+          3237000
+        ],
+        [
+          5377068,
+          3550200
+        ],
+        [
+          5377068,
+          3721900
+        ],
+        [
+          5472164,
+          3536900
+        ],
+        [
+          5472164,
+          3553700
+        ],
+        [
+          5544864,
+          4350200
+        ],
+        [
+          5544864,
+          4148500
         ]
       ]
     }
@@ -1382,13 +1382,6 @@
     },
     {
       "entry": "MAD",
-      "estimated_pp": 3345800,
-      "exit": "MAD",
-      "inbound_date": "2027-01-10",
-      "outbound_date": "2026-12-29"
-    },
-    {
-      "entry": "MAD",
       "estimated_pp": 3536900,
       "exit": "MAD",
       "inbound_date": "2027-01-10",
@@ -1396,10 +1389,17 @@
     },
     {
       "entry": "LIS",
-      "estimated_pp": 3556900,
+      "estimated_pp": 3550200,
       "exit": "LIS",
       "inbound_date": "2027-01-10",
       "outbound_date": "2026-12-28"
+    },
+    {
+      "entry": "MAD",
+      "estimated_pp": 3553700,
+      "exit": "MAD",
+      "inbound_date": "2027-01-10",
+      "outbound_date": "2026-12-29"
     },
     {
       "entry": "LIS",
@@ -1410,21 +1410,21 @@
     },
     {
       "entry": "LIS",
-      "estimated_pp": 3767500,
+      "estimated_pp": 4148500,
       "exit": "LIS",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "LIS",
-      "estimated_pp": 4356900,
+      "estimated_pp": 4350200,
       "exit": "LIS",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-28"
     }
   ],
   "last_sweep": {
-    "at": "2026-09-30T00:38:41",
+    "at": "2026-09-30T05:40:04",
     "candidates": 8,
     "cheapest": 3237000,
     "confirmed": 8,
@@ -1432,8 +1432,8 @@
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 8
+    "mode": "full",
+    "queries": 18
   },
   "max_stops": 1,
   "outbound_window": [
