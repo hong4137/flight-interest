@@ -76,7 +76,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 3776500,
-      "last_seen": "2026-10-02T10:31:33",
+      "last_seen": "2026-10-02T17:20:44",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3545200,
@@ -88,7 +88,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 4576500,
-      "last_seen": "2026-10-02T10:31:44",
+      "last_seen": "2026-10-02T17:20:55",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3662200,
@@ -100,7 +100,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 3939400,
-      "last_seen": "2026-10-02T10:31:37",
+      "last_seen": "2026-10-02T17:20:48",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3017000,
@@ -112,7 +112,7 @@
       "kind": "round-trip",
       "last_airlines": "LOT 폴란드항공",
       "last_price": 4147900,
-      "last_seen": "2026-10-02T10:31:40",
+      "last_seen": "2026-10-02T17:20:59",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3016600,
@@ -136,7 +136,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3368000,
-      "last_seen": "2026-10-02T10:31:15",
+      "last_seen": "2026-10-02T17:20:52",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3170400,
@@ -148,7 +148,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3508000,
-      "last_seen": "2026-10-02T10:31:22",
+      "last_seen": "2026-10-02T17:20:40",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2932900,
@@ -160,7 +160,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3368800,
-      "last_seen": "2026-10-02T10:31:18",
+      "last_seen": "2026-10-02T17:20:37",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2932900,
@@ -172,7 +172,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3508000,
-      "last_seen": "2026-10-02T10:31:29",
+      "last_seen": "2026-10-02T17:20:34",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2695400,
@@ -555,40 +555,8 @@
       ]
     },
     "round-trip": {
-      "ratio": 0.6767,
+      "ratio": 0.6769,
       "samples": [
-        [
-          4544262,
-          3368900
-        ],
-        [
-          4544262,
-          2941200
-        ],
-        [
-          4698195,
-          3019300
-        ],
-        [
-          4698195,
-          3178700
-        ],
-        [
-          4698195,
-          3178700
-        ],
-        [
-          4735718,
-          4042800
-        ],
-        [
-          4735718,
-          2745900
-        ],
-        [
-          4735718,
-          3748500
-        ],
         [
           4735718,
           2926000
@@ -1356,6 +1324,38 @@
         [
           5547033,
           4147900
+        ],
+        [
+          5087786,
+          3508000
+        ],
+        [
+          5229524,
+          3368800
+        ],
+        [
+          5293986,
+          3508000
+        ],
+        [
+          5403166,
+          3776500
+        ],
+        [
+          5403166,
+          3939400
+        ],
+        [
+          5435724,
+          3368000
+        ],
+        [
+          5510003,
+          4576500
+        ],
+        [
+          5510003,
+          4147900
         ]
       ]
     }
@@ -1385,18 +1385,18 @@
       "estimated_pp": 3508000,
       "exit": "MAD",
       "inbound_date": "2027-01-11",
-      "outbound_date": "2026-12-28"
+      "outbound_date": "2026-12-29"
     },
     {
       "entry": "MAD",
       "estimated_pp": 3508000,
       "exit": "MAD",
       "inbound_date": "2027-01-11",
-      "outbound_date": "2026-12-29"
+      "outbound_date": "2026-12-28"
     },
     {
       "entry": "LIS",
-      "estimated_pp": 3545200,
+      "estimated_pp": 3776500,
       "exit": "LIS",
       "inbound_date": "2027-01-10",
       "outbound_date": "2026-12-28"
@@ -1417,23 +1417,23 @@
     },
     {
       "entry": "LIS",
-      "estimated_pp": 4345200,
+      "estimated_pp": 4576500,
       "exit": "LIS",
       "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-28"
     }
   ],
   "last_sweep": {
-    "at": "2026-10-02T10:31:44",
+    "at": "2026-10-02T17:20:59",
     "candidates": 8,
     "cheapest": 3368000,
     "confirmed": 8,
     "empty_final": 0,
-    "empty_recovered": 1,
+    "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 8
+    "mode": "full",
+    "queries": 18
   },
   "max_stops": 1,
   "outbound_window": [
