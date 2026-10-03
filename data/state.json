@@ -76,7 +76,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 3774400,
-      "last_seen": "2026-10-03T15:19:15",
+      "last_seen": "2026-10-03T21:25:27",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3545200,
@@ -88,7 +88,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 3878600,
-      "last_seen": "2026-10-03T15:19:19",
+      "last_seen": "2026-10-03T21:25:47",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3662200,
@@ -98,9 +98,9 @@
       "airlines": "LOT 폴란드항공",
       "at": "2026-09-14T01:09:34",
       "kind": "round-trip",
-      "last_airlines": "루프트한자",
-      "last_price": 3939800,
-      "last_seen": "2026-10-03T15:19:26",
+      "last_airlines": "LOT 폴란드항공",
+      "last_price": 3897500,
+      "last_seen": "2026-10-03T21:25:31",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3017000,
@@ -112,7 +112,7 @@
       "kind": "round-trip",
       "last_airlines": "LOT 폴란드항공",
       "last_price": 3897500,
-      "last_seen": "2026-10-03T15:19:23",
+      "last_seen": "2026-10-03T21:25:51",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3016600,
@@ -136,7 +136,7 @@
       "kind": "open-jaw",
       "last_airlines": "루프트한자",
       "last_price": 3784400,
-      "last_seen": "2026-10-03T15:19:18",
+      "last_seen": "2026-10-03T21:25:55",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
       "price": 3784400,
@@ -148,7 +148,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3498700,
-      "last_seen": "2026-10-03T15:19:12",
+      "last_seen": "2026-10-03T21:25:44",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3170400,
@@ -160,7 +160,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3405400,
-      "last_seen": "2026-10-03T15:19:04",
+      "last_seen": "2026-10-03T21:25:40",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2932900,
@@ -172,7 +172,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3498700,
-      "last_seen": "2026-10-03T15:19:08",
+      "last_seen": "2026-10-03T21:25:35",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2932900,
@@ -184,7 +184,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3405400,
-      "last_seen": "2026-10-03T15:19:01",
+      "last_seen": "2026-10-03T21:25:23",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2695400,
@@ -567,44 +567,16 @@
         [
           4876872,
           3784400
+        ],
+        [
+          4874664,
+          3784400
         ]
       ]
     },
     "round-trip": {
-      "ratio": 0.6756,
+      "ratio": 0.6725,
       "samples": [
-        [
-          5241909,
-          4153400
-        ],
-        [
-          5241909,
-          3543000
-        ],
-        [
-          5241909,
-          3903400
-        ],
-        [
-          5241909,
-          3554900
-        ],
-        [
-          5241909,
-          3903400
-        ],
-        [
-          5241909,
-          4160400
-        ],
-        [
-          5241909,
-          4975100
-        ],
-        [
-          5241909,
-          4309400
-        ],
         [
           5241909,
           4729900
@@ -1372,6 +1344,38 @@
         [
           5501180,
           3897500
+        ],
+        [
+          5079558,
+          3405400
+        ],
+        [
+          5160064,
+          3774400
+        ],
+        [
+          5160064,
+          3897500
+        ],
+        [
+          5220752,
+          3498700
+        ],
+        [
+          5285758,
+          3405400
+        ],
+        [
+          5426952,
+          3498700
+        ],
+        [
+          5498758,
+          3878600
+        ],
+        [
+          5498758,
+          3897500
         ]
       ]
     }
@@ -1435,19 +1439,19 @@
       "entry": "LIS",
       "estimated_pp": 3897500,
       "exit": "LIS",
-      "inbound_date": "2027-01-11",
+      "inbound_date": "2027-01-10",
       "outbound_date": "2026-12-29"
     },
     {
       "entry": "LIS",
-      "estimated_pp": 3939800,
+      "estimated_pp": 3897500,
       "exit": "LIS",
-      "inbound_date": "2027-01-10",
+      "inbound_date": "2027-01-11",
       "outbound_date": "2026-12-29"
     }
   ],
   "last_sweep": {
-    "at": "2026-10-03T15:19:26",
+    "at": "2026-10-03T21:25:55",
     "candidates": 9,
     "cheapest": 3405400,
     "confirmed": 9,
@@ -1455,8 +1459,8 @@
     "empty_recovered": 0,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "hot",
-    "queries": 8
+    "mode": "full",
+    "queries": 18
   },
   "max_stops": 1,
   "outbound_window": [
@@ -1467,9 +1471,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-10-03",
-    "day_used": 2,
+    "day_used": 3,
     "month": "2026-10",
-    "month_used": 2
+    "month_used": 3
   },
   "target_per_person": 2900000,
   "version": 1
