@@ -6445,3 +6445,12 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-10-05T09:42:12,round-trip,LIS,LIS,2026-12-28,2027-01-11,4574400,루프트한자,1,gflights
 2026-10-05T09:42:15,round-trip,LIS,LIS,2026-12-29,2027-01-11,3897500,LOT 폴란드항공,1,gflights
 2026-10-05T09:42:19,open-jaw,MAD,LIS,2026-12-29,2027-01-10,3784400,루프트한자,1,serpapi
+2026-10-05T15:48:39,round-trip,MAD,MAD,2026-12-29,2027-01-10,3498700,에티하드항공,1,gflights
+2026-10-05T15:48:43,round-trip,MAD,MAD,2026-12-28,2027-01-10,3498700,에티하드항공,1,gflights
+2026-10-05T15:48:46,round-trip,MAD,MAD,2026-12-29,2027-01-11,3513700,에티하드항공,1,gflights
+2026-10-05T15:48:50,round-trip,MAD,MAD,2026-12-28,2027-01-11,3513700,에티하드항공,1,gflights
+2026-10-05T15:48:54,round-trip,LIS,LIS,2026-12-28,2027-01-10,3774400,루프트한자,1,gflights
+2026-10-05T15:49:01,open-jaw,MAD,LIS,2026-12-29,2027-01-10,3784400,루프트한자,1,serpapi
+2026-10-05T15:49:01,round-trip,LIS,LIS,2026-12-29,2027-01-10,3897500,LOT 폴란드항공,1,gflights
+2026-10-05T15:49:05,round-trip,LIS,LIS,2026-12-29,2027-01-11,3897500,LOT 폴란드항공,1,gflights
+2026-10-05T15:49:08,round-trip,LIS,LIS,2026-12-28,2027-01-11,4574400,루프트한자,1,gflights
