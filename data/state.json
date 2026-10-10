@@ -3,12 +3,7 @@
     "MAD",
     "LIS"
   ],
-  "alerts": {
-    "14813c5ab92d20b0": {
-      "at": "2026-09-26T21:58:13",
-      "price": 2695400
-    }
-  },
+  "alerts": {},
   "arrive_window": [
     "2027-01-12",
     "2027-01-12"
@@ -20,7 +15,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 3749500,
-      "last_seen": "2026-10-10T15:55:03",
+      "last_seen": "2026-10-10T22:31:01",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3545200,
@@ -32,7 +27,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 4549500,
-      "last_seen": "2026-10-10T15:55:11",
+      "last_seen": "2026-10-10T22:31:10",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3662200,
@@ -44,7 +39,7 @@
       "kind": "round-trip",
       "last_airlines": "LOT 폴란드항공",
       "last_price": 3893400,
-      "last_seen": "2026-10-10T15:55:07",
+      "last_seen": "2026-10-10T22:31:06",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3017000,
@@ -56,7 +51,7 @@
       "kind": "round-trip",
       "last_airlines": "에어프랑스",
       "last_price": 3680800,
-      "last_seen": "2026-10-10T15:55:00",
+      "last_seen": "2026-10-10T22:30:58",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3016600,
@@ -92,7 +87,7 @@
       "kind": "open-jaw",
       "last_airlines": "루프트한자",
       "last_price": 3759500,
-      "last_seen": "2026-10-10T15:55:06",
+      "last_seen": "2026-10-10T22:31:05",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAED&hl=ko&curr=KRW",
       "price": 3758100,
@@ -104,7 +99,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3163700,
-      "last_seen": "2026-10-10T15:54:45",
+      "last_seen": "2026-10-10T22:30:45",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3059500,
@@ -116,7 +111,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3489000,
-      "last_seen": "2026-10-10T15:54:52",
+      "last_seen": "2026-10-10T22:30:50",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2932900,
@@ -128,7 +123,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3166100,
-      "last_seen": "2026-10-10T15:54:49",
+      "last_seen": "2026-10-10T22:30:48",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2932900,
@@ -140,7 +135,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3491400,
-      "last_seen": "2026-10-10T15:54:57",
+      "last_seen": "2026-10-10T22:30:55",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2695400,
@@ -1467,7 +1462,7 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-10-10T15:55:11",
+    "at": "2026-10-10T22:31:10",
     "candidates": 9,
     "cheapest": 3163700,
     "confirmed": 9,
@@ -1487,9 +1482,9 @@
   "rotation": {},
   "serpapi": {
     "day": "2026-10-10",
-    "day_used": 4,
+    "day_used": 5,
     "month": "2026-10",
-    "month_used": 39
+    "month_used": 40
   },
   "target_per_person": 2900000,
   "version": 1
