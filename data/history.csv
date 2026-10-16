@@ -6892,3 +6892,9 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-10-17T04:52:11,round-trip,MAD,MAD,2026-12-28,2027-01-10,3080000,에티하드항공,1,gflights
 2026-10-17T04:52:14,round-trip,LIS,LIS,2026-12-29,2027-01-11,3873900,에어프랑스,1,gflights
 2026-10-17T04:52:21,round-trip,LIS,LIS,2026-12-28,2027-01-11,4695600,루프트한자,1,gflights
+2026-10-17T07:44:22,round-trip,MAD,MAD,2026-12-29,2027-01-11,2810200,에티하드항공,1,gflights
+2026-10-17T07:44:26,round-trip,MAD,MAD,2026-12-29,2027-01-10,2810200,에티하드항공,1,gflights
+2026-10-17T07:44:30,round-trip,MAD,MAD,2026-12-28,2027-01-11,3080000,에티하드항공,1,gflights
+2026-10-17T07:44:38,round-trip,MAD,MAD,2026-12-28,2027-01-10,3080000,에티하드항공,1,gflights
+2026-10-17T07:44:41,round-trip,LIS,LIS,2026-12-29,2027-01-11,3894200,LOT 폴란드항공,1,gflights
+2026-10-17T07:44:49,round-trip,LIS,LIS,2026-12-28,2027-01-11,4703400,루프트한자,1,gflights
