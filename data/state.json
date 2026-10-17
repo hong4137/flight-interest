@@ -5,16 +5,16 @@
   ],
   "alerts": {
     "14813c5ab92d20b0": {
-      "at": "2026-10-17T01:31:32",
-      "price": 2810200
+      "at": "2026-10-18T03:22:44",
+      "price": 2815500
     },
     "2dc9bc2673bbefaa": {
       "at": "2026-10-18T00:24:56",
       "price": 2815500
     },
     "64bba2c8fe6dd9ea": {
-      "at": "2026-10-17T01:31:33",
-      "price": 2810200
+      "at": "2026-10-18T03:22:45",
+      "price": 2815500
     },
     "71ff797949f10aa2": {
       "at": "2026-10-18T00:24:56",
@@ -44,7 +44,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 4703400,
-      "last_seen": "2026-10-18T00:24:55",
+      "last_seen": "2026-10-18T03:22:44",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3662200,
@@ -68,7 +68,7 @@
       "kind": "round-trip",
       "last_airlines": "LOT 폴란드항공",
       "last_price": 3894200,
-      "last_seen": "2026-10-18T00:24:51",
+      "last_seen": "2026-10-18T03:22:41",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3016600,
@@ -116,7 +116,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2815500,
-      "last_seen": "2026-10-18T00:24:47",
+      "last_seen": "2026-10-18T03:22:32",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2815500,
@@ -128,7 +128,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2815500,
-      "last_seen": "2026-10-18T00:24:44",
+      "last_seen": "2026-10-18T03:22:30",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2815500,
@@ -140,7 +140,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2815500,
-      "last_seen": "2026-10-18T00:24:35",
+      "last_seen": "2026-10-18T03:22:26",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTAoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2803900,
@@ -152,7 +152,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 2815500,
-      "last_seen": "2026-10-18T00:24:32",
+      "last_seen": "2026-10-18T03:22:15",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2695400,
@@ -1506,12 +1506,12 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-10-18T00:24:56",
+    "at": "2026-10-18T03:22:45",
     "candidates": 6,
     "cheapest": 2815500,
     "confirmed": 6,
     "empty_final": 0,
-    "empty_recovered": 1,
+    "empty_recovered": 2,
     "fail_rate": 0.0,
     "failures": 0,
     "mode": "hot",
