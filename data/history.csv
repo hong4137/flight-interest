@@ -7195,3 +7195,13 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-10-23T22:18:15,round-trip,LIS,LIS,2026-12-28,2027-01-10,3889500,루프트한자,1,gflights
 2026-10-23T22:18:19,round-trip,LIS,LIS,2026-12-28,2027-01-11,4689500,루프트한자,1,gflights
 2026-10-23T22:18:22,round-trip,MAD,MAD,2026-12-28,2027-01-11,2795200,에티하드항공,1,gflights
+2026-10-24T03:13:44,round-trip,MAD,MAD,2026-12-28,2027-01-10,2795200,에티하드항공,1,gflights
+2026-10-24T03:13:47,round-trip,MAD,MAD,2026-12-29,2027-01-10,3208500,에티하드항공,1,gflights
+2026-10-24T03:13:51,round-trip,MAD,MAD,2026-12-29,2027-01-11,3160100,에티하드항공,1,gflights
+2026-10-24T03:13:55,open-jaw,MAD,LIS,2026-12-29,2027-01-10,3556800,에어프랑스,1,serpapi
+2026-10-24T03:13:55,round-trip,LIS,LIS,2026-12-29,2027-01-10,3548600,에어프랑스,1,gflights
+2026-10-24T03:13:58,open-jaw,MAD,LIS,2026-12-28,2027-01-10,3883400,"Lufthansa City Airlines,루프트한자",1,serpapi
+2026-10-24T03:13:59,round-trip,LIS,LIS,2026-12-29,2027-01-11,3891900,LOT 폴란드항공,1,gflights
+2026-10-24T03:14:02,round-trip,LIS,LIS,2026-12-28,2027-01-10,3889500,루프트한자,1,gflights
+2026-10-24T03:14:06,round-trip,LIS,LIS,2026-12-28,2027-01-11,4689500,루프트한자,1,gflights
+2026-10-24T03:14:10,round-trip,MAD,MAD,2026-12-28,2027-01-11,2795200,에티하드항공,1,gflights
