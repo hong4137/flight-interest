@@ -3,12 +3,7 @@
     "MAD",
     "LIS"
   ],
-  "alerts": {
-    "2dc9bc2673bbefaa": {
-      "at": "2026-10-26T13:31:32",
-      "price": 2793600
-    }
-  },
+  "alerts": {},
   "arrive_window": [
     "2027-01-12",
     "2027-01-12"
@@ -32,7 +27,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 4250900,
-      "last_seen": "2026-11-09T09:42:28",
+      "last_seen": "2026-11-09T16:50:35",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3662200,
@@ -56,7 +51,7 @@
       "kind": "round-trip",
       "last_airlines": "LOT 폴란드항공",
       "last_price": 3894800,
-      "last_seen": "2026-11-09T09:43:09",
+      "last_seen": "2026-11-09T16:50:29",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTElTGhwSCjIwMjctMDEtMTEoAWoFEgNMSVNyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 3016600,
@@ -128,7 +123,7 @@
       "kind": "round-trip",
       "last_airlines": "에티하드항공",
       "last_price": 3405500,
-      "last_seen": "2026-11-09T09:42:32",
+      "last_seen": "2026-11-09T16:50:05",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjgoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2793600,
@@ -152,7 +147,7 @@
       "kind": "round-trip",
       "last_airlines": "루프트한자",
       "last_price": 4134500,
-      "last_seen": "2026-11-09T09:43:10",
+      "last_seen": "2026-11-09T16:50:31",
       "last_stops": 1,
       "link": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjYtMTItMjkoAWoFEgNJQ05yBRIDTUFEGhwSCjIwMjctMDEtMTEoAWoFEgNNQURyBRIDSUNOQgIBAUgDiAEBmAEB&hl=ko&curr=KRW",
       "price": 2695400,
@@ -1562,16 +1557,16 @@
     }
   ],
   "last_sweep": {
-    "at": "2026-11-09T09:43:10",
+    "at": "2026-11-09T16:50:47",
     "candidates": 6,
     "cheapest": 3405500,
-    "confirmed": 6,
-    "empty_final": 0,
-    "empty_recovered": 0,
+    "confirmed": 4,
+    "empty_final": 2,
+    "empty_recovered": 2,
     "fail_rate": 0.0,
     "failures": 0,
-    "mode": "full",
-    "queries": 16
+    "mode": "hot",
+    "queries": 6
   },
   "max_stops": 1,
   "outbound_window": [
