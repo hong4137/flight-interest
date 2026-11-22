@@ -7905,3 +7905,6 @@ found_at,kind,entry,exit,outbound_date,inbound_date,price_per_person,airlines,st
 2026-11-22T20:00:07,round-trip,MAD,MAD,2026-12-29,2027-01-11,3526600,에티하드항공,1,gflights
 2026-11-22T20:00:32,round-trip,LIS,LIS,2026-12-28,2027-01-10,4019500,루프트한자,1,gflights
 2026-11-22T20:00:38,round-trip,LIS,LIS,2026-12-28,2027-01-11,4819500,루프트한자,1,gflights
+2026-11-23T03:23:55,round-trip,LIS,LIS,2026-12-29,2027-01-11,3687300,에어프랑스,1,gflights
+2026-11-23T03:24:11,round-trip,LIS,LIS,2026-12-28,2027-01-10,4019500,루프트한자,1,gflights
+2026-11-23T03:24:14,round-trip,LIS,LIS,2026-12-28,2027-01-11,4819500,루프트한자,1,gflights
