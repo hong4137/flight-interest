@@ -99,18 +99,33 @@ def cmd_sweep(args) -> int:
 
 
 def cmd_digest(args) -> int:
+    from .config import DATA_DIR
+
     cfg = load_config(args.config)
     store = Store.load()
-    text = format_digest(cfg, store)
 
-    plain = text.replace("<b>", "").replace("</b>", "")
-    plain = plain.replace("<i>", "").replace("</i>", "")
+    # 평소 요약 대신 한 번만 다른 글을 보내고 싶을 때 쓰는 자리.
+    # 파일이 있으면 그 내용을 보내고 **곧바로 지운다** — 지우지 않으면
+    # 매일 같은 글이 나간다. 다음 날부터는 저절로 평소 요약으로 돌아온다.
+    override = DATA_DIR / "digest_override.md"
+    one_shot = override.exists()
+    text = override.read_text(encoding="utf-8").strip() if one_shot else format_digest(cfg, store)
+
+    plain = text
+    for tag in ("<b>", "</b>", "<i>", "</i>"):
+        plain = plain.replace(tag, "")
+    if one_shot:
+        print("[1회용 교체] %s" % override)
     print(plain)
 
     if args.dry_run:
         print("\n[dry-run] 발송하지 않았습니다.")
         return 0
+
     ok = send(cfg, text, silent=True)
+    if ok and one_shot:
+        override.unlink()
+        print("\n[1회용] 보냈으므로 교체 파일을 지웠습니다. 내일부터는 평소 요약입니다.")
     store.save()
     return 0 if ok else 1
 

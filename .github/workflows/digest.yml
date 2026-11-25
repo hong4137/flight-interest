@@ -43,4 +43,10 @@ jobs:
           git add data/
           git diff --staged --quiet && exit 0
           git commit -m "chore(state): daily digest [skip ci]"
-          git pull --rebase --autostash && git push
+          # 1회용 교체 파일 삭제가 여기서 커밋된다. 푸시가 실패하면 원격에 파일이
+          # 남아 다음 날 같은 글이 또 나가므로 재시도한다.
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash && git push; then exit 0; fi
+            sleep $((attempt * 5))
+          done
+          echo "::warning::상태 푸시 실패"
